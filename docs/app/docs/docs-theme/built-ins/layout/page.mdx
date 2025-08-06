@@ -1,8 +1,16 @@
 ---
+icon: WindowIcon
 sidebarTitle: Layout
 ---
 
 import { ToggleVisibilitySection } from 'components/toggle-visibility-section'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 export function PartialTSDoc({ flattened, props }) {
   return (

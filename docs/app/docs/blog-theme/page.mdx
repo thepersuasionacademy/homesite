@@ -3,6 +3,14 @@ asIndexPage: true
 sidebarTitle: Blog Theme
 ---
 
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 import {
   ChevronRightIcon,
   FilesIcon,

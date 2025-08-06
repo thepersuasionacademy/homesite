@@ -74,6 +74,9 @@ importers:
       nextra:
         specifier: workspace:*
         version: link:../packages/nextra
+      nextra-theme-blog:
+        specifier: workspace:*
+        version: link:../packages/nextra-theme-blog
       nextra-theme-docs:
         specifier: workspace:*
         version: link:../packages/nextra-theme-docs

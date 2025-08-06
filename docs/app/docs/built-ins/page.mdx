@@ -14,6 +14,13 @@ import { Callout } from 'nextra/components'
 import { GitHubWarningIcon } from 'nextra/icons'
 import { OverviewPage } from '../../_components/overview-page'
 import { getEnhancedPageMap } from '../../../components/get-page-map'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # Built-Ins
 

@@ -4,6 +4,14 @@ sidebarTitle: Built-In Components
 icon: BoxIcon
 ---
 
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 import { OverviewPage } from '../../../_components/overview-page'
 
 # Built-Ins

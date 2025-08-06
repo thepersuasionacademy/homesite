@@ -2,6 +2,14 @@
 asIndexPage: true
 ---
 
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 import {
   CloudIcon,
   DiagramIcon,

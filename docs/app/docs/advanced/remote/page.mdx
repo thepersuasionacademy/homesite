@@ -6,8 +6,21 @@ import fs from 'node:fs/promises'
 import { compileMdx } from 'nextra/compile'
 import { Steps } from 'nextra/components'
 import { MDXRemote } from 'nextra/mdx-remote'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 export async function Example() {
+  // Cache the expensive operations in development
+  if (process.env.NODE_ENV === 'development') {
+    const cached = globalThis.__remoteExampleCache
+    if (cached) return cached
+  }
+  
   const filename = '/graphql-eslint/[[...slug]]/page.tsx'
   const pageContent = await fs.readFile(
     `../examples/swr-site/app/[lang]/${filename}`,
@@ -24,7 +37,14 @@ ${pageContent
 ~~~`,
     { defaultShowCopyCode: true }
   )
-  return <MDXRemote compiledSource={rawJs} />
+  const result = <MDXRemote compiledSource={rawJs} />
+  
+  // Cache in development
+  if (process.env.NODE_ENV === 'development') {
+    globalThis.__remoteExampleCache = result
+  }
+  
+  return result
 }
 
 # Remote Content

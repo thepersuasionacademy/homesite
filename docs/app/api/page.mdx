@@ -1,7 +1,14 @@
 import { Callout, Cards } from 'nextra/components'
 import { MDXRemote } from 'nextra/mdx-remote'
 import { createIndexPage } from 'nextra/page-map'
+import { cloneElement } from 'react'
 import { pageMap } from './[name]/page'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # API
 

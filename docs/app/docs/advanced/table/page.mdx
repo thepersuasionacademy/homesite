@@ -2,6 +2,14 @@
 icon: TableIcon
 ---
 
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 # Rendering Tables
 
 This guide covers different ways to render tables in MDX, including GFM syntax

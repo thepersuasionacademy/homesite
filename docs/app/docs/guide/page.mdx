@@ -11,6 +11,13 @@ import {
 } from '@components/icons'
 import { InformationCircleIcon, LinkIcon, MarkdownIcon } from 'nextra/icons'
 import { OverviewPage } from '../../_components/overview-page'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # Guide
 

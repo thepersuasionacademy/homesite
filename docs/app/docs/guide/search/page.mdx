@@ -1,3 +1,18 @@
+---
+icon: MagnifyingGlassIcon
+description:
+  Nextra provides a built-in search feature out of the box, with full-text
+  search powered by FlexSearch, no additional setup required.
+---
+
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 import { Steps, Tabs } from 'nextra/components'
 
 # Search Engine

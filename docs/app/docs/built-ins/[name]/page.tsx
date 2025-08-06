@@ -5,6 +5,10 @@ import { useMDXComponents as getMDXComponents } from 'next-mdx-import-source-fil
 import type { MdxFile } from 'nextra'
 import { generateDefinition } from 'nextra/tsdoc'
 import type { FC } from 'react'
+import { compileMdx } from 'nextra/compile'
+import { Callout } from 'nextra/components'
+import { MDXRemote } from 'nextra/mdx-remote'
+import { cloneElement } from 'react'
 
 type ComponentApiReference = ApiReference & { groupKeys?: string }
 
@@ -184,4 +188,12 @@ const Page: FC<PageProps> = async props => {
   )
 }
 
-export default Page
+function MdxLayout(props: any) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
+export default function WrappedPage(props: any) {
+  return <MdxLayout><Page {...props} /></MdxLayout>
+}

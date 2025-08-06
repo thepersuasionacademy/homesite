@@ -2,6 +2,14 @@
 icon: LinkIcon
 ---
 
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 # Next.js Link
 
 All relative Markdown links are automatically converted into

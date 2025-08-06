@@ -1,8 +1,16 @@
 ---
+icon: FooterIcon
 sidebarTitle: Footer
 ---
 
+import { cloneElement } from 'react'
 import { ToggleVisibilitySection } from 'components/toggle-visibility-section'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # Footer Component
 

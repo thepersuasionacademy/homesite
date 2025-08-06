@@ -2,6 +2,14 @@
 icon: GlobeIcon
 ---
 
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 import { ExampleCode } from '@components/example-code'
 import { Steps } from 'nextra/components'
 

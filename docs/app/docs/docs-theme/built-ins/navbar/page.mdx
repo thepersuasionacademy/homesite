@@ -4,6 +4,13 @@ sidebarTitle: Navbar
 
 import { ToggleVisibilitySection } from 'components/toggle-visibility-section'
 import { generateTsFromZod } from 'nextra/tsdoc'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # Navbar Component
 

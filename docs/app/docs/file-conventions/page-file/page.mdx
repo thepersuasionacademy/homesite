@@ -9,6 +9,13 @@ description:
 ---
 
 import { FileTree } from 'nextra/components'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # `page.mdx` File
 

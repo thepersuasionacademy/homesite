@@ -5,6 +5,13 @@ icon: TerminalIcon
 import { compileMdx } from 'nextra/compile'
 import { Tabs } from 'nextra/components'
 import { MDXRemote } from 'nextra/mdx-remote'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # Npm2Yarn
 

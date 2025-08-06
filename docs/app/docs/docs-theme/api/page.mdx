@@ -1,3 +1,15 @@
+---
+icon: BeakerIcon
+---
+
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 # API
 
 ## `useThemeConfig` hook

@@ -38,6 +38,7 @@
   background: linear-gradient(27deg, #3d3d3d, #252525);
 }
 
+/* Legacy CTA - keeping for backwards compatibility */
 a.cta {
   display: inline-block;
   background: linear-gradient(to bottom, #238aff, #0077ff);
@@ -78,4 +79,189 @@ a.cta:focus-visible {
 }
 a.cta:focus-visible span {
   transform: translateX(3px);
+}
+
+/* PLATFORM TABS - BLUE ACTIVE STATE */
+.platformTab {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid transparent;
+  background: transparent;
+  color: #86868b;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  white-space: nowrap;
+  position: relative;
+  z-index: 10;
+}
+
+/* Hover state - Blue border */
+.platformTab:hover {
+  color: #007aff;
+  border-color: #007aff;
+}
+
+:global(.dark) .platformTab {
+  color: #a1a1a6;
+}
+
+:global(.dark) .platformTab:hover {
+  color: #007aff;
+  border-color: #007aff;
+}
+
+/* Active state - Blue background (both CSS module and global class) */
+.platformTab.active, 
+.platformTab:global(.active) {
+  background: #007aff !important;
+  color: #fff !important;
+  border-color: #007aff !important;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3) !important;
+}
+
+:global(.dark) .platformTab.active,
+:global(.dark) .platformTab:global(.active) {
+  background: #007aff !important;
+  color: #fff !important;
+  border-color: #007aff !important;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.4) !important;
+}
+
+/* Active hover state */
+.platformTab.active:hover,
+.platformTab:global(.active):hover {
+  background: #0056d6 !important;
+  border-color: #0056d6 !important;
+}
+
+:global(.dark) .platformTab.active:hover,
+:global(.dark) .platformTab:global(.active):hover {
+  background: #0056d6 !important;
+  border-color: #0056d6 !important;
+}
+
+/* Apple-Style CTA Button System */
+.ctaButton {
+  display: inline-block;
+  position: relative;
+  padding: 0.875rem 2rem;
+  border-radius: 980px;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  transition: all 0.3s ease;
+  border: 1.5px solid transparent;
+  text-align: center;
+  min-width: 200px;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.2;
+}
+
+.ctaButton .cta-text {
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.ctaButton .cta-subtitle {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: all 0.3s ease;
+  margin-top: 0.25rem;
+  color: inherit;
+}
+
+.ctaButton:hover .cta-subtitle {
+  opacity: 0.75;
+  transform: translateY(0);
+}
+
+/* Primary CTA - Apple Blue */
+.ctaPrimary {
+  background: #007aff;
+  color: #fff;
+  border-color: #007aff;
+}
+
+.ctaPrimary:hover {
+  background: #0056d6;
+  border-color: #0056d6;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+}
+
+.ctaPrimary:active {
+  transform: translateY(0);
+  background: #004bb8;
+  border-color: #004bb8;
+  box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+}
+
+/* Ghost CTA - Clean Border Style */
+.ctaGhost {
+  background: transparent;
+  color: #1d1d1f;
+  border-color: #d2d2d7;
+}
+
+:global(.dark) .ctaGhost {
+  color: #f5f5f7;
+  border-color: #424245;
+}
+
+.ctaGhost:hover {
+  background: #f5f5f7;
+  border-color: #1d1d1f;
+  color: #1d1d1f;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .ctaGhost:hover {
+  background: #1d1d1f;
+  border-color: #f5f5f7;
+  color: #f5f5f7;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.ctaGhost:active {
+  transform: translateY(0);
+  background: #e8e8ed;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+:global(.dark) .ctaGhost:active {
+  background: #2c2c2e;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Focus states for accessibility */
+.ctaButton:focus-visible {
+  outline: 2px solid #007aff;
+  outline-offset: 2px;
+}
+
+.platformTab:focus-visible {
+  outline: 2px solid #007aff;
+  outline-offset: 2px;
+}
+
+/* Hover state for subtitle color matching */
+.ctaPrimary:hover .cta-subtitle {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.ctaGhost:hover .cta-subtitle {
+  color: rgba(29, 29, 31, 0.75);
+}
+
+:global(.dark) .ctaGhost:hover .cta-subtitle {
+  color: rgba(245, 245, 247, 0.75);
 }

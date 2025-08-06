@@ -11,14 +11,34 @@ import fs from 'node:fs/promises'
 import { compileMdx } from 'nextra/compile'
 import { FileTree, Steps } from 'nextra/components'
 import { MDXRemote } from 'nextra/mdx-remote'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 export async function MDXPathPage() {
+  // Cache the expensive operations in development
+  if (process.env.NODE_ENV === 'development') {
+    const cached = globalThis.__mdxPathPageCache
+    if (cached) return cached
+  }
+  
   const filename = '[[...mdxPath]]/page.jsx'
   const rawMdx = `~~~jsx filename="${filename}" showLineNumbers
 ${(await fs.readFile(`../examples/docs/src/app/docs/${filename}`, 'utf8')).trimEnd()}
 ~~~`
   const rawJs = await compileMdx(rawMdx, { defaultShowCopyCode: true })
-  return <MDXRemote compiledSource={rawJs} />
+  const result = <MDXRemote compiledSource={rawJs} />
+  
+  // Cache in development
+  if (process.env.NODE_ENV === 'development') {
+    globalThis.__mdxPathPageCache = result
+  }
+  
+  return result
 }
 
 # `content` Directory

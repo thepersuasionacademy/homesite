@@ -5,6 +5,13 @@ icon: StarsIcon
 import { OptionTable } from 'components/_table'
 import { compileMdx } from 'nextra/compile'
 import { MDXRemote } from 'nextra/mdx-remote'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # Syntax Highlighting
 

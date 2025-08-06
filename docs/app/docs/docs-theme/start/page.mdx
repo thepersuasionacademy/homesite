@@ -7,6 +7,13 @@ import InstallNextraTheme from '@components/install-nextra-theme.mdx'
 import ReadyToGo from '@components/ready-to-go.mdx'
 
 import { Steps } from 'nextra/components'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # Docs Theme
 

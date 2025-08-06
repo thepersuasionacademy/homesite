@@ -2,6 +2,14 @@
 icon: TypeScriptIcon
 ---
 
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 import { Steps } from 'nextra/components'
 
 # TypeScript

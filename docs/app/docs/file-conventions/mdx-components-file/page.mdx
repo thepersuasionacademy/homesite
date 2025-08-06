@@ -7,6 +7,14 @@ description:
   components globally.
 ---
 
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 # `mdx-components.js` File
 
 The `mdx-components` file is **required**, you use it to customize styles via

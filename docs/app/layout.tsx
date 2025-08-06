@@ -1,12 +1,12 @@
 import { getEnhancedPageMap } from '@components/get-page-map'
-import { NextraLogo, VercelLogo } from '@components/icons'
-import cn from 'clsx'
+import { VercelLogo } from '@components/icons'
 import type { Metadata } from 'next'
 import NextImage from 'next/image'
-import { Footer, Layout, Link, Navbar } from 'nextra-theme-docs'
-import { Anchor, Banner, Head } from 'nextra/components'
+import { Footer, Layout, Link } from 'nextra-theme-docs'
+import { Anchor, Head } from 'nextra/components'
 import type { FC, ReactNode } from 'react'
 import xyflow from './showcase/_logos/xyflow.png'
+import { ConditionalNavbar } from './_components/conditional-navbar'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -31,7 +31,6 @@ export const metadata: Metadata = {
     template: '%s | Nextra'
   },
   openGraph: {
-    // https://github.com/vercel/next.js/discussions/50189#discussioncomment-10826632
     url: './',
     siteName: 'Nextra',
     locale: 'en_US',
@@ -44,35 +43,12 @@ export const metadata: Metadata = {
     site: 'https://nextra.site'
   },
   alternates: {
-    // https://github.com/vercel/next.js/discussions/50189#discussioncomment-10826632
     canonical: './'
   }
 }
 
-const banner = (
-  <Banner dismissible={false}>
-    🎉 Nextra 4.0 is released. dimaMachina is looking{' '}
-    <Link href="https://github.com/dimaMachina" className="text-current!">
-      for a new job or consulting
-    </Link>
-    .
-  </Banner>
-)
-const navbar = (
-  <Navbar
-    logo={
-      <NextraLogo
-        height="20"
-        className={cn(
-          'hover:transition-all hover:duration-1000 motion-reduce:hover:transition-none',
-          '[mask-image:linear-gradient(60deg,#000_25%,rgba(0,0,0,.2)_50%,#000_75%)] [mask-position:0] [mask-size:400%]',
-          'hover:[mask-position:100%]'
-        )}
-      />
-    }
-    projectLink="https://github.com/shuding/nextra"
-  />
-)
+const banner = null
+
 const footer = (
   <Footer className="flex-col items-center md:items-start">
     <a
@@ -98,16 +74,35 @@ const RootLayout: FC<{
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <Head />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            try {
+              const theme = localStorage.getItem('theme')
+              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+              if (theme === 'dark' || (!theme && prefersDark)) {
+                document.documentElement.classList.add('dark')
+              }
+            } catch (e) {}
+          `,
+        }}
+      />
       <body>
         <Layout
           banner={banner}
-          navbar={navbar}
+          navbar={<ConditionalNavbar />}
           pageMap={pageMap}
           docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
           editLink="Edit this page on GitHub"
-          sidebar={{ defaultMenuCollapseLevel: 1 }}
+          sidebar={{
+            defaultMenuCollapseLevel: 1,
+            autoCollapse: false,
+            toggleButton: true
+          }}
           footer={footer}
           toc={{
+            float: true,
+            title: "On This Page",
             extraContent: (
               <>
                 <b className="mt-2 text-xs">Sponsored by:</b>

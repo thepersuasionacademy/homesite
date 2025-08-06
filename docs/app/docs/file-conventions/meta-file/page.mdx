@@ -11,6 +11,13 @@ import { Video } from 'components/video'
 import { FileTree } from 'nextra/components'
 import { generateTsFromZod } from 'nextra/tsdoc'
 import { pageThemeSchema } from 'private-next-root-dir/../packages/nextra/dist/server/schemas'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 export function Block({ children }) {
   return (

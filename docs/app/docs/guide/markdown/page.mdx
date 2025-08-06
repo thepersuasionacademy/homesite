@@ -4,6 +4,13 @@ icon: MarkdownIcon
 
 import { Shadow } from '@components/shadow'
 import { Counter } from './_counter'
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
 
 # Markdown
 

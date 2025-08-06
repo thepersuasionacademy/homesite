@@ -3,6 +3,14 @@ sidebarTitle: Custom CSS
 icon: BrushIcon
 ---
 
+import { cloneElement } from 'react'
+
+export default function MdxLayout(props) {
+  return cloneElement(props.children, {
+    components: {}
+  })
+}
+
 # Custom CSS Support
 
 Nextra is 100% compatible with the
