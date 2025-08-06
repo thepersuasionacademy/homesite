@@ -12,8 +12,14 @@ export default function MdxLayout(props) {
   })
 }
 
+import { BoxIcon } from '@components/icons'
 import { OverviewPage } from '../../../_components/overview-page'
 
 # Built-Ins
 
-<OverviewPage filePath={metadata.filePath} />
+<OverviewPage 
+  filePath={metadata.filePath} 
+  icons={{
+    BoxIcon
+  }}
+/>
