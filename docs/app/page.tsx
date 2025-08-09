@@ -5,6 +5,36 @@ import type { FC } from 'react'
 import { useEffect } from 'react'
 import styles from './page.module.css'
 import './page.css'
+import { motion, AnimatePresence } from 'framer-motion'
+
+const heroVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut', when: 'beforeChildren', staggerChildren: 0.08 } }
+}
+const heroItem = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+}
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut', when: 'beforeChildren', staggerChildren: 0.1 } }
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20, scale: 0.98 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } }
+}
+
+const timelineItemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: 'easeOut' } }
+}
+
+const videoVariants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut', delay: 0.2 } }
+}
 
 const IndexPage: FC = () => {
   useEffect(() => {
@@ -52,92 +82,117 @@ const IndexPage: FC = () => {
   return (
     <div className="landing-page">
       {/* HERO SECTION */}
-      <section className="hero-section">
+      <motion.div
+        variants={heroVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <section className="hero-section">
       <div className="content-container">
           <div className="hero-content">
-            <h1 className="hero-headline">
+            {/* MASTERY PLATFORM PILL */}
+            <motion.div className="mastery-pill" variants={heroItem}>
+              The World's Leading Mastery Platform for Influence Psychology
+            </motion.div>
+            
+            <motion.h1 className="hero-headline" variants={heroItem}>
               Turn Influence Psychology Into Your <br className="max-sm:hidden" />
               Competitive Edge
-        </h1>
-            <p className="hero-subheadline">
-              Live coaching, AI tools, and proven frameworks that transform revenue teams—and the individuals who power them.
-            </p>
+            </motion.h1>
+            
+            <motion.p className="hero-subheadline" variants={heroItem}>
+              Wield the frameworks that turn dreams into reality for you and others... using the power of authentic influence.
+            </motion.p>
             
             {/* VIDEO */}
-            <div className="hero-video">
+            <motion.div className="hero-video" variants={videoVariants}>
               <div className="video-placeholder">
                 <div className="play-button">▶</div>
                 <p className="video-label">2-Min Gateway VSL</p>
                 <p className="video-description">Hook → Authority → Benefit → Proof → Dual CTA</p>
               </div>
-            </div>
+            </motion.div>
           </div>
       </div>
       </section>
+      </motion.div>
 
-      {/* THE PIONEERS SECTION */}
-      <section className="pioneers-intro">
+      {/* THE FOUNDERS SECTION */}
+      <motion.section
+        className="pioneers-intro"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-100px' }}
+      >
         <div className="content-container">
           <div className="pioneers-content">
-            <h2 className="section-headline">The Pioneers</h2>
-            <p className="section-description">
-              Where psychology meets performance. Founded by industry legends who've spent decades perfecting 
-              the art and science of ethical influence.
-            </p>
+            <motion.h2 className="section-headline" variants={cardVariants}>The Founders</motion.h2>
+            <motion.p className="section-description" variants={cardVariants}>
+              Two visionaries whose influence reaches thousands worldwide, proving extraordinary impact comes from depth of mastery above all else.
+            </motion.p>
             
             <div className="pioneers-grid">
-              <div className="pioneer-card">
-                <div className="pioneer-layout">
-                  <div className="pioneer-image">
-                    <span>KC</span>
-                  </div>
+              <motion.div className="pioneer-card" variants={cardVariants}>
+                <div className="pioneer-image-section">
+                  <img className="pioneer-photo" src="https://thepersuasionacademycdn.b-cdn.net/Images/2025-06-15%2020.57.36.jpg" alt="Kenrick Cleveland" />
+                </div>
+                <div className="pioneer-content">
                   <div className="pioneer-info">
                     <h3>Kenrick Cleveland</h3>
-                    <p className="pioneer-title">Founder & Master Trainer</p>
+                    <p className="pioneer-title">The Pioneer</p>
                   </div>
+                  <p className="pioneer-bio">
+                    The master architect of modern influence psychology, Kenrick demonstrates in real time what others call impossible. Having forgotten more techniques than most experts will learn in their lifetime, he pioneers the cutting edge miles ahead while others follow yesteryear's playbook. Titans study his techniques, masters follow his every move, and the truly ambitious discover that everything they thought they knew was merely the beginning.
+                  </p>
                 </div>
-                <p className="pioneer-bio">
-                  45 years perfecting influence psychology. From turning around failing S&L banks in '89 
-                  to developing AI-powered training systems today. Kenrick has dedicated his life to understanding 
-                  the deepest principles of human psychology and ethical persuasion.
-                </p>
-              </div>
-              
-              <div className="pioneer-card">
-                <div className="pioneer-layout">
-                  <div className="pioneer-image">
-                    <span>EP</span>
-                  </div>
+              </motion.div>
+
+              <motion.div className="pioneer-card" variants={cardVariants}>
+                <div className="pioneer-image-section">
+                  <img className="pioneer-photo" src="https://thepersuasionacademycdn.b-cdn.net/Images/jackson-burnham-6978%20Large.jpeg" alt="Jackson Burnham" />
+                </div>
+                <div className="pioneer-content">
                   <div className="pioneer-info">
-                    <h3>Expert Partner</h3>
-                    <p className="pioneer-title">Psychology & Implementation</p>
+                    <h3>Jackson Burnham</h3>
+                    <p className="pioneer-title">The Synthesizer</p>
                   </div>
+                  <p className="pioneer-bio">
+                    For more than 5 years, Jackson has worked closely with Kenrick to transform his life's work into repeatable frameworks, tools, and technology. These innovations allow people and companies to wield the most powerful methods of influence while bettering their own lives and increasing their net positive impact on humanity.
+                  </p>
                 </div>
-                <p className="pioneer-bio">
-                  Specialized in translating complex psychological principles into practical, 
-                  measurable business results. Expert in behavioral psychology and cognitive influence patterns 
-                  that drive real-world performance improvements.
-                </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* PLATFORM SECTION */}
-      <section className="platform-section">
+      <motion.section 
+        className="platform-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-100px' }}
+      >
         <div className="content-container">
           <div className="platform-content">
-            <h2 className="section-headline">The Platform</h2>
-            <p className="section-description">
+            <motion.h2 className="section-headline" variants={cardVariants}>The Platform</motion.h2>
+            <motion.p className="section-description" variants={cardVariants}>
               Everything you need to master influence psychology, from live coaching to AI-powered practice tools.
-            </p>
+            </motion.p>
             
             {/* CONNECTED PLATFORM MODAL */}
-            <div className="platform-modal">
+            <motion.div
+              className="platform-modal"
+              variants={cardVariants}
+            >
               
               {/* PLATFORM NAVIGATION PILLS - CONNECTED TO TOP */}
-              <div className="platform-nav">
+              <motion.div 
+                className="platform-nav"
+                variants={cardVariants}
+              >
                 <button 
                   className={`${styles.platformTab} active`}
                   data-platform-tab="content"
@@ -160,12 +215,15 @@ const IndexPage: FC = () => {
                   className={styles.platformTab}
                   data-platform-tab="salescript"
                 >
-                  SaleScript
+                  Lab
                 </button>
-              </div>
+              </motion.div>
 
               {/* PLATFORM VIDEO/CONTENT AREA - CONNECTED TO BOTTOM */}
-              <div className="platform-display">
+              <motion.div 
+                className="platform-display"
+                variants={videoVariants}
+              >
                 
                 {/* CONTENT PANEL */}
                 <div id="content-panel" className="platform-panel active">
@@ -205,29 +263,35 @@ const IndexPage: FC = () => {
                   <div className="platform-video-full">
                     <div className="video-placeholder">
                       <div className="play-button">▶</div>
-                      <p className="video-title">SaleScript Generator</p>
+                      <p className="video-title">Lab</p>
                       <p className="video-subtitle">Ready-to-use frameworks</p>
                     </div>
                   </div>
                 </div>
 
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* EVOLUTION TIMELINE */}
-      <section className="timeline-section">
+      <motion.section 
+        className="timeline-section"
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: '-100px' }}
+      >
         <div className="content-container">
           <div className="timeline-content">
-            <h2 className="section-headline">Evolution of The Academy</h2>
-            <p className="section-description">
+            <motion.h2 className="section-headline" variants={cardVariants}>Evolution of The Academy</motion.h2>
+            <motion.p className="section-description" variants={cardVariants}>
               From pioneering influence psychology in the 80s to cutting-edge AI training today—a journey of continuous innovation.
-            </p>
+            </motion.p>
             
             <div className="timeline">
-              <div className="timeline-item">
+              <motion.div className="timeline-item" variants={timelineItemVariants}>
                 <div className="timeline-content-item">
                   <div className="timeline-header">
                     <div className="timeline-year">1989</div>
@@ -235,9 +299,9 @@ const IndexPage: FC = () => {
                   </div>
                   <p>Kenrick Cleveland revolutionizes S&L bank recovery using psychological influence principles, achieving unprecedented turnaround results.</p>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="timeline-item">
+              <motion.div className="timeline-item" variants={timelineItemVariants}>
                 <div className="timeline-content-item">
                   <div className="timeline-header">
                     <div className="timeline-year">1995</div>
@@ -245,9 +309,9 @@ const IndexPage: FC = () => {
                   </div>
                   <p>Launch of systematic training programs teaching ethical persuasion and influence psychology to business professionals.</p>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="timeline-item">
+              <motion.div className="timeline-item" variants={timelineItemVariants}>
                 <div className="timeline-content-item">
                   <div className="timeline-header">
                     <div className="timeline-year">2005</div>
@@ -255,9 +319,9 @@ const IndexPage: FC = () => {
                   </div>
                   <p>Online learning platform launches, making influence psychology training accessible to professionals worldwide.</p>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="timeline-item">
+              <motion.div className="timeline-item" variants={timelineItemVariants}>
                 <div className="timeline-content-item">
                   <div className="timeline-header">
                     <div className="timeline-year">2015</div>
@@ -265,9 +329,9 @@ const IndexPage: FC = () => {
                   </div>
                   <p>Major Fortune 500 companies adopt Academy frameworks, scaling impact across enterprise sales teams.</p>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="timeline-item">
+              <motion.div className="timeline-item" variants={timelineItemVariants}>
                 <div className="timeline-content-item">
                   <div className="timeline-header">
                     <div className="timeline-year">2020</div>
@@ -275,9 +339,9 @@ const IndexPage: FC = () => {
                   </div>
                   <p>Virtual coaching and live training sessions maintain human connection while expanding global reach during pandemic.</p>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="timeline-item">
+              <motion.div className="timeline-item" variants={timelineItemVariants}>
                 <div className="timeline-content-item">
                   <div className="timeline-header">
                     <div className="timeline-year">2025</div>
@@ -285,11 +349,11 @@ const IndexPage: FC = () => {
                   </div>
                   <p>Codex™ AI assistant launches, combining 35+ years of psychological frameworks with personalized coaching technology.</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* AUTHORITY FOOTER */}
       <section className="authority-footer">
