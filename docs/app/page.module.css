@@ -123,7 +123,7 @@ a.cta:focus-visible span {
 /* Active state - refined blue with gradient */
 .platformTab.active, 
 .platformTab:global(.active) {
-  background: linear-gradient(180deg, #0a84ff 0%, #007aff 100%) !important;
+  background: linear-gradient(180deg, #2960f6 0%, #2960f6 100%) !important;
   color: #fff !important;
   border-color: rgba(0, 122, 255, 0.25) !important;
   box-shadow: 0 6px 18px rgba(0, 122, 255, 0.35) !important;
@@ -131,7 +131,7 @@ a.cta:focus-visible span {
 
 :global(.dark) .platformTab.active,
 :global(.dark) .platformTab:global(.active) {
-  background: linear-gradient(180deg, #1a8dff 0%, #0a84ff 100%) !important;
+  background: linear-gradient(180deg, #2960f6 0%, #2960f6 100%) !important;
   color: #fff !important;
   border-color: rgba(10, 132, 255, 0.35) !important;
   box-shadow: 0 8px 22px rgba(10, 132, 255, 0.45) !important;
@@ -197,9 +197,9 @@ a.cta:focus-visible span {
 
 /* Primary CTA - Apple Blue */
 .ctaPrimary {
-  background: #007aff;
+  background: #2960f6;
   color: #fff;
-  border-color: #007aff;
+  border-color: #2960f6;
 }
 
 .ctaPrimary:hover {
@@ -218,29 +218,37 @@ a.cta:focus-visible span {
 
 /* Ghost CTA - Clean Border Style */
 .ctaGhost {
-  background: transparent;
+  background: #ffffff;
   color: #1d1d1f;
-  border-color: #d2d2d7;
+  border: 1.5px solid #d2d2d7;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 8px 25px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
 }
 
 :global(.dark) .ctaGhost {
+  background: #0b0e16;
   color: #f5f5f7;
-  border-color: #424245;
+  border: 1.5px solid #424245;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
 .ctaGhost:hover {
-  background: #f5f5f7;
-  border-color: #1d1d1f;
-  color: #1d1d1f;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
 }
 
 :global(.dark) .ctaGhost:hover {
-  background: #1d1d1f;
-  border-color: #f5f5f7;
-  color: #f5f5f7;
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
 }
 
 .ctaGhost:active {
@@ -256,12 +264,12 @@ a.cta:focus-visible span {
 
 /* Focus states for accessibility */
 .ctaButton:focus-visible {
-  outline: 2px solid #007aff;
+  outline: 2px solid #2960f6;
   outline-offset: 2px;
 }
 
 .platformTab:focus-visible {
-  outline: 2px solid #007aff;
+  outline: 2px solid #2960f6;
   outline-offset: 2px;
 }
 

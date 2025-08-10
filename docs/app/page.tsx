@@ -92,16 +92,15 @@ const IndexPage: FC = () => {
           <div className="hero-content">
             {/* MASTERY PLATFORM PILL */}
             <motion.div className="mastery-pill" variants={heroItem}>
-              The World's Leading Mastery Platform for Influence Psychology
+              The Leading Platform For Applied Sales Psychology
             </motion.div>
             
             <motion.h1 className="hero-headline" variants={heroItem}>
-              Turn Influence Psychology Into Your <br className="max-sm:hidden" />
-              Competitive Edge
+              Master the Art and Science of Authentic Influence
             </motion.h1>
             
             <motion.p className="hero-subheadline" variants={heroItem}>
-              Wield the frameworks that turn dreams into reality for you and others... using the power of authentic influence.
+              Turn dreams into reality for yourself and others... with industry leading frameworks, training, and AI technology
             </motion.p>
             
             {/* VIDEO */}
@@ -140,7 +139,7 @@ const IndexPage: FC = () => {
                 <div className="pioneer-content">
                   <div className="pioneer-info">
                     <h3>Kenrick Cleveland</h3>
-                    <p className="pioneer-title">The Pioneer</p>
+                    <span className="pioneer-title">The Pioneer</span>
                   </div>
                   <p className="pioneer-bio">
                     The master architect of modern influence psychology, Kenrick demonstrates in real time what others call impossible. Having forgotten more techniques than most experts will learn in their lifetime, he pioneers the cutting edge miles ahead while others follow yesteryear's playbook. Titans study his techniques, masters follow his every move, and the truly ambitious discover that everything they thought they knew was merely the beginning.
@@ -155,7 +154,7 @@ const IndexPage: FC = () => {
                 <div className="pioneer-content">
                   <div className="pioneer-info">
                     <h3>Jackson Burnham</h3>
-                    <p className="pioneer-title">The Synthesizer</p>
+                    <span className="pioneer-title">The Synthesizer</span>
                   </div>
                   <p className="pioneer-bio">
                     For more than 5 years, Jackson has worked closely with Kenrick to transform his life's work into repeatable frameworks, tools, and technology. These innovations allow people and companies to wield the most powerful methods of influence while bettering their own lives and increasing their net positive impact on humanity.
@@ -275,125 +274,47 @@ const IndexPage: FC = () => {
         </div>
       </motion.section>
 
-      {/* EVOLUTION TIMELINE */}
+      {/* AUTHORITY FOOTER */}
       <motion.section 
-        className="timeline-section"
+        className="authority-footer"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
       >
         <div className="content-container">
-          <div className="timeline-content">
-            <motion.h2 className="section-headline" variants={cardVariants}>Evolution of The Academy</motion.h2>
-            <motion.p className="section-description" variants={cardVariants}>
-              From pioneering influence psychology in the 80s to cutting-edge AI training today—a journey of continuous innovation.
-            </motion.p>
-            
-            <div className="timeline">
-              <motion.div className="timeline-item" variants={timelineItemVariants}>
-                <div className="timeline-content-item">
-                  <div className="timeline-header">
-                    <div className="timeline-year">1989</div>
-                    <h3>The Foundation</h3>
-                  </div>
-                  <p>Kenrick Cleveland revolutionizes S&L bank recovery using psychological influence principles, achieving unprecedented turnaround results.</p>
-                </div>
+          <div className="footer-content">
+            <motion.h3 variants={cardVariants}>Ready to Transform Your Influence?</motion.h3>
+            <motion.p variants={cardVariants}>Join thousands of professionals who've invested in their path to mastery.</motion.p>
+            <div className="footer-stats">
+              <motion.div className="stat-item" variants={cardVariants}>
+                <strong>45+ years</strong>
+                <span>refining the craft</span>
               </motion.div>
-              
-              <motion.div className="timeline-item" variants={timelineItemVariants}>
-                <div className="timeline-content-item">
-                  <div className="timeline-header">
-                    <div className="timeline-year">1995</div>
-                    <h3>First Academy Programs</h3>
-                  </div>
-                  <p>Launch of systematic training programs teaching ethical persuasion and influence psychology to business professionals.</p>
-                </div>
+              <motion.div className="stat-item" variants={cardVariants}>
+                <strong>$1B+</strong>
+                <span>client revenue gains</span>
               </motion.div>
-              
-              <motion.div className="timeline-item" variants={timelineItemVariants}>
-                <div className="timeline-content-item">
-                  <div className="timeline-header">
-                    <div className="timeline-year">2005</div>
-                    <h3>Digital Transformation</h3>
-                  </div>
-                  <p>Online learning platform launches, making influence psychology training accessible to professionals worldwide.</p>
-                </div>
-              </motion.div>
-              
-              <motion.div className="timeline-item" variants={timelineItemVariants}>
-                <div className="timeline-content-item">
-                  <div className="timeline-header">
-                    <div className="timeline-year">2015</div>
-                    <h3>Corporate Partnerships</h3>
-                  </div>
-                  <p>Major Fortune 500 companies adopt Academy frameworks, scaling impact across enterprise sales teams.</p>
-                </div>
-              </motion.div>
-              
-              <motion.div className="timeline-item" variants={timelineItemVariants}>
-                <div className="timeline-content-item">
-                  <div className="timeline-header">
-                    <div className="timeline-year">2020</div>
-                    <h3>Remote Revolution</h3>
-                  </div>
-                  <p>Virtual coaching and live training sessions maintain human connection while expanding global reach during pandemic.</p>
-                </div>
-              </motion.div>
-              
-              <motion.div className="timeline-item" variants={timelineItemVariants}>
-                <div className="timeline-content-item">
-                  <div className="timeline-header">
-                    <div className="timeline-year">2025</div>
-                    <h3>AI-Powered Future</h3>
-                  </div>
-                  <p>Codex™ AI assistant launches, combining 35+ years of psychological frameworks with personalized coaching technology.</p>
-                </div>
+              <motion.div className="stat-item" variants={cardVariants}>
+                <strong>3,584+</strong>
+                <span>clients impacted</span>
               </motion.div>
             </div>
           </div>
         </div>
       </motion.section>
 
-      {/* AUTHORITY FOOTER */}
-      <section className="authority-footer">
-        <div className="content-container">
-          <div className="footer-content">
-            <h3>Ready to Transform Your Influence?</h3>
-            <p>Join thousands of professionals who've mastered the psychology of persuasion.</p>
-            <div className="footer-stats">
-              <div className="stat-item">
-                <strong>45 years</strong>
-                <span>refining the craft</span>
-              </div>
-              <div className="stat-item">
-                <strong>$350M+</strong>
-                <span>client revenue gains</span>
-              </div>
-              <div className="stat-item">
-                <strong>1,200+</strong>
-                <span>certified persuaders</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FLOATING STICKY ACTION MENU */}
-                  <div className="floating-action-menu">
-              <div className="floating-menu-content">
-                <Link href="/products" className={`${styles.ctaButton} ${styles.ctaGhost}`} style={{ position: 'relative' }}>
-                  Catalogue
-                  <span className="basic-badge">A La Carte</span>
-                </Link>
-                <Link href="/season-pass" className={`${styles.ctaButton} ${styles.ctaGhost}`} style={{ position: 'relative' }}>
-                  Season Pass
-                  <span className="all-access-badge">All Access</span>
-                </Link>
-                <Link href="/sales-enablement" className={`${styles.ctaButton} ${styles.ctaGhost} enterprise-button`}>
-                  Sales Enablement
-                  <span className="enterprise-badge">Enterprise</span>
-                </Link>
+      <div className="floating-action-menu">
+        <div className="floating-menu-content">
+          <Link href="/store" className={`${styles.ctaButton} ${styles.ctaGhost} individuals-button`} style={{ position: 'relative' }}>
+            Store
+            <span className="basic-badge">For Individuals</span>
+          </Link>
+          <Link href="/services" className={`${styles.ctaButton} ${styles.ctaGhost} companies-button`} style={{ position: 'relative' }}>
+            Services
+            <span className="enterprise-badge">For Companies</span>
+          </Link>
         </div>
       </div>
     </div>

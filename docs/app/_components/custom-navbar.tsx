@@ -47,100 +47,65 @@ export const CustomNavbar = () => {
 
   return (
     <nav className="nextra-nav-container sticky top-0 z-20 w-full bg-transparent print:hidden">
-      <div className="nextra-nav-container-blur pointer-events-none absolute z-[-1] h-full w-full bg-white/[.85] backdrop-blur-md dark:bg-[#1d1d1f]/[.85]"></div>
+      <div className="nextra-nav-container-blur pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-[#0b0e16]" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06)' }}></div>
       <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center hover:opacity-75">
-            <NextraLogo
-              height="20"
-              className={cn(
-                'hover:transition-all hover:duration-1000 motion-reduce:hover:transition-none',
-                '[mask-image:linear-gradient(60deg,#000_25%,rgba(0,0,0,.2)_50%,#000_75%)] [mask-position:0] [mask-size:400%]',
-                'hover:[mask-position:100%]'
-              )}
+            {/* Light mode logo */}
+            <img 
+              src="https://thepersuasionacademycdn.b-cdn.net/Images/The%20TPA%20Logo%20New%20Black.png" 
+              alt="The Persuasion Academy"
+              height="32"
+              className="h-8 dark:hidden"
+            />
+            {/* Dark mode logo */}
+            <img 
+              src="https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png" 
+              alt="The Persuasion Academy"
+              height="32"
+              className="h-8 hidden dark:block"
             />
           </Link>
         </div>
 
         {/* Navigation Items */}
         <div className="flex items-center gap-6">
-          {/* For Individuals */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
-              For Individuals
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div className="absolute top-full left-0 mt-1 w-48 bg-white/[.85] dark:bg-[#1d1d1f]/[.85] backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-              <div className="py-2">
-                <Link href="/catalogue" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 no-underline">Catalogue</Link>
-                <Link href="/season-pass" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 no-underline">Season Pass</Link>
-              </div>
-            </div>
-          </div>
+          {/* Store */}
+          <Link href="/store" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+            Store
+          </Link>
 
-          {/* For Companies */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
-              For Companies
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div className="absolute top-full left-0 mt-1 w-48 bg-white/[.85] dark:bg-[#1d1d1f]/[.85] backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-              <div className="py-2">
-                <Link href="/sales-enablement" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 no-underline">Sales Enablement</Link>
-                <Link href="/services" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 no-underline">Services</Link>
-              </div>
-            </div>
-          </div>
+          {/* Services */}
+          <Link href="/services" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+            Services
+          </Link>
 
-          {/* Articles */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
-              Articles
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div className="absolute top-full left-0 mt-1 w-48 bg-white/[.85] dark:bg-[#1d1d1f]/[.85] backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-              <div className="py-2">
-                <Link href="/docs" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 no-underline">Documentation</Link>
-                <Link href="/blog" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 no-underline">Blog</Link>
-              </div>
-            </div>
-          </div>
+          {/* Blog */}
+          <Link href="/blog" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+            Blog
+          </Link>
+
+          {/* Docs */}
+          <Link href="/docs" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+            Docs
+          </Link>
 
           {/* Success */}
-          <div className="relative group">
-            <button className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">
-              Success
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <div className="absolute top-full left-0 mt-1 w-48 bg-white/[.85] dark:bg-[#1d1d1f]/[.85] backdrop-blur-md border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-              <div className="py-2">
-                <Link href="/pioneers" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 no-underline">The Pioneers</Link>
-                <Link href="/testimonials" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 no-underline">Testimonials</Link>
-                <Link href="/case-studies" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100/50 dark:hover:bg-gray-700/50 no-underline">Case Studies</Link>
-              </div>
-            </div>
-          </div>
+          <Link href="/success" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+            Success
+          </Link>
 
-          {/* Search */}
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-64 px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-            <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </div>
+          {/* Sign In */}
+          <Link 
+            href="https://app.thepersuasionacademy.com" 
+            className="text-white px-4 py-2 rounded-md text-sm font-medium transition-colors no-underline hover:opacity-90"
+            style={{ backgroundColor: '#2960f6' }}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Sign In
+          </Link>
 
           {/* Dark Mode Toggle */}
           <button

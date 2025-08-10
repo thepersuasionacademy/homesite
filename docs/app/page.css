@@ -1,4 +1,12 @@
 /* Apple-Style Landing Page - Clean & Minimal */
+.landing-page {
+  background: #fff;
+}
+
+.dark .landing-page {
+  background: #0b0e16;
+}
+
 .content-container {
   max-width: var(--nextra-content-width);
   padding-left: max(env(safe-area-inset-left), 1.5rem);
@@ -7,6 +15,14 @@
 }
 
 /* HERO SECTION - MUCH TIGHTER */
+.hero-section {
+  background: #fff;
+}
+
+.dark .hero-section {
+  background: #0b0e16;
+}
+
 .hero-content {
   text-align: center;
   padding: 1rem 0 2rem;
@@ -14,58 +30,51 @@
   margin: 0 auto;
 }
 
+/* HERO HEADLINE */
 .hero-headline {
-  font-size: 3rem;
-  font-size: clamp(1.8rem, 5vw, 3rem);
-  font-weight: 600;
-  line-height: 1.05;
-  margin-bottom: 0.75rem;
-  color: #1d1d1f;
-  letter-spacing: -0.02em;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  max-width: 900px;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #0b0e16;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
 
 .dark .hero-headline {
   color: #f5f5f7;
 }
 
-/* MASTERY PLATFORM PILL */
+/* MASTERY PILL STYLING */
 .mastery-pill {
   display: inline-block;
-  background: #007aff;
+  background: #2960f6;
   color: #fff;
-  font-size: 0.9rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
   font-weight: 600;
-  padding: 0.6rem 1.5rem;
-  border-radius: 20px;
-  margin: 0 0 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  letter-spacing: 0.02em;
-  animation: subtle-pulse 3s ease-in-out infinite;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(41, 96, 246, 0.3);
+  animation: pillFloat 3s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes subtle-pulse {
-  0%, 100% { 
-    transform: scale(1);
-    box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
-  }
-  50% { 
-    transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(0, 122, 255, 0.4);
-  }
+@keyframes pillFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
 }
 
 .dark .mastery-pill {
-  background: #0a84ff;
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(10, 132, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #2960f6;
+  box-shadow: 0 4px 12px rgba(41, 96, 246, 0.4);
 }
 
 .hero-subheadline {
@@ -94,16 +103,16 @@
 .hero-video::before {
   content: "";
   position: absolute;
-  inset: -24px -24px -32px -24px;
+  inset: -16px -24px -32px -24px;
   border-radius: 26px;
-  background: radial-gradient(70% 80% at 50% 30%, rgba(0,122,255,0.15) 0%, rgba(0,0,0,0.08) 50%, transparent 75%);
-  filter: blur(20px);
+  background: radial-gradient(70% 80% at 50% 30%, rgba(0,122,255,0.12) 0%, rgba(0,0,0,0.06) 50%, transparent 75%);
+  filter: blur(16px);
   z-index: -1;
   pointer-events: none;
 }
 
 .hero-video .video-placeholder {
-  background: #1d1d1f;
+  background: #0b0e16;
   border-radius: 18px;
   padding: 4rem 3rem;
   color: #f5f5f7;
@@ -132,7 +141,7 @@
 
 /* Base video placeholder for other sections */
 .video-placeholder {
-  background: #1d1d1f;
+  background: #0b0e16;
   border-radius: 18px;
   padding: 4rem 3rem;
   color: #f5f5f7;
@@ -179,12 +188,11 @@
 
 /* PIONEERS INTRO SECTION */
 .pioneers-intro {
-  background: linear-gradient(180deg, #f7f7f8 0%, #f1f2f4 100%);
   padding: 2rem 0;
 }
 
 .dark .pioneers-intro {
-  background: linear-gradient(180deg, #111113 0%, #0d0d0f 100%);
+  background: #0b0e16;
 }
 
 .pioneers-content {
@@ -199,7 +207,7 @@
   font-weight: 600;
   line-height: 1.05;
   margin-bottom: 1rem;
-  color: #1d1d1f;
+  color: #0b0e16;
   letter-spacing: -0.02em;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
 }
@@ -296,7 +304,7 @@
 }
 
 .dark .pioneer-image {
-  background: #1d1d1f;
+  background: #0b0e16;
   color: #a1a1a6;
 }
 
@@ -314,7 +322,7 @@
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.35rem;
-  color: #1d1d1f;
+  color: #0b0e16;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -325,12 +333,17 @@
 }
 
 .pioneer-title {
-  font-size: 1.125rem;
-  color: #007aff;
-  font-weight: 500;
-  margin: 0;
+  font-size: 0.875rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0.5rem 0 0 0;
   text-transform: uppercase;
   letter-spacing: 0.01em;
+  background: linear-gradient(135deg, #2960f6 0%, #0056d3 100%);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.25);
+  display: inline-block;
 }
 
 /* PIONEER BIO: BODY TEXT UNDERNEATH */
@@ -348,12 +361,11 @@
 
 /* PLATFORM SECTION */
 .platform-section {
-  background: #fff;
   padding: 3rem 0;
 }
 
 .dark .platform-section {
-  background: #1d1d1f;
+  background: #0b0e16;
 }
 
 .platform-content {
@@ -428,7 +440,7 @@
   overflow: visible;
 }
 .platform-video-full .video-placeholder {
-  background: #1d1d1f;
+  background: #0b0e16;
   border-radius: 20px;
   padding: 2rem 1.5rem;
   aspect-ratio: 16/9;
@@ -479,7 +491,7 @@
 }
 
 .dark .timeline-section {
-  background: #1d1d1f;
+  background: #0b0e16;
 }
 
 .timeline-content {
@@ -515,7 +527,7 @@
 
 /* TIMELINE YEAR */
 .timeline-year {
-  background: #007aff;
+  background: #2960f6;
   color: #fff;
   padding: 0.75rem 1.25rem;
   border-radius: 8px;
@@ -557,7 +569,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
-  color: #1d1d1f;
+  color: #0b0e16;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   flex: 1;
 }
@@ -585,18 +597,27 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgb(245, 245, 247);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
   padding: 1rem 0;
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08), 0 -4px 16px rgba(0,0,0,0.04);
+}
+
+.floating-action-menu::before {
+  content: "";
+  position: absolute;
+  inset: -30px -30px -20px -30px;
+  background: radial-gradient(60% 70% at 50% 50%, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.02) 50%, transparent 70%);
+  filter: blur(20px);
+  z-index: -2;
 }
 
 .dark .floating-action-menu {
-  background: rgb(29, 29, 31);
-  border-top-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+  background: #0b0e16;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.2), 0 -4px 16px rgba(0,0,0,0.1);
+}
+
+.dark .floating-action-menu::before {
+  background: radial-gradient(60% 70% at 50% 50%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.1) 50%, transparent 70%);
 }
 
 .floating-menu-content {
@@ -624,7 +645,7 @@
   position: absolute;
   top: -8px;
   right: -8px;
-  background: #007aff;
+  background: #2960f6;
   color: #fff;
   font-size: 0.7rem;
   font-weight: 600;
@@ -640,7 +661,7 @@
   position: absolute;
   top: -8px;
   right: -8px;
-  background: #86868b;
+  background: #000;
   color: #fff;
   font-size: 0.7rem;
   font-weight: 600;
@@ -652,8 +673,8 @@
 }
 
 .dark .basic-badge {
-  background: #a1a1a6;
-  color: #1d1d1f;
+  background: #fff;
+  color: #000;
 }
 
 /* ALL ACCESS BADGE SPECIAL STYLING */
@@ -661,7 +682,7 @@
   position: absolute;
   top: -8px;
   right: -8px;
-  background: #1d1d1f;
+  background: #0b0e16;
   color: #fff;
   font-size: 0.7rem;
   font-weight: 600;
@@ -674,31 +695,32 @@
 
 .dark .all-access-badge {
   background: #fff;
-  color: #1d1d1f;
+  color: #0b0e16;
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.25);
 }
 
 /* AUTHORITY FOOTER */
 .authority-footer {
-  background: #f5f5f7;
-  padding: 3rem 0 4rem;
+  padding: 2rem 0 5rem;
 }
 
 .dark .authority-footer {
-  background: #161617;
+  background: #0b0e16;
 }
 
 .footer-content {
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .footer-content h3 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #1d1d1f;
+  font-size: clamp(2.25rem, 4vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #0b0e16;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .dark .footer-content h3 {
@@ -706,20 +728,26 @@
 }
 
 .footer-content p {
-  font-size: 1.25rem;
-  color: #86868b;
-  margin-bottom: 3rem;
+  font-size: 1.375rem;
+  color: #6b6b70;
+  margin-bottom: 4rem;
+  line-height: 1.4;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4rem;
 }
 
 .dark .footer-content p {
-  color: #a1a1a6;
+  color: #9d9da3;
 }
 
 .footer-stats {
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .stat-item {
@@ -728,24 +756,35 @@
 
 .stat-item strong {
   display: block;
-  font-size: 2rem;
-  font-weight: 600;
-  color: #1d1d1f;
-  margin-bottom: 0.25rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #2960f6;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+  letter-spacing: -0.02em;
 }
 
 .dark .stat-item strong {
-  color: #f5f5f7;
+  color: #2960f6;
 }
 
 .stat-item span {
   font-size: 1rem;
   color: #86868b;
-  font-weight: 400;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .dark .stat-item span {
   color: #a1a1a6;
+}
+
+@media (max-width: 640px) {
+  .footer-stats {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 /* RESPONSIVE DESIGN */
@@ -851,13 +890,12 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   display: grid;
   grid-template-columns: clamp(140px, 22%, 200px) 1fr;
-  align-items: stretch;
   overflow: hidden;
   text-align: left;
 }
 
 .dark .pioneer-card {
-  background: #1d1d1f;
+  background: #0b0e16;
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
@@ -883,4 +921,21 @@
   .pioneer-image-section {
     height: 180px; /* keep a strong visual while stacking */
   }
+}
+
+/* Specific button styling for floating menu */
+.individuals-button {
+  border: 1px solid #000 !important;
+}
+
+.dark .individuals-button {
+  border: 1px solid #fff !important;
+}
+
+.companies-button {
+  border: 1px solid #2960f6 !important;
+}
+
+.dark .companies-button {
+  border: 1px solid #2960f6 !important;
 }
