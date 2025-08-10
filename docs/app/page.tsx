@@ -92,15 +92,15 @@ const IndexPage: FC = () => {
           <div className="hero-content">
             {/* MASTERY PLATFORM PILL */}
             <motion.div className="mastery-pill" variants={heroItem}>
-              The Leading Platform For Applied Sales Psychology
+              The Leading Platform For Applied Persuasion Psychology
             </motion.div>
             
             <motion.h1 className="hero-headline" variants={heroItem}>
-              Master the Art and Science of Authentic Influence
+              Master the Psychological Patterns of Authentic Influence
             </motion.h1>
             
             <motion.p className="hero-subheadline" variants={heroItem}>
-              Turn dreams into reality for yourself and others... with industry leading frameworks, training, and AI technology
+              Learn and apply the most powerful language, strategies, and frameworks for influencing yourself and others... with world-class training and AI tech
             </motion.p>
             
             {/* VIDEO */}
