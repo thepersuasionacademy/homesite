@@ -274,32 +274,45 @@ const IndexPage: FC = () => {
         </div>
       </motion.section>
 
-      {/* AUTHORITY FOOTER */}
+      {/* CLIENT SUCCESS */}
       <motion.section 
-        className="authority-footer"
+        className="client-success-section"
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
       >
         <div className="content-container">
-          <div className="footer-content">
-            <motion.h3 variants={cardVariants}>Ready to Transform Your Influence?</motion.h3>
-            <motion.p variants={cardVariants}>Join thousands of professionals who've invested in their path to mastery.</motion.p>
-            <div className="footer-stats">
-              <motion.div className="stat-item" variants={cardVariants}>
-                <strong>45+ years</strong>
-                <span>refining the craft</span>
-              </motion.div>
-              <motion.div className="stat-item" variants={cardVariants}>
-                <strong>$1B+</strong>
-                <span>client revenue gains</span>
-              </motion.div>
-              <motion.div className="stat-item" variants={cardVariants}>
-                <strong>3,584+</strong>
-                <span>clients impacted</span>
-              </motion.div>
-            </div>
+          <div className="client-success-content">
+            <motion.h3 variants={cardVariants}>Client Success</motion.h3>
+            <motion.div variants={cardVariants}>
+              {/* Main Client Success - Light Mode */}
+              <div className="light-mode-widget">
+                <script src="https://widget.senja.io/widget/12ebc602-357a-4524-9717-75526245fbdb/platform.js" type="text/javascript" async></script>
+                <div className="senja-embed" data-id="12ebc602-357a-4524-9717-75526245fbdb" data-mode="shadow" data-lazyload="false" style={{display: 'block', width: '100%'}}></div>
+              </div>
+              
+              {/* Main Client Success - Dark Mode */}
+              <div className="dark-mode-widget">
+                <script src="https://widget.senja.io/widget/94e4c445-34ee-4620-8cd4-47b896571db2/platform.js" type="text/javascript" async></script>
+                <div className="senja-embed" data-id="94e4c445-34ee-4620-8cd4-47b896571db2" data-mode="shadow" data-lazyload="false" style={{display: 'block', width: '100%'}}></div>
+              </div>
+            </motion.div>
+            
+            {/* ADDITIONAL TESTIMONIALS - CONDITIONAL FOR DARK/LIGHT MODE */}
+            <motion.div className="additional-testimonials" variants={cardVariants}>
+              {/* Dark Mode Widget */}
+              <div className="dark-mode-widget">
+                <script src="https://widget.senja.io/widget/3c7d117e-b080-4575-abab-b8a4895a4377/platform.js" type="text/javascript" async></script>
+                <div className="senja-embed" data-id="3c7d117e-b080-4575-abab-b8a4895a4377" data-mode="shadow" data-lazyload="false" style={{display: 'block', width: '100%'}}></div>
+              </div>
+              
+              {/* Light Mode Widget */}
+              <div className="light-mode-widget">
+                <script src="https://widget.senja.io/widget/c19957c0-25d0-4d66-83f6-e861ab195cc1/platform.js" type="text/javascript" async></script>
+                <div className="senja-embed" data-id="c19957c0-25d0-4d66-83f6-e861ab195cc1" data-mode="shadow" data-lazyload="false" style={{display: 'block', width: '100%'}}></div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </motion.section>
