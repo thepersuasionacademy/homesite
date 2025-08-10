@@ -79,6 +79,9 @@ export default {
   about: {
     type: 'page'
   },
+  store: {
+    type: 'page'
+  },
   showcase: {
     type: 'page'
   },

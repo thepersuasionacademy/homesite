@@ -47,3 +47,88 @@ code.text-\[\.9em\] {
     @apply ms-1.5 rounded-full border border-blue-200 bg-blue-100 px-1.5 text-xs font-bold text-blue-900 content-["New"];
   }
 }
+
+/* Hide only the theme switcher area in footer wrapper - be more specific */
+div[class*="x:bg-gray-100"] > div:first-child:has(div[class*="x:gap-2"]) {
+  display: none !important;
+}
+
+/* Additional specific targeting for theme switchers */
+div[class*="x:bg-gray-100"] > div[class*="x:mx-auto"]:has(div[class*="x:gap-2"]) {
+  display: none !important;
+}
+
+/* Target theme switch and locale switch specifically */
+[title="Change theme"],
+[class*="theme-switch"],
+[class*="locale-switch"] {
+  display: none !important;
+}
+
+/* Hide the horizontal rule between switchers and footer content */
+div[class*="x:bg-gray-100"] > hr {
+  display: none !important;
+}
+
+/* COMPREHENSIVE Footer background overrides - targeting all possible footer elements */
+footer,
+footer *,
+[role="contentinfo"],
+[role="contentinfo"] *,
+footer + div,
+footer ~ div,
+div:has(footer),
+div:has([role="contentinfo"]) {
+  background-color: #ffffff !important;
+}
+
+.dark footer,
+.dark footer *,
+.dark [role="contentinfo"],
+.dark [role="contentinfo"] *,
+.dark footer + div,
+.dark footer ~ div,
+.dark div:has(footer),
+.dark div:has([role="contentinfo"]) {
+  background-color: #0b0e16 !important;
+}
+
+/* Target Nextra theme specific classes */
+div[class*="bg-gray-100"],
+div[class*="dark:bg-neutral-900"],
+.nextra-footer-container,
+[class*="x:bg-gray-100"],
+[class*="x:dark:bg-neutral-900"] {
+  background-color: #ffffff !important;
+}
+
+.dark div[class*="bg-gray-100"],
+.dark div[class*="dark:bg-neutral-900"],
+.dark .nextra-footer-container,
+.dark [class*="x:bg-gray-100"],
+.dark [class*="x:dark:bg-neutral-900"] {
+  background-color: #0b0e16 !important;
+}
+
+/* Nuclear option - override any background on elements near the footer */
+body > div:last-child,
+body > div:last-child > *,
+#__next > *:last-child,
+#__next > *:last-child > * {
+  background-color: inherit !important;
+}
+
+/* Specifically target any div that might contain the footer */
+div:has(+ footer),
+div:has(> footer),
+div footer:first-child,
+div:only-child:has(footer) {
+  background-color: #ffffff !important;
+}
+
+.dark div:has(+ footer),
+.dark div:has(> footer), 
+.dark div footer:first-child,
+.dark div:only-child:has(footer) {
+  background-color: #0b0e16 !important;
+}
