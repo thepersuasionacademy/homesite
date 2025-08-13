@@ -147,28 +147,17 @@ const RootLayout: FC<{
           navbar={<ConditionalNavbar />}
           pageMap={pageMap}
           docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
-          editLink="Edit this page on GitHub"
+          editLink={false}
           sidebar={{
             defaultMenuCollapseLevel: 1,
             autoCollapse: false,
             toggleButton: true
           }}
           footer={footer}
+          feedback={{ content: null }}
           toc={{
             float: true,
-            title: "On This Page",
-            extraContent: (
-              <>
-                <b className="mt-2 text-xs">Sponsored by:</b>
-                <Anchor href="https://xyflow.com?utm_source=nextra.site&utm_campaign=nextra&utm_content=sidebarLink">
-                  <NextImage
-                    src={xyflow}
-                    alt="Wire your ideas with xyflow!"
-                    className="nextra-border rounded-sm border"
-                  />
-                </Anchor>
-              </>
-            )
+            title: "On This Page"
           }}
         >
           {children}

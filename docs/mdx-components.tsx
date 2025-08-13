@@ -1,4 +1,3 @@
-import { getEnhancedPageMap } from '@components/get-page-map'
 import type { Folder } from 'nextra'
 import { useMDXComponents as getDocsMDXComponents } from 'nextra-theme-docs'
 import type { UseMDXComponents } from 'nextra/mdx-components'
@@ -59,22 +58,10 @@ export default $`
         { code, flattened }
       )
 
-    // TODO pass `'/api'` as first argument
-    const pageMap = await getEnhancedPageMap()
-    const apiPageMap = pageMap.find(
-      (o): o is Folder => 'name' in o && o.name === 'api'
-    )!.children
-
     return (
       <TSDoc
         definition={definition}
         typeLinkMap={{
-          ...Object.fromEntries(
-            apiPageMap
-              .filter(o => 'route' in o && o.name !== 'index')
-              // @ts-expect-error -- fixme
-              .map(o => [o.title, o.route])
-          ),
           NextConfig:
             'https://nextjs.org/docs/pages/api-reference/config/next-config-js',
           RehypePrettyCodeOptions: 'https://rehype-pretty.pages.dev/#options',

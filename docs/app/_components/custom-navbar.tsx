@@ -69,8 +69,13 @@ export const CustomNavbar = () => {
           </Link>
         </div>
 
-        {/* Navigation Items */}
-        <div className="flex items-center gap-6">
+        {/* Centered Navigation Items */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-6">
+          {/* Home */}
+          <Link href="/" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+            Home
+          </Link>
+
           {/* Store */}
           <Link href="/store" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
             Store
@@ -81,21 +86,14 @@ export const CustomNavbar = () => {
             Services
           </Link>
 
-          {/* Blog */}
-          <Link href="/blog" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
-            Blog
-          </Link>
-
           {/* Docs */}
           <Link href="/docs" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
             Docs
           </Link>
+        </div>
 
-          {/* Success */}
-          <Link href="/success" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
-            Success
-          </Link>
-
+        {/* Right Side Items */}
+        <div className="flex items-center gap-4">
           {/* Sign In */}
           <Link 
             href="https://app.thepersuasionacademy.com" 

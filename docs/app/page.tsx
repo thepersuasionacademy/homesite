@@ -105,10 +105,30 @@ const IndexPage: FC = () => {
             
             {/* VIDEO */}
             <motion.div className="hero-video" variants={videoVariants}>
-              <div className="video-placeholder">
-                <div className="play-button">▶</div>
-                <p className="video-label">2-Min Gateway VSL</p>
-                <p className="video-description">Hook → Authority → Benefit → Proof → Dual CTA</p>
+              <div style={{
+                position:"relative",
+                paddingTop:"56.25%",
+                background: "#0b0e16",
+                borderRadius: "18px",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                boxShadow: "0 12px 30px rgba(0,0,0,0.25), 0 6px 12px rgba(0,0,0,0.15), 0 24px 60px rgba(0,0,0,0.1)",
+                transition: "transform 0.3s ease",
+                overflow: "hidden"
+              }}>
+                <iframe 
+                  src="https://iframe.mediadelivery.net/embed/376899/3a2ba9e7-58cc-49de-a979-a571db35c205?autoplay=false&loop=false&muted=false&preload=false&responsive=true" 
+                  loading="lazy" 
+                  style={{
+                    border:0,
+                    position:"absolute",
+                    top:0,
+                    height:"100%",
+                    width:"100%",
+                    borderRadius: "18px"
+                  }} 
+                  allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
+                  allowFullScreen={true}
+                />
               </div>
             </motion.div>
           </div>

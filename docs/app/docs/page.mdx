@@ -1,5 +1,5 @@
 ---
-description: Nextra is a framework built on top of Next.js that enables the creation of content-focused websites. It combines the robust features of Next.js with enhanced capabilities for crafting Markdown-based content.
+description: Welcome to The Persuasion Academy Platform - your comprehensive resource for mastering influence, persuasion, and ethical selling techniques.
 ---
 
 import { Cards, Image } from 'nextra/components'
@@ -13,58 +13,104 @@ export default function MdxLayout(props) {
   })
 }
 
-# Introduction
+# Docs Overview
 
-**Nextra** is a framework on top of Next.js, that lets you build content focused
-websites. It has all the great features from Next.js, plus extra power to create
-Markdown-based content with ease.
+Welcome to **The Persuasion Academy Platform** documentation. This area contains help docs about the platform features, fundamentals of influence psychology, and our proprietary methods and frameworks.
 
-## Quick start
+## Documentation Structure
 
-To start using Nextra, you need to select a theme first:
+This documentation is organized into three main sections:
 
-<Cards num={2}>
-  <Cards.Card arrow title="Documentation theme" href="/docs/docs-theme/start">
-    <>![Documentation theme screenshot](/assets/docs-theme.png)</>
-  </Cards.Card>
-  <Cards.Card arrow title="Blog theme" href="/docs/blog-theme/start">
-    <>![Blog theme screenshot](/assets/blog-theme.png)</>
-  </Cards.Card>
-</Cards>
+<div style={{
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: '1.5rem',
+  margin: '2rem 0'
+}}>
+  <a href="/docs/content" style={{
+    border: '1px solid var(--nextra-border)',
+    borderRadius: '8px',
+    padding: '1.5rem',
+    backgroundColor: 'var(--nextra-bg)',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    textDecoration: 'none',
+    color: 'inherit',
+    display: 'block',
+    transition: 'all 0.2s ease'
+  }}>
+    <h3 style={{ margin: '0 0 0.75rem 0', color: 'var(--nextra-primary-text)', fontSize: '1.25rem', fontWeight: '600' }}>
+      Platform →
+    </h3>
+    <p style={{ margin: 0, color: 'var(--nextra-secondary-text)', lineHeight: '1.5' }}>
+      Tools and features for content management, AI assistance, knowledge base, and platform support.
+    </p>
+  </a>
 
-If you want to use Nextra without using these built-in themes, you can follow
-the [Custom Theme](/docs/custom-theme) docs.
+  <a href="/principles-of-influence/introduction" style={{
+    border: '1px solid var(--nextra-border)',
+    borderRadius: '8px',
+    padding: '1.5rem',
+    backgroundColor: 'var(--nextra-bg)',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    textDecoration: 'none',
+    color: 'inherit',
+    display: 'block',
+    transition: 'all 0.2s ease'
+  }}>
+    <h3 style={{ margin: '0 0 0.75rem 0', color: 'var(--nextra-primary-text)', fontSize: '1.25rem', fontWeight: '600' }}>
+      Principles of Influence →
+    </h3>
+    <p style={{ margin: 0, color: 'var(--nextra-secondary-text)', lineHeight: '1.5' }}>
+      Core psychological principles and frameworks that drive human decision-making and behavior.
+    </p>
+  </a>
 
-## FAQ
+  <a href="/dreamstate-selling/layers-of-worldview" style={{
+    border: '1px solid var(--nextra-border)',
+    borderRadius: '8px',
+    padding: '1.5rem',
+    backgroundColor: 'var(--nextra-bg)',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    textDecoration: 'none',
+    color: 'inherit',
+    display: 'block',
+    transition: 'all 0.2s ease'
+  }}>
+    <h3 style={{ margin: '0 0 0.75rem 0', color: 'var(--nextra-primary-text)', fontSize: '1.25rem', fontWeight: '600' }}>
+      DreamState Selling →
+    </h3>
+    <p style={{ margin: 0, color: 'var(--nextra-secondary-text)', lineHeight: '1.5' }}>
+      Advanced methodologies for understanding worldview layers and implementing powerful influence catalysts.
+    </p>
+  </a>
+</div>
 
-The Nextra FAQ is a collection of useful questions and answers about the
-project. If you have a question that isn't answered here, please
-[open a discussion](https://github.com/shuding/nextra/discussions).
+## What's Inside
 
-<details>
-  {/* prettier-ignore */}
-  <summary>Can I use Nextra with Next.js `pages` router?</summary>
-Nextra 4 only works with the `app` router. Only Nextra 1/2/3 supports the
-`pages` router.
+### Platform Help Documentation
+- **[Content](/docs/content)** - Content management and organization tools
+- **[AI Tools](/docs/ai-tools)** - AI-powered features and capabilities  
+- **[Codex](/docs/codex)** - Knowledge base and reference library
+- **[Lab](/docs/lab)** - Experimental features and beta tools
+- **[Profile](/docs/profile)** - Account settings and progress tracking
+- **[Support](/docs/support)** - Help resources and support options
 
-</details>
+### Influence Psychology Fundamentals
+- **Introduction** - Core concepts and ethical framework
+- **Framing** - Information presentation techniques
+- **Emotion** - Emotional dynamics in communication
+- **Rapport** - Connection and trust building
+- **Identity** - Identity-level influence approaches
+- **Values** - Value identification and alignment methods
 
-<details>
-  <summary>Can I use X with Nextra?</summary>
-The answer is "yes" for most things. Since Nextra is just a Next.js plugin, almost all the things
-that can be done with React can be done with Nextra. Here are some examples and guides:
+### Proprietary Methods & Frameworks
 
-- [Use Tailwind CSS](/docs/guide/tailwind-css)
-- [Use custom CSS and Sass](/docs/guide/custom-css)
-- [Use custom fonts](https://nextjs.org/docs/basic-features/font-optimization)
+**Layers of Worldview** - Our framework for understanding the seven layers that shape human perception:
+- Thoughts, Emotions, Actions, Beliefs, Values, Roles, Identity
 
-</details>
+**Catalysts** - Breakthrough techniques for transformational influence:
+- Ownership Catalyst, Realization Catalyst
 
-<details>
-  {/* prettier-ignore */}
-  <summary>How can I add a live coding component in Nextra?</summary>
-There are libraries like [Sandpack](https://sandpack.codesandbox.io) and
-[react-live](https://github.com/FormidableLabs/react-live) that can help you
-add live coding components to your MDX.
+---
 
-</details> 
+*Use the navigation above to explore platform features, learn influence fundamentals, or discover our proprietary methods.* 
