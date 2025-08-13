@@ -59,6 +59,9 @@ export default {
   store: {
     type: 'page'
   },
+  services: {
+    type: 'page'
+  },
   showcase: {
     type: 'page'
   },
