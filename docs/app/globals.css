@@ -132,3 +132,95 @@ div:only-child:has(footer) {
 .dark div:only-child:has(footer) {
   background-color: #0b0e16 !important;
 }
+
+/* IFRAME STYLING - FIX WHITE BORDER ISSUES */
+iframe {
+  border: none !important;
+  outline: none !important;
+  background: transparent !important;
+  display: block;
+}
+
+/* Specific targeting for video embed iframes */
+iframe[src*="mediadelivery.net"],
+iframe[src*="embed"],
+iframe[allowfullscreen] {
+  border: 0 !important;
+  border-radius: inherit;
+  background: transparent !important;
+}
+
+/* Container styling to prevent border bleed */
+div:has(> iframe) {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+/* Remove any default browser iframe styling */
+iframe:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+/* Video embed dark/light mode responsive styling */
+iframe[src*="mediadelivery.net"] {
+  filter: brightness(1) contrast(1);
+}
+
+.dark iframe[src*="mediadelivery.net"] {
+  filter: brightness(0.95) contrast(1.05);
+}
+
+/* Additional iframe content styling to handle embedded borders */
+iframe[src*="embed"] video,
+iframe[src*="mediadelivery.net"] video {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Force video container backgrounds to match theme */
+iframe[src*="mediadelivery.net"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Dark mode video container adjustments */
+.dark iframe[src*="mediadelivery.net"] {
+  background: #0b0e16 !important;
+}
+
+/* Light mode video container adjustments */
+html:not(.dark) iframe[src*="mediadelivery.net"] {
+  background: #ffffff !important;
+}
+
+/* Video container border masking - DARK MODE ONLY */
+.dark div:has(> iframe[src*="mediadelivery.net"])::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #0b0e16;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dark div:has(> iframe[src*="mediadelivery.net"])::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #0b0e16;
+  z-index: 1;
+  pointer-events: none;
+}

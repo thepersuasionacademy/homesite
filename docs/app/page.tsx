@@ -119,12 +119,16 @@ const IndexPage: FC = () => {
                   src="https://iframe.mediadelivery.net/embed/376899/3a2ba9e7-58cc-49de-a979-a571db35c205?autoplay=false&loop=false&muted=false&preload=false&responsive=true" 
                   loading="lazy" 
                   style={{
-                    border:0,
-                    position:"absolute",
-                    top:0,
-                    height:"100%",
-                    width:"100%",
-                    borderRadius: "18px"
+                    border: "none",
+                    outline: "none",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    height: "100%",
+                    width: "100%",
+                    borderRadius: "18px",
+                    background: "transparent",
+                    display: "block"
                   }} 
                   allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
                   allowFullScreen={true}
