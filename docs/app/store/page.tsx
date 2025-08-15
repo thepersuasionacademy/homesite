@@ -1,114 +1,265 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 // Mock data for digital products
 const digitalProducts = [
   {
     id: 1,
-    name: 'Complete React Course',
-    description: 'Master React from basics to advanced concepts with this comprehensive video course.',
-    price: 99.99,
-    originalPrice: 149.99,
-    category: 'Programming',
-    image: '/api/placeholder/300/200',
-    downloadSize: '2.3 GB',
-    lessons: 45,
-    duration: '12 hours',
-    rating: 4.8,
-    reviews: 234
+    name: 'DreamState Selling Secrets',
+    subtitle: 'Digital Book Bundle',
+    description: 'Discover the foundational secrets of DreamState Selling through this comprehensive digital book collection.',
+    price: 27.00,
+    category: 'Sales Mastery',
+    featured: true,
+    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_A_solitary_man_figure_standing_in_the_center_of_a_75b42954-7f2c-4f55-8507-580d92a413ab_3.jpeg',
+    curiosityBullets: [
+      'What hidden triggers activate instant buying decisions?',
+      'How to bypass conscious resistance completely?',
+      'Why some words create irresistible compulsion?',
+      'The secret pattern that guarantees compliance?'
+    ],
+    howYouImprove: [
+      'Master psychological triggers step-by-step',
+      'Practice with real-world scenarios',
+      'Build confidence through repetition',
+      'Develop your natural persuasion style'
+    ],
+    whatYouBecome: [
+      'A master of subconscious influence',
+      'Someone who ethically persuades with ease',
+      'A person others naturally follow',
+      'Confident in any selling situation'
+    ]
   },
   {
     id: 2,
-    name: 'UI/UX Design Masterclass',
-    description: 'Learn modern UI/UX design principles and create stunning user experiences.',
-    price: 79.99,
-    originalPrice: 119.99,
-    category: 'Design',
-    image: '/api/placeholder/300/200',
-    downloadSize: '1.8 GB',
-    lessons: 32,
-    duration: '8 hours',
-    rating: 4.9,
-    reviews: 189
+    name: 'DreamState Selling',
+    subtitle: 'Digital Training Bundle',
+    description: 'Complete video training series on mastering the DreamState Selling methodology.',
+    price: 997.00,
+    category: 'Sales Mastery',
+    featured: true,
+    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_Ultra-minimal_golden_crown_hovering_above_a_castl_051811cc-298b-480e-adbf-b59297dbf7e9_0%20(1).jpeg',
+    curiosityBullets: [
+      'Which psychological layer controls all purchasing decisions?',
+      'How to implant desires that feel completely natural?',
+      'The 3-step sequence that eliminates all objections?',
+      'Why traditional sales training actually repels buyers?'
+    ],
+    howYouImprove: [
+      'Apply frameworks in real selling situations',
+      'Overcome objections with psychological precision',
+      'Close deals without pressure or manipulation',
+      'Build unshakeable selling confidence'
+    ],
+    whatYouBecome: [
+      'A DreamState Selling expert',
+      'Someone who closes without pressure',
+      'A trusted advisor, not a salesperson',
+      'Unstoppable in any market'
+    ]
   },
   {
     id: 3,
-    name: 'Digital Marketing Blueprint',
-    description: 'Complete guide to digital marketing strategies that actually work.',
-    price: 59.99,
-    originalPrice: 89.99,
-    category: 'Marketing',
-    image: '/api/placeholder/300/200',
-    downloadSize: '950 MB',
-    lessons: 28,
-    duration: '6 hours',
-    rating: 4.7,
-    reviews: 156
+    name: '"Catalysts" Sprint',
+    description: 'Intensive sprint program focused on the catalyst techniques that accelerate persuasion and influence.',
+    price: 397.00,
+    category: 'Featured',
+    featured: true,
+    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_echo_shockwaves_sound_inside_mind_alex_grey_style_99af80a7-498e-4f14-b745-1dd19083fdf1_0%20(1).jpeg',
+    curiosityBullets: [
+      'What makes someone say "yes" before they know why?',
+      'The catalyst that turns skeptics into evangelists?',
+      'How to create urgency without being pushy?',
+      'Which single word doubles closing rates?'
+    ],
+    howYouImprove: [
+      'Accelerate your influence through daily practice',
+      'Master catalyst techniques in weeks not years',
+      'Get real-time feedback on your approach',
+      'Connect with other high-performers'
+    ],
+    whatYouBecome: [
+      'A catalyst for instant decisions',
+      'Someone who accelerates sales cycles',
+      'A master of ethical urgency',
+      'Irresistible in your influence'
+    ]
   },
   {
     id: 4,
-    name: 'Python for Data Science',
-    description: 'Learn Python programming specifically for data analysis and machine learning.',
-    price: 89.99,
-    originalPrice: 129.99,
-    category: 'Programming',
-    image: '/api/placeholder/300/200',
-    downloadSize: '3.1 GB',
-    lessons: 52,
-    duration: '15 hours',
-    rating: 4.8,
-    reviews: 298
+    name: 'Complete Info-Field Shifting System',
+    description: 'Master the art of shifting information fields to transform your internal state and external reality.',
+    price: 697.00,
+    category: 'Self Mastery',
+    featured: false,
+    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/tmp048e8gj8.webp',
+    curiosityBullets: [
+      'How to reprogram your subconscious in minutes?',
+      'What information fields control your reality?',
+      'The shifting technique that eliminates limiting beliefs?',
+      'Why visualization alone keeps you stuck?'
+    ],
+    howYouImprove: [
+      'Shift limiting beliefs in real-time',
+      'Access higher states of consciousness',
+      'Restructure your reality at the source',
+      'Master advanced mental techniques'
+    ],
+    whatYouBecome: [
+      'Master of your internal reality',
+      'Someone who shifts states instantly',
+      'Free from limiting beliefs',
+      'Creator of your desired outcomes'
+    ]
   },
   {
     id: 5,
-    name: 'Photography Essentials',
-    description: 'Master the art of photography with practical techniques and insider tips.',
-    price: 49.99,
-    originalPrice: 79.99,
-    category: 'Creative',
-    image: '/api/placeholder/300/200',
-    downloadSize: '1.2 GB',
-    lessons: 24,
-    duration: '5 hours',
-    rating: 4.6,
-    reviews: 145
+    name: 'Master Collection of Renegade Persuaders',
+    description: 'The ultimate collection of unconventional persuasion techniques from history\'s most effective renegades.',
+    price: 997.00,
+    category: 'Renegade Persuaders',
+    featured: false,
+    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_hyper-realistic_silhouette_of_person_walking_forw_71739d41-bc05-48b9-ae2d-892016ee8c18_2.jpg',
+    curiosityBullets: [
+      'What forbidden techniques did master persuaders use?',
+      'How to influence without anyone noticing?',
+      'The renegade method that breaks all rules?',
+      'Why conventional persuasion pushes people away?'
+    ],
+    howYouImprove: [
+      'Learn from history\'s most effective persuaders',
+      'Adapt unconventional techniques to modern contexts',
+      'Develop your own unique approach',
+      'Maintain ethical standards while being powerful'
+    ],
+    whatYouBecome: [
+      'A renegade persuasion master',
+      'Someone who thinks outside the box',
+      'Fearless in your approach',
+      'Uniquely powerful in influence'
+    ]
   },
   {
     id: 6,
-    name: 'Business Strategy Template Pack',
-    description: 'Professional templates and frameworks for strategic business planning.',
-    price: 39.99,
-    originalPrice: 59.99,
-    category: 'Business',
-    image: '/api/placeholder/300/200',
-    downloadSize: '85 MB',
-    lessons: 15,
-    duration: '3 hours',
-    rating: 4.7,
-    reviews: 89
+    name: 'Hypnotic Protocols for Strategic Persuaders',
+    description: 'Advanced hypnotic language patterns and protocols for strategic influence and persuasion mastery.',
+    price: 697.00,
+    category: 'Strategic Persuasion',
+    featured: false,
+    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/DreamState%20Selling%20Cover.jpeg',
+    curiosityBullets: [
+      'Which hypnotic patterns bypass critical thinking?',
+      'How to embed commands in casual conversation?',
+      'The protocol that makes resistance impossible?',
+      'What language pattern creates instant compliance?'
+    ],
+    howYouImprove: [
+      'Master hypnotic language patterns systematically',
+      'Use templates for consistent results',
+      'Structure conversations for maximum impact',
+      'Achieve compliance without resistance'
+    ],
+    whatYouBecome: [
+      'A strategic persuasion expert',
+      'Master of hypnotic language',
+      'Someone who influences unconsciously',
+      'Unstoppable in negotiations'
+    ]
   }
 ]
 
-const categories = ['All', 'Programming', 'Design', 'Marketing', 'Creative', 'Business']
+const categories = ['Featured', 'Self Mastery', 'Renegade Persuaders', 'Strategic Persuasion', 'Sales Mastery']
 
 export default function StorePage() {
-  const [selectedCategory, setSelectedCategory] = useState('All')
-  const [cartItems, setCartItems] = useState<number[]>([])
+  const [selectedCategory, setSelectedCategory] = useState('Featured')
+  const [activeTab, setActiveTab] = useState<{[key: number]: string}>({})
+  const containerRef = useRef<HTMLDivElement>(null)
 
-  const filteredProducts = selectedCategory === 'All' 
-    ? digitalProducts 
+  const filteredProducts = selectedCategory === 'Featured'
+    ? digitalProducts.filter(product => product.featured)
     : digitalProducts.filter(product => product.category === selectedCategory)
 
-  const addToCart = (productId: number) => {
-    if (!cartItems.includes(productId)) {
-      setCartItems([...cartItems, productId])
-    }
+  const getOpenSections = (productId: number) => activeTab[productId] || { learn: false, improve: false, become: false }
+  
+  const toggleSection = (productId: number, section: string) => {
+    setActiveTab(prev => ({
+      ...prev,
+      [productId]: {
+        ...getOpenSections(productId),
+        [section]: !getOpenSections(productId)[section]
+      }
+    }))
+    
+    // Immediate layout update
+    setTimeout(layoutMasonry, 50)
+    // Follow-up layouts during animation
+    setTimeout(layoutMasonry, 150)
+    setTimeout(layoutMasonry, 250)
   }
 
-  const removeFromCart = (productId: number) => {
-    setCartItems(cartItems.filter(id => id !== productId))
+  const layoutMasonry = () => {
+    if (!containerRef.current) return
+    
+    const container = containerRef.current
+    const items = Array.from(container.children) as HTMLElement[]
+    const gap = 32 // 2rem = 32px
+    
+    // Get number of columns based on screen width
+    const containerWidth = container.offsetWidth
+    let columns = 1
+    if (containerWidth >= 1024) columns = 3
+    else if (containerWidth >= 768) columns = 2
+    
+    const columnWidth = (containerWidth - (gap * (columns - 1))) / columns
+    const columnHeights = new Array(columns).fill(0)
+    
+    items.forEach((item, index) => {
+      // Reset item position
+      item.style.position = 'absolute'
+      item.style.width = `${columnWidth}px`
+      
+      // Find shortest column
+      const shortestColumn = columnHeights.indexOf(Math.min(...columnHeights))
+      
+      // Position item
+      const x = shortestColumn * (columnWidth + gap)
+      const y = columnHeights[shortestColumn]
+      
+      item.style.left = `${x}px`
+      item.style.top = `${y}px`
+      item.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+      
+      // Update column height
+      columnHeights[shortestColumn] += item.offsetHeight + gap
+    })
+    
+    // Smooth container height transition
+    const newHeight = Math.max(...columnHeights)
+    container.style.transition = 'height 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+    container.style.height = `${newHeight}px`
   }
+
+  useEffect(() => {
+    layoutMasonry()
+    
+    const handleResize = () => layoutMasonry()
+    window.addEventListener('resize', handleResize)
+    
+    return () => window.removeEventListener('resize', handleResize)
+  }, [filteredProducts, activeTab])
+
+  useEffect(() => {
+    // Continuous layout updates during animation
+    const timers = [
+      setTimeout(layoutMasonry, 10),
+      setTimeout(layoutMasonry, 100),
+      setTimeout(layoutMasonry, 200),
+      setTimeout(layoutMasonry, 350)
+    ]
+    return () => timers.forEach(clearTimeout)
+  }, [activeTab])
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#0b0e16]">
@@ -308,90 +459,231 @@ export default function StorePage() {
         </div>
       </div>
 
-      {/* Products Grid */}
+      {/* Products Masonry */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div 
+          ref={containerRef}
+          className="relative transition-all duration-400 ease-out"
+          style={{ 
+            minHeight: '400px',
+            willChange: 'height'
+          }}
+        >
+          <style jsx>{`
+            .dropdown-content {
+              overflow: hidden;
+              transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                          opacity 0.3s ease,
+                          padding 0.3s ease;
+            }
+            .dropdown-content-enter {
+              max-height: 0;
+              opacity: 0;
+              padding-top: 0;
+              padding-bottom: 0;
+            }
+            .dropdown-content-enter-active {
+              max-height: 500px;
+              opacity: 1;
+              padding-top: 0.75rem;
+              padding-bottom: 0.75rem;
+            }
+            .dropdown-content-exit {
+              max-height: 500px;
+              opacity: 1;
+              padding-top: 0.75rem;
+              padding-bottom: 0.75rem;
+            }
+            .dropdown-content-exit-active {
+              max-height: 0;
+              opacity: 0;
+              padding-top: 0;
+              padding-bottom: 0;
+            }
+          `}</style>
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="bg-white dark:bg-[#17171a] rounded-lg shadow-md hover:shadow-lg transition-shadow overflow-hidden border border-gray-200 dark:border-gray-800"
+              className="bg-white dark:bg-[#17171a] rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-500 ease-out"
+              style={{ transform: 'translateZ(0)' }}
             >
-              {/* Product Image */}
-              <div className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-white text-center">
-                    <svg className="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2L2 7v10c0 5.55 3.84 9.87 9 11 5.16-1.13 9-5.45 9-11V7l-10-5z"/>
-                    </svg>
-                    <p className="text-sm font-medium">{product.category}</p>
-                  </div>
-                </div>
-                {product.originalPrice > product.price && (
-                  <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded-md text-xs font-bold">
-                    {Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)}% OFF
-                  </div>
-                )}
+              {/* Photo Section */}
+              <div className="h-48 relative overflow-hidden">
+                <img 
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
-
-              {/* Product Info */}
+              
+              {/* Content Section */}
               <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                    {product.category}
-                  </span>
-                  <div className="flex items-center">
-                    <svg className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    <span className="ml-1 text-sm text-[#86868b] dark:text-[#a1a1a6]">
-                      {product.rating} ({product.reviews})
-                    </span>
-                  </div>
+                <div className="mb-3">
+                  <h3 className="text-xl font-bold text-[#0b0e16] dark:text-[#f5f5f7]">
+                    {product.name}
+                  </h3>
+                  {product.subtitle && (
+                    <p className="text-base text-[#86868b] dark:text-[#a1a1a6] font-normal">
+                      {product.subtitle}
+                    </p>
+                  )}
                 </div>
-
-                <h3 className="text-lg font-semibold text-[#0b0e16] dark:text-[#f5f5f7] mb-2">
-                  {product.name}
-                </h3>
                 
-                <p className="text-[#86868b] dark:text-[#a1a1a6] text-sm mb-4 line-clamp-2">
+                <p className="text-base text-[#86868b] dark:text-[#a1a1a6] mb-4 leading-relaxed">
                   {product.description}
                 </p>
+                
 
-                {/* Product Meta */}
-                <div className="flex justify-between text-xs text-[#86868b] dark:text-[#a1a1a6] mb-4">
-                  <span>{product.lessons} lessons</span>
-                  <span>{product.duration}</span>
-                  <span>{product.downloadSize}</span>
-                </div>
-
-                {/* Price and Action */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-2xl font-bold text-[#0b0e16] dark:text-[#f5f5f7]">
-                      ${product.price}
-                    </span>
-                    {product.originalPrice > product.price && (
-                      <span className="text-sm text-[#86868b] dark:text-[#a1a1a6] line-through">
-                        ${product.originalPrice}
-                      </span>
-                    )}
+                
+                {/* FAQ-style Dropdowns */}
+                <div className="space-y-2 mb-6">
+                  {/* What You Learn */}
+                  <div className="border border-gray-200 dark:border-gray-700 rounded-lg">
+                    <button
+                      onClick={() => toggleSection(product.id, 'learn')}
+                      className="w-full flex items-center justify-between p-3 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    >
+                      <span className="font-medium text-[#0b0e16] dark:text-[#f5f5f7]">What You Learn</span>
+                      <svg
+                        className={`w-5 h-5 text-[#86868b] dark:text-[#a1a1a6] transition-transform ${
+                          getOpenSections(product.id).learn ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    <div 
+                      className={`dropdown-content transition-all duration-300 ease-out ${
+                        getOpenSections(product.id).learn 
+                          ? 'max-h-96 px-3 pb-3' 
+                          : 'max-h-0 px-3 pb-0'
+                      }`}
+                      style={{ 
+                        overflow: 'hidden',
+                        transitionProperty: 'max-height, padding-bottom'
+                      }}
+                    >
+                      <div className="space-y-2">
+                        {product.curiosityBullets.map((bullet, index) => (
+                          <div key={index} className="flex items-start gap-2">
+                            <span className="text-[#86868b] dark:text-[#a1a1a6] text-base">•</span>
+                            <span className="text-sm text-[#86868b] dark:text-[#a1a1a6] leading-relaxed">{bullet}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  
-                  {cartItems.includes(product.id) ? (
+
+                  {/* What You Get */}
+                  <div className="border border-gray-200 dark:border-gray-700 rounded-lg">
                     <button
-                      onClick={() => removeFromCart(product.id)}
-                      className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm font-medium"
+                      onClick={() => toggleSection(product.id, 'improve')}
+                      className="w-full flex items-center justify-between p-3 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                     >
-                      ✓ Added
+                      <span className="font-medium text-[#0b0e16] dark:text-[#f5f5f7]">How You Improve</span>
+                      <svg
+                        className={`w-5 h-5 text-[#86868b] dark:text-[#a1a1a6] transition-transform ${
+                          getOpenSections(product.id).improve ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                     </button>
-                  ) : (
+                    <div 
+                      className={`dropdown-content transition-all duration-300 ease-out ${
+                        getOpenSections(product.id).improve 
+                          ? 'max-h-96 px-3 pb-3' 
+                          : 'max-h-0 px-3 pb-0'
+                      }`}
+                      style={{ 
+                        overflow: 'hidden',
+                        transitionProperty: 'max-height, padding-bottom'
+                      }}
+                    >
+                      <div className="space-y-2">
+                        {product.howYouImprove.map((item, index) => (
+                          <div key={index} className="flex items-start gap-2">
+                            <span className="text-green-600 dark:text-green-400 text-base">✓</span>
+                            <span className="text-sm text-[#86868b] dark:text-[#a1a1a6] leading-relaxed">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* What You Become */}
+                  <div className="border border-gray-200 dark:border-gray-700 rounded-lg">
                     <button
-                      onClick={() => addToCart(product.id)}
-                      className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+                      onClick={() => toggleSection(product.id, 'become')}
+                      className="w-full flex items-center justify-between p-3 text-left hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                     >
-                      Add to Cart
+                      <span className="font-medium text-[#0b0e16] dark:text-[#f5f5f7]">Who You Become</span>
+                      <svg
+                        className={`w-5 h-5 text-[#86868b] dark:text-[#a1a1a6] transition-transform ${
+                          getOpenSections(product.id).become ? 'rotate-180' : ''
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
                     </button>
-                  )}
+                    <div 
+                      className={`dropdown-content transition-all duration-300 ease-out ${
+                        getOpenSections(product.id).become 
+                          ? 'max-h-96 px-3 pb-3' 
+                          : 'max-h-0 px-3 pb-0'
+                      }`}
+                      style={{ 
+                        overflow: 'hidden',
+                        transitionProperty: 'max-height, padding-bottom'
+                      }}
+                    >
+                      <div className="space-y-2">
+                        {product.whatYouBecome.map((transformation, index) => (
+                          <div key={index} className="flex items-start gap-2">
+                            <span className="text-blue-600 dark:text-blue-400 text-base">→</span>
+                            <span className="text-sm text-[#86868b] dark:text-[#a1a1a6] leading-relaxed">{transformation}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Combined Price and CTA */}
+                <div className="mt-6">
+                  <a 
+                    href="#" 
+                    className="block w-full bg-[#0b0e16] border border-white/20 rounded-lg hover:opacity-90 transition-all duration-200"
+                  >
+                    <div className="p-5">
+                      {/* Price prominently displayed */}
+                      <div className="text-center mb-3">
+                        <div className="text-3xl font-bold text-white mb-1">
+                          ${product.price}
+                        </div>
+                        <div className="text-white/80 text-sm">
+                          One-time payment
+                        </div>
+                      </div>
+                      
+                      {/* CTA Button */}
+                      <div className="flex items-center justify-center gap-2 py-3 px-4 bg-white dark:bg-blue-600 rounded-lg text-[#0b0e16] dark:text-white font-medium hover:opacity-90 transition-all duration-200">
+                        See Full Offer
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -399,35 +691,7 @@ export default function StorePage() {
         </div>
       </div>
 
-      {/* Cart Summary (if items in cart) */}
-      {cartItems.length > 0 && (
-        <div className="fixed bottom-0 left-0 right-0 bg-white dark:bg-[#0b0e16] border-t border-gray-200 dark:border-gray-800 p-4 shadow-lg">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <span className="text-lg font-medium text-[#0b0e16] dark:text-[#f5f5f7]">
-                {cartItems.length} item{cartItems.length > 1 ? 's' : ''} in cart
-              </span>
-              <span className="text-xl font-bold text-[#0b0e16] dark:text-[#f5f5f7]">
-                ${cartItems.reduce((total, id) => {
-                  const product = digitalProducts.find(p => p.id === id)
-                  return total + (product?.price || 0)
-                }, 0).toFixed(2)}
-              </span>
-            </div>
-            <div className="flex space-x-3">
-              <button
-                onClick={() => setCartItems([])}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-700 text-[#86868b] dark:text-[#a1a1a6] rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-              >
-                Clear Cart
-              </button>
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                Proceed to Checkout
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+
     </div>
   )
 } 
