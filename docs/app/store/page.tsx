@@ -174,7 +174,7 @@ const categories = ['Featured', 'Self Mastery', 'Renegade Persuaders', 'Strategi
 
 export default function StorePage() {
   const [selectedCategory, setSelectedCategory] = useState('Featured')
-  const [activeTab, setActiveTab] = useState<{[key: number]: string}>({})
+  const [activeTab, setActiveTab] = useState<{[key: number]: {learn: boolean, improve: boolean, become: boolean}}>({})
   const containerRef = useRef<HTMLDivElement>(null)
 
   const filteredProducts = selectedCategory === 'Featured'
