@@ -184,11 +184,12 @@ export default function StorePage() {
   const getOpenSections = (productId: number) => activeTab[productId] || { learn: false, improve: false, become: false }
   
   const toggleSection = (productId: number, section: string) => {
+    const currentSections = getOpenSections(productId);
     setActiveTab(prev => ({
       ...prev,
       [productId]: {
-        ...getOpenSections(productId),
-        [section]: !getOpenSections(productId)[section]
+        ...currentSections,
+        [section]: !currentSections[section]
       }
     }))
     
