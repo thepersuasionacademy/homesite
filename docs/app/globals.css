@@ -172,6 +172,105 @@ iframe[src*="mediadelivery.net"] {
 }
 
 /* Additional iframe content styling to handle embedded borders */
+
+/* DOCS PAGES DARK MODE BACKGROUND CONSISTENCY */
+/* Ensure all docs pages use consistent dark mode background */
+html.dark,
+html.dark body,
+.dark,
+.dark body {
+  background-color: #0b0e16 !important;
+}
+
+/* Target Nextra's main content areas */
+.dark main,
+.dark [data-nextra-main],
+.dark .nextra-content,
+.dark .nextra-container,
+.dark .nextra-body,
+.dark article {
+  background-color: #0b0e16 !important;
+}
+
+/* Target any wrapper divs that might have different backgrounds */
+/* Exclude buttons, links, and interactive elements */
+.dark div[class*="bg-"]:not(button):not(a):not([role="button"]),
+.dark div[class*="dark:bg-"]:not(button):not(a):not([role="button"]),
+.dark section:not(button):not(a),
+.dark .nextra-wrap:not(button):not(a) {
+  background-color: #0b0e16 !important;
+}
+
+/* Specifically target docs layout containers */
+.dark [class*="nextra"],
+.dark [class*="docs"],
+.dark .nx-container,
+.dark .nx-content {
+  background-color: #0b0e16 !important;
+}
+
+/* Override any Nextra theme backgrounds that might be inconsistent */
+.dark .nextra-sidebar,
+.dark .nextra-toc,
+.dark .nextra-nav-container-blur {
+  background-color: #0b0e16 !important;
+}
+
+/* Ensure consistent background for all page content */
+.dark #__next,
+.dark #__next > div,
+.dark #__next > div > div {
+  background-color: #0b0e16 !important;
+}
+
+/* NAVBAR SIGN IN BUTTON - ENSURE BLUE COLOR */
+/* Ultra-specific targeting to override any dark mode background */
+.signin-button,
+html.dark .signin-button,
+html.dark nav .signin-button,
+html.dark header .signin-button,
+html.dark .nextra-nav-container .signin-button,
+html .signin-button,
+nav .signin-button,
+header .signin-button,
+.nextra-nav-container .signin-button,
+html.dark a[href="https://app.thepersuasionacademy.com"],
+html.dark nav a[href="https://app.thepersuasionacademy.com"],
+html.dark header a[href="https://app.thepersuasionacademy.com"],
+html.dark .nextra-nav-container a[href="https://app.thepersuasionacademy.com"],
+html a[href="https://app.thepersuasionacademy.com"],
+nav a[href="https://app.thepersuasionacademy.com"],
+header a[href="https://app.thepersuasionacademy.com"],
+.nextra-nav-container a[href="https://app.thepersuasionacademy.com"] {
+  background-color: #2960f6 !important;
+  background: #2960f6 !important;
+  color: white !important;
+  border: none !important;
+}
+
+/* Hover state for Sign In button */
+.signin-button:hover,
+html.dark .signin-button:hover,
+html.dark nav .signin-button:hover,
+html.dark header .signin-button:hover,
+html.dark .nextra-nav-container .signin-button:hover,
+html .signin-button:hover,
+nav .signin-button:hover,
+header .signin-button:hover,
+.nextra-nav-container .signin-button:hover,
+html.dark a[href="https://app.thepersuasionacademy.com"]:hover,
+html.dark nav a[href="https://app.thepersuasionacademy.com"]:hover,
+html.dark header a[href="https://app.thepersuasionacademy.com"]:hover,
+html.dark .nextra-nav-container a[href="https://app.thepersuasionacademy.com"]:hover,
+html a[href="https://app.thepersuasionacademy.com"]:hover,
+nav a[href="https://app.thepersuasionacademy.com"]:hover,
+header a[href="https://app.thepersuasionacademy.com"]:hover,
+.nextra-nav-container a[href="https://app.thepersuasionacademy.com"]:hover {
+  background-color: #2960f6 !important;
+  background: #2960f6 !important;
+  opacity: 0.9 !important;
+  color: white !important;
+}
 iframe[src*="embed"] video,
 iframe[src*="mediadelivery.net"] video {
   border: none !important;

@@ -225,8 +225,8 @@
 }
 
 .section-headline {
-  font-size: 3rem;
-  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-size: 3.5rem;
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
   font-weight: 600;
   line-height: 1.05;
   margin-bottom: 1rem;
@@ -240,8 +240,8 @@
 }
 
 .section-description {
-  font-size: 1.25rem;
-  line-height: 1.5;
+  font-size: 1.5rem;
+  line-height: 1.4;
   color: #86868b;
   margin-bottom: 2rem;
   max-width: 800px;
@@ -262,29 +262,44 @@
   margin-top: 2rem;
 }
 
+@media (max-width: 768px) {
+  .pioneers-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 /* Card treatment: tighter radius, hairline border, layered shadow on hover */
 .pioneer-card {
+  background: #fff;
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  display: grid;
+  grid-template-columns: clamp(140px, 22%, 200px) 1fr;
+  overflow: hidden;
+  text-align: left;
 }
 
 .dark .pioneer-card {
+  background: #0b0e16;
   border-color: rgba(255, 255, 255, 0.08);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
-.pioneer-card:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.06),
-    0 12px 28px rgba(0, 0, 0, 0.08);
-}
+@media (hover: hover) {
+  .pioneer-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.06),
+      0 12px 28px rgba(0, 0, 0, 0.08);
+  }
 
-.dark .pioneer-card:hover {
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.5),
-    0 16px 36px rgba(0, 0, 0, 0.6);
+  .dark .pioneer-card:hover {
+    box-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.5),
+      0 16px 36px rgba(0, 0, 0, 0.6);
+  }
 }
 
 /* IMAGE SECTION - LEFT SIDE */
@@ -479,8 +494,10 @@
   z-index: 1;
   border: 1px solid rgba(255,255,255,0.2);
 }
-.platform-video-full .video-placeholder:hover {
-  transform: translateY(-2px) scale(1.02);
+@media (hover: hover) {
+  .platform-video-full .video-placeholder:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
 }
 
 .video-title {
@@ -752,39 +769,146 @@
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
+  .content-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
   .hero-content {
-    padding: 2rem 0 1.5rem;
+    padding: 1.5rem 0 1rem;
   }
   
   .mastery-pill {
-    font-size: 0.8rem;
-    padding: 0.5rem 1.25rem;
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
     margin: 0 0 1rem;
   }
   
+  .hero-headline {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subheadline {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+  }
+  
+  .hero-video {
+    margin: 1.5rem auto 2rem;
+    max-width: 100%;
+  }
+  
+  .video-placeholder {
+    min-height: 200px;
+    padding: 1rem;
+  }
+  
+  .video-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .video-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  /* Section spacing */
+  .platform-section,
+  .pioneers-section,
+  .testimonials-section {
+    padding: 2rem 0;
+  }
+  
+  .section-headline {
+    font-size: 2.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .section-description {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Platform tabs mobile - 2x2 grid */
+  .platform-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .platform-nav button {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+  
+  /* Testimonials mobile */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+  
+  /* Pioneers mobile */
   .pioneers-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
   
   .pioneer-card {
-    padding: 2rem;
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
   
-  .pioneer-layout {
-    grid-template-columns: 80px 1fr;
-    gap: 1.5rem;
+  .pioneer-card * {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
   }
   
-  .pioneer-image {
-    width: 80px;
-    height: 80px;
-    font-size: 1.125rem;
+  .pioneer-image-section {
+    height: 500px;
+    margin-bottom: 0;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 9/16;
   }
   
-  .pioneer-info h3 {
+  .pioneer-content {
+    padding: 1.5rem;
+    border-radius: 0 0 16px 16px;
+  }
+  
+  .pioneer-bio {
+    text-align: left;
+  }
+  
+  .pioneer-name {
     font-size: 1.5rem;
   }
+  
+  .pioneer-title {
+    font-size: 0.9rem;
+  }
+  
+  .pioneer-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* Removed duplicate pioneer styles - handled above */
   
   .platform-nav {
     flex-wrap: wrap;
@@ -841,27 +965,31 @@
   display: block;
   filter: saturate(0.95) contrast(1.03);
 }
-.pioneer-card:hover .pioneer-photo {
-  filter: saturate(1) contrast(1.06);
+@media (hover: hover) {
+  .pioneer-card:hover .pioneer-photo {
+    filter: saturate(1) contrast(1.06);
+  }
 }
 
-/* Founders card layout fix */
-.pioneer-card {
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  display: grid;
-  grid-template-columns: clamp(140px, 22%, 200px) 1fr;
-  overflow: hidden;
-  text-align: left;
+/* Mobile photo constraints */
+@media (max-width: 768px) {
+  .pioneer-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    max-height: 500px;
+  }
 }
 
-.dark .pioneer-card {
-  background: #0b0e16;
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+@media (max-width: 640px) {
+  .pioneer-photo {
+    max-height: 450px;
+    object-position: center 10%;
+  }
 }
+
+/* Founders card layout fix - removed duplicate */
 
 /* Ensure image pane fills full card height */
 .pioneer-image-section {
@@ -878,11 +1006,159 @@
 .pioneer-content { padding: 2rem; }
 
 @media (max-width: 640px) {
-  .pioneer-card {
-    grid-template-columns: 1fr;
+  .content-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
+  
+  .hero-content {
+    padding: 1rem 0 0.75rem;
+  }
+  
+  .mastery-pill {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .hero-headline {
+    font-size: clamp(1.5rem, 9vw, 2rem);
+    line-height: 1.15;
+  }
+  
+  .hero-subheadline {
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+  
+  .pioneer-card {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .pioneer-card * {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
   .pioneer-image-section {
-    height: 180px; /* keep a strong visual while stacking */
+    height: 450px;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 9/16;
+  }
+  
+  .section-headline {
+    font-size: 2rem;
+  }
+  
+  .section-description {
+    font-size: 1.1rem;
+  }
+  
+  /* Platform video mobile */
+  .platform-video-full {
+    margin: 1.5rem 0;
+  }
+  
+  .platform-video-full .video-placeholder {
+    min-height: 180px;
+    padding: 1rem 0.75rem;
+  }
+  
+  .video-title {
+    font-size: 1rem;
+  }
+  
+  .video-subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+  .content-container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .hero-content {
+    padding: 0.75rem 0 0.5rem;
+  }
+  
+  .mastery-pill {
+    font-size: 0.65rem;
+    padding: 0.35rem 0.7rem;
+  }
+  
+  .hero-headline {
+    font-size: clamp(1.25rem, 10vw, 1.75rem);
+    margin-bottom: 0.75rem;
+  }
+  
+  .hero-subheadline {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .section-headline {
+    font-size: 1.75rem;
+  }
+  
+  .section-description {
+    font-size: 1rem;
+  }
+  
+  .platform-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .platform-nav button {
+    font-size: 0.8rem;
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+  }
+  
+  .pioneer-content {
+    padding: 1rem;
+  }
+  
+  .pioneer-name {
+    font-size: 1.25rem;
+  }
+  
+  .pioneer-title {
+    font-size: 0.8rem;
+  }
+  
+  .pioneer-description {
+    font-size: 0.85rem;
+  }
+  
+  .pioneer-bio {
+    text-align: left;
+  }
+  
+  .testimonial-card {
+    padding: 1rem;
+  }
+  
+  /* Platform video extra small mobile */
+  .platform-video-full {
+    margin: 1rem 0;
+  }
+  
+  .platform-video-full .video-placeholder {
+    min-height: 160px;
+    padding: 0.75rem 0.5rem;
   }
 }
 

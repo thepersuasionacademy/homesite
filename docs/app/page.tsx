@@ -3,6 +3,7 @@
 import { Link } from 'nextra-theme-docs'
 import type { FC } from 'react'
 import { useEffect } from 'react'
+import Script from 'next/script'
 import styles from './page.module.css'
 import './page.css'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -92,15 +93,15 @@ const IndexPage: FC = () => {
           <div className="hero-content">
             {/* MASTERY PLATFORM PILL */}
             <motion.div className="mastery-pill" variants={heroItem}>
-              The Leading Platform For Applied Persuasion Psychology
+              Pioneering The Future of Applied Influence
             </motion.div>
             
             <motion.h1 className="hero-headline" variants={heroItem}>
-              Master the Psychological Patterns of Authentic Influence
+              Turn The World's Most Powerful Psychological Frameworks Into Your Hidden Advantage
             </motion.h1>
             
             <motion.p className="hero-subheadline" variants={heroItem}>
-              Learn and apply the most powerful language, strategies, and frameworks for influencing yourself and others... with world-class training and AI tech
+              Mental models, language patterns and strategic frameworks for influencing yourself and others... with world-class training and AI tech
             </motion.p>
             
             {/* VIDEO */}
@@ -152,7 +153,7 @@ const IndexPage: FC = () => {
           <div className="pioneers-content">
             <motion.h2 className="section-headline" variants={cardVariants}>The Founders</motion.h2>
             <motion.p className="section-description" variants={cardVariants}>
-              Two visionaries whose influence reaches thousands worldwide, proving extraordinary impact comes from depth of mastery above all else.
+              Two visionaries turning psychology into real advantage in how you communicate, lead, and move through the world.
             </motion.p>
             
             <div className="pioneers-grid">
@@ -202,7 +203,7 @@ const IndexPage: FC = () => {
           <div className="platform-content">
             <motion.h2 className="section-headline" variants={cardVariants}>The Platform</motion.h2>
             <motion.p className="section-description" variants={cardVariants}>
-              Everything you need to master influence psychology, from live coaching to AI-powered practice tools.
+              Everything you need to instantly implement and master influence psychology, from live coaching to AI-powered technology.
             </motion.p>
             
             {/* CONNECTED PLATFORM MODAL */}
@@ -312,13 +313,13 @@ const IndexPage: FC = () => {
             <motion.div variants={cardVariants}>
               {/* Main Client Success - Light Mode */}
               <div className="light-mode-widget">
-                <script src="https://widget.senja.io/widget/12ebc602-357a-4524-9717-75526245fbdb/platform.js" type="text/javascript" async></script>
+                <Script key="senja-light-main" src="https://widget.senja.io/widget/12ebc602-357a-4524-9717-75526245fbdb/platform.js" strategy="lazyOnload" />
                 <div className="senja-embed" data-id="12ebc602-357a-4524-9717-75526245fbdb" data-mode="shadow" data-lazyload="false" style={{display: 'block', width: '100%'}}></div>
               </div>
               
               {/* Main Client Success - Dark Mode */}
               <div className="dark-mode-widget">
-                <script src="https://widget.senja.io/widget/94e4c445-34ee-4620-8cd4-47b896571db2/platform.js" type="text/javascript" async></script>
+                <Script key="senja-dark-main" src="https://widget.senja.io/widget/94e4c445-34ee-4620-8cd4-47b896571db2/platform.js" strategy="lazyOnload" />
                 <div className="senja-embed" data-id="94e4c445-34ee-4620-8cd4-47b896571db2" data-mode="shadow" data-lazyload="false" style={{display: 'block', width: '100%'}}></div>
               </div>
             </motion.div>
@@ -327,13 +328,13 @@ const IndexPage: FC = () => {
             <motion.div className="additional-testimonials" variants={cardVariants}>
               {/* Dark Mode Widget */}
               <div className="dark-mode-widget">
-                <script src="https://widget.senja.io/widget/3c7d117e-b080-4575-abab-b8a4895a4377/platform.js" type="text/javascript" async></script>
+                <Script key="senja-dark-additional" src="https://widget.senja.io/widget/3c7d117e-b080-4575-abab-b8a4895a4377/platform.js" strategy="lazyOnload" />
                 <div className="senja-embed" data-id="3c7d117e-b080-4575-abab-b8a4895a4377" data-mode="shadow" data-lazyload="false" style={{display: 'block', width: '100%'}}></div>
               </div>
               
               {/* Light Mode Widget */}
               <div className="light-mode-widget">
-                <script src="https://widget.senja.io/widget/c19957c0-25d0-4d66-83f6-e861ab195cc1/platform.js" type="text/javascript" async></script>
+                <Script key="senja-light-additional" src="https://widget.senja.io/widget/c19957c0-25d0-4d66-83f6-e861ab195cc1/platform.js" strategy="lazyOnload" />
                 <div className="senja-embed" data-id="c19957c0-25d0-4d66-83f6-e861ab195cc1" data-mode="shadow" data-lazyload="false" style={{display: 'block', width: '100%'}}></div>
               </div>
             </motion.div>

@@ -280,13 +280,13 @@ export default function StorePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
         <div className="bg-white dark:bg-[#17171a] rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
           {/* Featured Offer Banner - Inside Card */}
-          <div className="bg-black py-4">
-            <div className="text-center">
-              <div className="inline-flex items-center space-x-3">
-                <span className="bg-white text-black px-3 py-1 rounded font-bold text-sm tracking-wide">
+          <div className="bg-black py-3 sm:py-4">
+            <div className="text-center px-2">
+              <div className="flex flex-col sm:inline-flex sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3">
+                <span className="bg-white text-black px-2 sm:px-3 py-1 rounded font-bold text-xs sm:text-sm tracking-wide">
                   FEATURED OFFER
                 </span>
-                <span className="text-white font-medium text-lg">
+                <span className="text-white font-medium text-base sm:text-lg text-center">
                   All-Access Season Pass Available Now
                 </span>
               </div>
@@ -295,94 +295,109 @@ export default function StorePage() {
           
           <div className="flex flex-col lg:flex-row">
             {/* Photo Section */}
-            <div className="lg:w-80 h-64 lg:h-auto relative overflow-hidden">
+            <div className="w-full lg:w-80 h-48 sm:h-64 lg:h-auto relative overflow-hidden">
               <img 
                 src="https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_In_a_longshot_perspective_a_silhouette_of_a_busin_cad1314c-ce1a-4c58-a72a-b05e0f62411a_0.jpeg"
                 alt="Business person holding red ticket above architectural blueprints - symbolizing transformation through The Persuasion Academy Season Pass"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
             </div>
             
             {/* Content Section */}
-            <div className="flex-1 p-8">
+            <div className="flex-1 p-4 sm:p-6 lg:p-8">
               
-              <h2 className="text-3xl font-bold text-[#0b0e16] dark:text-[#f5f5f7] mb-4">
+              <h2 className="text-3xl sm:text-3xl font-bold text-[#0b0e16] dark:text-[#f5f5f7] mb-3 sm:mb-4">
                 All-Access Season Pass
               </h2>
               
-              <p className="text-lg text-[#0b0e16] dark:text-[#f5f5f7] font-semibold mb-2">
+              <p className="text-lg sm:text-lg text-[#0b0e16] dark:text-[#f5f5f7] font-semibold mb-2">
                 Your annual membership to everything we create.
               </p>
               
-              <p className="text-[#86868b] dark:text-[#a1a1a6] mb-6 leading-relaxed">
+              <p className="text-lg sm:text-base text-[#86868b] dark:text-[#a1a1a6] mb-4 sm:mb-6 leading-relaxed">
                 Get immediate access to our entire program library, keep all base programs forever, 
                 and automatically receive every new program we launch during your 12-month membership period.
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 {/* Standard Option */}
-                <div className="border border-gray-200 dark:border-gray-600 rounded-lg p-4 h-full flex flex-col">
-                  <h3 className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] mb-3 h-6">Standard</h3>
+                <div className="border border-gray-200 dark:border-gray-600 rounded-lg p-3 sm:p-4 h-full flex flex-col transform hover:scale-[1.02] transition-all duration-200"
+                     style={{
+                       boxShadow: `
+                         0 8px 25px rgba(0, 0, 0, 0.1),
+                         0 3px 10px rgba(0, 0, 0, 0.08),
+                         inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                       `
+                     }}>
+                  <h3 className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] mb-2 sm:mb-3 text-lg sm:text-lg">Standard</h3>
                   <div className="mb-2">
-                    <div className="text-2xl font-bold text-[#0b0e16] dark:text-[#f5f5f7]">$3,000</div>
-                    <div className="text-sm text-[#86868b] dark:text-[#a1a1a6]">per year</div>
+                    <div className="text-2xl sm:text-2xl font-bold text-[#0b0e16] dark:text-[#f5f5f7]">$3,000</div>
+                    <div className="text-sm sm:text-sm text-[#86868b] dark:text-[#a1a1a6]">per year</div>
                   </div>
                   
                   {/* Horizontal Divider */}
                   <div className="flex items-center my-1">
                     <div className="flex-1 border-t border-gray-200 dark:border-gray-600"></div>
-                    <span className="px-3 text-base font-medium text-[#86868b] dark:text-[#a1a1a6]">OR</span>
+                    <span className="px-3 sm:px-3 text-base sm:text-base font-medium text-[#86868b] dark:text-[#a1a1a6]">OR</span>
                     <div className="flex-1 border-t border-gray-200 dark:border-gray-600"></div>
                   </div>
                   
-                  <div className="mb-6 flex-1">
-                    <div className="text-xl font-semibold text-[#0b0e16] dark:text-[#f5f5f7]">$300/month</div>
-                    <div className="text-sm text-[#86868b] dark:text-[#a1a1a6]">Monthly billing</div>
-                    <div className="mt-3 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700">
-                      <div className="text-sm text-gray-600 dark:text-gray-400">
+                  <div className="mb-4 sm:mb-6 flex-1">
+                    <div className="text-xl sm:text-xl font-semibold text-[#0b0e16] dark:text-[#f5f5f7]">$300/month</div>
+                    <div className="text-sm sm:text-sm text-[#86868b] dark:text-[#a1a1a6]">Monthly billing</div>
+                    <div className="mt-2 sm:mt-3 p-3 sm:p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-200 dark:border-gray-700">
+                      <div className="text-base sm:text-sm text-gray-600 dark:text-gray-400">
                         Complete access to live programs and the entire Academy platform
                       </div>
                     </div>
                   </div>
-                  <button className="w-full bg-[#0b0e16] dark:bg-[#f5f5f7] text-white dark:text-[#0b0e16] py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity mt-auto">
+                  <button className="w-full bg-[#0b0e16] dark:bg-[#f5f5f7] text-white dark:text-[#0b0e16] py-3 sm:py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity mt-auto text-base sm:text-base">
                     See Full Offer →
                   </button>
                 </div>
                 
                 {/* VIP Option */}
-                <div className="border-2 border-blue-500 rounded-lg p-4 h-full flex flex-col relative">
-                  <div className="absolute -top-3 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <div className="border-2 border-blue-500 rounded-lg p-3 sm:p-4 h-full flex flex-col relative transform hover:scale-[1.02] transition-all duration-200"
+                     style={{
+                       boxShadow: `
+                         0 10px 30px rgba(59, 130, 246, 0.15),
+                         0 4px 12px rgba(59, 130, 246, 0.1),
+                         0 8px 25px rgba(0, 0, 0, 0.1),
+                         inset 0 1px 0 rgba(255, 255, 255, 0.15)
+                       `
+                     }}>
+                  <div className="absolute -top-2 sm:-top-3 left-3 sm:left-4 bg-blue-500 text-white px-2 sm:px-3 py-1 rounded-full text-xs font-bold">
                     VIP SUPPORT
                   </div>
-                  <h3 className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] mb-3 h-6">VIP Support</h3>
+                  <h3 className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] mb-2 sm:mb-3 text-lg sm:text-lg">VIP Support</h3>
                   <div className="mb-2">
-                    <div className="text-2xl font-bold text-[#0b0e16] dark:text-[#f5f5f7]">$5,000</div>
-                    <div className="text-sm text-[#86868b] dark:text-[#a1a1a6]">per year</div>
+                    <div className="text-2xl sm:text-2xl font-bold text-[#0b0e16] dark:text-[#f5f5f7]">$5,000</div>
+                    <div className="text-sm sm:text-sm text-[#86868b] dark:text-[#a1a1a6]">per year</div>
                   </div>
                   
                   {/* Horizontal Divider */}
                   <div className="flex items-center my-1">
                     <div className="flex-1 border-t border-gray-200 dark:border-gray-600"></div>
-                    <span className="px-3 text-base font-medium text-[#86868b] dark:text-[#a1a1a6]">OR</span>
+                    <span className="px-3 sm:px-3 text-base sm:text-base font-medium text-[#86868b] dark:text-[#a1a1a6]">OR</span>
                     <div className="flex-1 border-t border-gray-200 dark:border-gray-600"></div>
                   </div>
                   
-                  <div className="mb-6 flex-1">
-                    <div className="text-xl font-semibold text-[#0b0e16] dark:text-[#f5f5f7]">$500/month</div>
-                    <div className="text-sm text-[#86868b] dark:text-[#a1a1a6]">Monthly billing</div>
-                    <div className="mt-3 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
-                      <div className="text-sm font-medium text-blue-800 dark:text-blue-200">
+                  <div className="mb-4 sm:mb-6 flex-1">
+                    <div className="text-xl sm:text-xl font-semibold text-[#0b0e16] dark:text-[#f5f5f7]">$500/month</div>
+                    <div className="text-sm sm:text-sm text-[#86868b] dark:text-[#a1a1a6]">Monthly billing</div>
+                    <div className="mt-2 sm:mt-3 p-3 sm:p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">
+                      <div className="text-base sm:text-sm font-medium text-blue-800 dark:text-blue-200">
                         + Unlimited private 20-minute lightning sessions with Kenrick Cleveland
                       </div>
                     </div>
                   </div>
-                  <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-auto">
+                  <button className="w-full bg-blue-600 text-white py-3 sm:py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-auto text-base sm:text-base">
                     See Full Offer →
                   </button>
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-base sm:text-sm">
                 <div className="flex items-center gap-2">
                   <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -451,7 +466,7 @@ export default function StorePage() {
               className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-200 ${
                 selectedCategory === category
                   ? 'bg-blue-600 text-white shadow-lg shadow-blue-600/25 transform scale-105'
-                  : 'bg-white dark:bg-[#17171a] text-[#86868b] dark:text-[#a1a1a6] border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:shadow-md'
+                  : 'bg-[#ffffff] dark:bg-[#2a2a2e] text-[#333333] dark:text-[#d1d1d6] border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:shadow-md hover:bg-[#ffffff] hover:shadow-lg dark:hover:bg-[#3a3a3e]'
               }`}
             >
               {category}
@@ -663,12 +678,23 @@ export default function StorePage() {
                 <div className="mt-6">
                   <a 
                     href="#" 
-                    className="block w-full bg-[#0b0e16] border border-white/20 rounded-lg hover:opacity-90 transition-all duration-200"
+                    className="block w-full bg-gradient-to-b from-[#1a1d26] to-[#0b0e16] border border-white/10 rounded-lg hover:opacity-90 transition-all duration-200 transform hover:scale-[1.01] relative overflow-hidden"
+                    style={{
+                      boxShadow: `
+                        0 6px 20px rgba(0, 0, 0, 0.35),
+                        0 2px 6px rgba(0, 0, 0, 0.25),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                        inset 0 -1px 0 rgba(0, 0, 0, 0.18)
+                      `
+                    }}
                   >
-                    <div className="p-5">
+                    <div className="p-5 relative">
+                      {/* Subtle inner glow effect */}
+                      <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent rounded-lg pointer-events-none"></div>
+                      
                       {/* Price prominently displayed */}
-                      <div className="text-center mb-3">
-                        <div className="text-3xl font-bold text-white mb-1">
+                      <div className="text-center mb-3 relative">
+                        <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">
                           ${product.price}
                         </div>
                         <div className="text-white/80 text-sm">
@@ -677,7 +703,7 @@ export default function StorePage() {
                       </div>
                       
                       {/* CTA Button */}
-                      <div className="flex items-center justify-center gap-2 py-3 px-4 bg-white dark:bg-blue-600 rounded-lg text-[#0b0e16] dark:text-white font-medium hover:opacity-90 transition-all duration-200">
+                      <div className="flex items-center justify-center gap-2 py-3 px-4 bg-white dark:bg-blue-600 rounded-lg text-[#0b0e16] dark:text-white font-medium hover:opacity-90 transition-all duration-200 relative shadow-lg hover:shadow-xl transform hover:translate-y-[-1px]">
                         See Full Offer
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

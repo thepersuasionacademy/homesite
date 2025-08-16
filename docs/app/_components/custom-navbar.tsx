@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 export const CustomNavbar = () => {
   const [isDark, setIsDark] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -57,52 +58,46 @@ export const CustomNavbar = () => {
               src="https://thepersuasionacademycdn.b-cdn.net/Images/The%20TPA%20Logo%20New%20Black.png" 
               alt="The Persuasion Academy"
               height="32"
-              className="h-8 dark:hidden"
+              className="h-6 sm:h-8 dark:hidden"
             />
             {/* Dark mode logo */}
             <img 
               src="https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png" 
               alt="The Persuasion Academy"
               height="32"
-              className="h-8 hidden dark:block"
+              className="h-6 sm:h-8 hidden dark:block"
             />
           </Link>
         </div>
 
-        {/* Centered Navigation Items */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-6">
-          {/* Home */}
+        {/* Desktop Navigation Items - Hidden on Mobile */}
+        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-6">
           <Link href="/" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
             Home
           </Link>
-
-          {/* Store */}
           <Link href="/store" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
             Store
           </Link>
-
-          {/* Services */}
           <Link href="/services" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
             Services
           </Link>
-
-          {/* Docs */}
           <Link href="/docs" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
             Docs
           </Link>
         </div>
 
         {/* Right Side Items */}
-        <div className="flex items-center gap-4">
-          {/* Sign In */}
+        <div className="flex items-center gap-2 sm:gap-4">
+          {/* Sign In - Hidden text on mobile */}
           <Link 
             href="https://app.thepersuasionacademy.com" 
-            className="text-white px-4 py-2 rounded-md text-sm font-medium transition-colors no-underline hover:opacity-90"
-            style={{ backgroundColor: '#2960f6' }}
+            className="signin-button text-white px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors no-underline hover:opacity-90"
+            style={{ backgroundColor: '#2960f6', background: '#2960f6' }}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Sign In
+            <span className="hidden sm:inline">Sign In</span>
+            <span className="sm:hidden">Sign In</span>
           </Link>
 
           {/* Dark Mode Toggle */}
@@ -111,7 +106,7 @@ export const CustomNavbar = () => {
             onClick={toggleDarkMode}
             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            <svg className="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 sm:w-5 h-4 sm:h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path 
                 className={isDark ? 'hidden' : 'block'} 
                 strokeLinecap="round" 
@@ -128,8 +123,68 @@ export const CustomNavbar = () => {
               />
             </svg>
           </button>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden flex items-center justify-center w-8 h-8 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            <svg className="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path 
+                className={isMobileMenuOpen ? 'hidden' : 'block'} 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M4 6h16M4 12h16M4 18h16" 
+              />
+              <path 
+                className={isMobileMenuOpen ? 'block' : 'hidden'} 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2} 
+                d="M6 18L18 6M6 6l12 12" 
+              />
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-[#0b0e16] border-t border-gray-200 dark:border-gray-700 shadow-lg">
+          <div className="px-4 py-2 space-y-1">
+            <Link 
+              href="/" 
+              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md no-underline text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link 
+              href="/store" 
+              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md no-underline text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Store
+            </Link>
+            <Link 
+              href="/services" 
+              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md no-underline text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Services
+            </Link>
+            <Link 
+              href="/docs" 
+              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md no-underline text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Docs
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
   )
 } 
