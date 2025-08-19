@@ -2,49 +2,27 @@
 
 import { NextraLogo } from '@components/icons'
 import cn from 'clsx'
-import { Link } from 'nextra-theme-docs'
+import { Link, useTheme } from 'nextra-theme-docs'
 import { useEffect, useState } from 'react'
 
 export const CustomNavbar = () => {
-  const [isDark, setIsDark] = useState(false)
+  const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     setMounted(true)
-    
-    // Check current theme from document class
-    const checkTheme = () => {
-      setIsDark(document.documentElement.classList.contains('dark'))
-    }
-    
-    checkTheme()
-    
-    // Watch for changes to the dark class
-    const observer = new MutationObserver(checkTheme)
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class']
-    })
-    
-    return () => observer.disconnect()
   }, [])
 
   const toggleDarkMode = () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-      setIsDark(false)
-    } else {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-      setIsDark(true)
-    }
+    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
   }
 
   if (!mounted) {
     return null
   }
+
+  const isDark = resolvedTheme === 'dark'
 
   return (
     <nav className="nextra-nav-container sticky top-0 z-20 w-full bg-transparent print:hidden">

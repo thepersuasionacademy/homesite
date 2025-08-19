@@ -128,21 +128,7 @@ const RootLayout: FC<{
   const pageMap = await getEnhancedPageMap()
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
-      <Head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const theme = localStorage.getItem('theme')
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-                if (theme === 'dark' || (!theme && prefersDark)) {
-                  document.documentElement.classList.add('dark')
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
-      </Head>
+      <Head />
       <body>
         <Layout
           banner={banner}
