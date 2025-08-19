@@ -493,7 +493,7 @@ const RenegadePersuadersPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               
               {/* Monthly Option */}
-              <a href="https://pay.thepersuasionacademy.com/b/eVqfZg1Sp7E81JE05ZcAo0a" className="rounded-xl p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between" style={{ backgroundColor: 'rgba(30, 41, 59, 0.5)', borderColor: 'rgba(71, 85, 105, 0.5)', borderWidth: '1px' }} onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(51, 65, 85, 0.5)'} onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(30, 41, 59, 0.5)'}>
+              <a href="https://pay.thepersuasionacademy.com/b/eVqfZg1Sp7E81JE05ZcAo0a" className="rounded-xl p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between" style={{ backgroundColor: 'rgba(30, 41, 59, 0.5)', borderColor: 'rgba(71, 85, 105, 0.5)', borderWidth: '1px' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(51, 65, 85, 0.5)'} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(30, 41, 59, 0.5)'}>
                 <div>
                   <div className="text-lg font-bold text-white">ONE PER MONTH</div>
                 </div>
@@ -504,7 +504,7 @@ const RenegadePersuadersPage = () => {
               </a>
 
               {/* One-Time Option */}
-              <a href="https://pay.thepersuasionacademy.com/b/bJe4gydB7bUogEy7yrcAo09" className="rounded-xl p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between" style={{ backgroundColor: 'rgba(30, 41, 59, 0.5)', borderColor: '#ffffff', borderWidth: '2px' }} onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(51, 65, 85, 0.5)'} onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(30, 41, 59, 0.5)'}>
+              <a href="https://pay.thepersuasionacademy.com/b/bJe4gydB7bUogEy7yrcAo09" className="rounded-xl p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between" style={{ backgroundColor: 'rgba(30, 41, 59, 0.5)', borderColor: '#ffffff', borderWidth: '2px' }} onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(51, 65, 85, 0.5)'} onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(30, 41, 59, 0.5)'}>
                 <div>
                   <div className="text-lg font-bold text-white">FULL ACCESS</div>
                 </div>
