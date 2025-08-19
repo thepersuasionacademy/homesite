@@ -72,7 +72,11 @@ const RenegadePersuadersPage = () => {
   }, [expandedEditions])
 
   // Edition data with curiosity bullets
-  const editions = {
+  const editions: Record<number, {
+    title: string;
+    image: string;
+    bullets: string[];
+  }> = {
     1: {
       title: "The Foundation of Invisible Authority",
       image: "https://thepersuasionacademycdn.b-cdn.net/Images/RP%20Product%20Covers/RP%201.jpg",
