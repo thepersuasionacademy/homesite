@@ -381,7 +381,11 @@ const RenegadePersuadersPage = () => {
                 willChange: 'height'
               }}
             >
-              {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+              {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => {
+                const edition = editions[num];
+                if (!edition) return null;
+                
+                return (
                 <div
                   key={num}
                   className="rounded-2xl shadow-xl overflow-hidden transition-all duration-500 ease-out"
@@ -390,8 +394,8 @@ const RenegadePersuadersPage = () => {
                   {/* Photo Section */}
                   <div className="relative overflow-hidden" style={{ aspectRatio: '760/420', background: 'linear-gradient(to bottom right, #1e293b, #334155, #0f172a)' }}>
                     <img 
-                      src={editions[num].image} 
-                      alt={`Renegade Persuaders Edition ${num}: ${editions[num].title}`}
+                      src={edition.image} 
+                      alt={`Renegade Persuaders Edition ${num}: ${edition.title}`}
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -403,7 +407,7 @@ const RenegadePersuadersPage = () => {
                         Edition {num}
                       </h3>
                       <p className="text-base font-normal" style={{ color: '#374151' }}>
-                        {editions[num].title}
+                        {edition.title}
                       </p>
                     </div>
                     
@@ -460,7 +464,7 @@ const RenegadePersuadersPage = () => {
                             >
                               <div className="px-3 pb-3">
                                 <div className="space-y-2">
-                                  {editions[num].bullets.map((bullet, index) => (
+                                  {edition.bullets.map((bullet, index) => (
                                     <div key={index} className="flex items-start gap-2">
                                       <span className="text-base" style={{ color: '#4b5563' }}>•</span>
                                       <span className="text-sm leading-relaxed" style={{ color: '#374151' }}>{bullet}</span>
@@ -477,7 +481,8 @@ const RenegadePersuadersPage = () => {
 
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
