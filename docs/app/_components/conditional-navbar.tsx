@@ -9,6 +9,11 @@ import { CustomNavbar } from './custom-navbar'
 export const ConditionalNavbar = () => {
   const pathname = usePathname()
   
-  // Use custom navbar for all pages
+  // Hide navbar on /offers pages
+  if (pathname.startsWith('/offers')) {
+    return null
+  }
+  
+  // Use custom navbar for all other pages
   return <CustomNavbar />
 } 
