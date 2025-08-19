@@ -136,6 +136,13 @@ const RootLayout: FC<{
           pageMap={pageMap}
           docsRepositoryBase="https://github.com/shuding/nextra/tree/main/docs"
           editLink={false}
+          darkMode={false}
+          nextThemes={{
+            attribute: 'class',
+            defaultTheme: 'system',
+            disableTransitionOnChange: true,
+            storageKey: 'theme'
+          }}
           sidebar={{
             defaultMenuCollapseLevel: 1,
             autoCollapse: false,

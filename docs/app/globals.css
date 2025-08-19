@@ -48,27 +48,7 @@ code.text-\[\.9em\] {
   }
 }
 
-/* Hide only the theme switcher area in footer wrapper - be more specific */
-div[class*="x:bg-gray-100"] > div:first-child:has(div[class*="x:gap-2"]) {
-  display: none !important;
-}
-
-/* Additional specific targeting for theme switchers */
-div[class*="x:bg-gray-100"] > div[class*="x:mx-auto"]:has(div[class*="x:gap-2"]) {
-  display: none !important;
-}
-
-/* Target theme switch and locale switch specifically */
-[title="Change theme"],
-[class*="theme-switch"],
-[class*="locale-switch"] {
-  display: none !important;
-}
-
-/* Hide the horizontal rule between switchers and footer content */
-div[class*="x:bg-gray-100"] > hr {
-  display: none !important;
-}
+/* Theme switchers are now disabled via darkMode={false} in Layout */
 
 /* COMPREHENSIVE Footer background overrides - targeting all possible footer elements */
 footer,
@@ -179,7 +159,7 @@ html.dark,
 html.dark body,
 .dark,
 .dark body {
-  background-color: #0b0e16 !important;
+  background-color: #0b0e16;
 }
 
 /* Target Nextra's main content areas */
@@ -189,7 +169,7 @@ html.dark body,
 .dark .nextra-container,
 .dark .nextra-body,
 .dark article {
-  background-color: #0b0e16 !important;
+  background-color: #0b0e16;
 }
 
 /* Target any wrapper divs that might have different backgrounds */
@@ -198,7 +178,7 @@ html.dark body,
 .dark div[class*="dark:bg-"]:not(button):not(a):not([role="button"]),
 .dark section:not(button):not(a),
 .dark .nextra-wrap:not(button):not(a) {
-  background-color: #0b0e16 !important;
+  background-color: #0b0e16;
 }
 
 /* Specifically target docs layout containers */
@@ -206,21 +186,21 @@ html.dark body,
 .dark [class*="docs"],
 .dark .nx-container,
 .dark .nx-content {
-  background-color: #0b0e16 !important;
+  background-color: #0b0e16;
 }
 
 /* Override any Nextra theme backgrounds that might be inconsistent */
 .dark .nextra-sidebar,
 .dark .nextra-toc,
 .dark .nextra-nav-container-blur {
-  background-color: #0b0e16 !important;
+  background-color: #0b0e16;
 }
 
 /* Ensure consistent background for all page content */
 .dark #__next,
 .dark #__next > div,
 .dark #__next > div > div {
-  background-color: #0b0e16 !important;
+  background-color: #0b0e16;
 }
 
 /* NAVBAR SIGN IN BUTTON - ENSURE BLUE COLOR */
