@@ -10,29 +10,35 @@ import { MobileDocsNav } from './_components/mobile-docs-nav'
 import './globals.css'
 
 export const metadata: Metadata = {
-  description: 'Make beautiful websites with Next.js & MDX.',
-  metadataBase: new URL('https://nextra.site'),
+  description: 'Turn the world\'s most powerful psychological frameworks into your hidden advantage. Master ethical influence, persuasion, and charisma through world-class training.',
+  metadataBase: new URL('https://thepersuasionacademy.com'),
+  icons: {
+    icon: 'https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png',
+    shortcut: 'https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png',
+    apple: 'https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png',
+  },
   keywords: [
-    'Nextra',
-    'Next.js',
-    'React',
-    'JavaScript',
-    'MDX',
-    'Markdown',
-    'Static Site Generator'
+    'persuasion',
+    'influence',
+    'charisma',
+    'psychological frameworks',
+    'communication',
+    'leadership',
+    'renegade persuaders',
+    'dreamstate selling'
   ],
   generator: 'Next.js',
-  applicationName: 'Nextra',
+  applicationName: 'The Persuasion Academy',
   appleWebApp: {
-    title: 'Nextra'
+    title: 'The Persuasion Academy'
   },
   title: {
-    default: 'Nextra – Next.js Static Site Generator',
-    template: '%s | Nextra'
+    default: 'Home - The Persuasion Academy',
+    template: '%s'
   },
   openGraph: {
     url: './',
-    siteName: 'Nextra',
+    siteName: 'The Persuasion Academy',
     locale: 'en_US',
     type: 'website'
   },
@@ -40,7 +46,7 @@ export const metadata: Metadata = {
     'msapplication-TileColor': '#fff'
   },
   twitter: {
-    site: 'https://nextra.site'
+    site: 'https://thepersuasionacademy.com'
   },
   alternates: {
     canonical: './'

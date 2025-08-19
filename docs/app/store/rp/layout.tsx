@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'You Move Through The World With Invisible Authority - Renegade Persuaders',
-  description: 'Transform how you show up in the world. While others push and force, you create space and lead by presence. The complete system for developing invisible authority and natural influence through depth, clarity, and quiet mastery.',
+  title: 'Renegade Persuaders: The Master Collection - The Persuasion Academy',
+  description: 'Where influence becomes instinct from the inside out. 20 deep dives into the art of invisible authority. Master ethical persuasion through authentic connection and natural charisma.',
   keywords: 'invisible authority, natural influence, presence mastery, Kenrick Cleveland, renegade persuaders, quiet leadership, authentic influence, personal transformation, way of being',
   openGraph: {
     title: 'You Move Through The World With Invisible Authority',
