@@ -436,8 +436,8 @@ const RenegadePersuadersPage = () => {
                           }}
                           className="w-full flex items-center justify-between p-3 text-left transition-colors"
                           style={{ backgroundColor: 'transparent' }}
-                          onMouseEnter={(e) => e.target.style.backgroundColor = '#f3f4f6'}
-                          onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                          onMouseEnter={(e) => (e.currentTarget as HTMLElement).style.backgroundColor = '#f3f4f6'}
+                          onMouseLeave={(e) => (e.currentTarget as HTMLElement).style.backgroundColor = 'transparent'}
                         >
                           <span className="font-medium" style={{ color: '#000000' }}>What You'll Discover</span>
                           <svg
