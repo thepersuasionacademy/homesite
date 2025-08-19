@@ -2,152 +2,152 @@
 
 import { useState, useEffect, useRef } from 'react'
 
-// Mock data for digital products
-const digitalProducts = [
-  {
-    id: 1,
-    name: 'DreamState Selling Secrets',
-    subtitle: 'Digital Book Bundle',
-    description: 'Discover the foundational secrets of DreamState Selling through this comprehensive digital book collection.',
-    price: 27.00,
-    category: 'Sales Mastery',
-    featured: true,
-    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_A_solitary_man_figure_standing_in_the_center_of_a_75b42954-7f2c-4f55-8507-580d92a413ab_3.jpeg',
+  // Mock data for digital products
+  const digitalProducts = [
+    {
+      id: 1,
+      name: 'DreamState Selling Secrets',
+      subtitle: 'Digital Book Bundle',
+      description: 'Discover the foundational secrets of DreamState Selling through this comprehensive digital book collection.',
+      price: null,
+      category: 'Sales Mastery',
+      featured: false,
+      image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_A_solitary_man_figure_standing_in_the_center_of_a_75b42954-7f2c-4f55-8507-580d92a413ab_3.jpeg',
+      curiosityBullets: [
+        'What hidden triggers activate instant buying decisions?',
+        'How to bypass conscious resistance completely?',
+        'Why some words create irresistible compulsion?',
+        'The secret pattern that guarantees compliance?'
+      ],
+      howYouImprove: [
+        'Master psychological triggers step-by-step',
+        'Practice with real-world scenarios',
+        'Build confidence through repetition',
+        'Develop your natural persuasion style'
+      ],
+      whatYouBecome: [
+        'A master of subconscious influence',
+        'Someone who ethically persuades with ease',
+        'A person others naturally follow',
+        'Confident in any selling situation'
+      ]
+    },
+    {
+      id: 2,
+      name: 'DreamState Selling',
+      subtitle: 'Digital Training Bundle',
+      description: 'Complete video training series on mastering the DreamState Selling methodology.',
+      price: null,
+      category: 'Sales Mastery',
+      featured: false,
+      image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_Ultra-minimal_golden_crown_hovering_above_a_castl_051811cc-298b-480e-adbf-b59297dbf7e9_0%20(1).jpeg',
+      curiosityBullets: [
+        'Which psychological layer controls all purchasing decisions?',
+        'How to implant desires that feel completely natural?',
+        'The 3-step sequence that eliminates all objections?',
+        'Why traditional sales training actually repels buyers?'
+      ],
+      howYouImprove: [
+        'Apply frameworks in real selling situations',
+        'Overcome objections with psychological precision',
+        'Close deals without pressure or manipulation',
+        'Build unshakeable selling confidence'
+      ],
+      whatYouBecome: [
+        'A DreamState Selling expert',
+        'Someone who closes without pressure',
+        'A trusted advisor, not a salesperson',
+        'Unstoppable in any market'
+      ]
+    },
+    {
+      id: 3,
+      name: '"Catalysts" Sprint',
+      description: 'Intensive sprint program focused on the catalyst techniques that accelerate persuasion and influence.',
+      price: null,
+      category: 'Featured',
+      featured: false,
+      image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_echo_shockwaves_sound_inside_mind_alex_grey_style_99af80a7-498e-4f14-b745-1dd19083fdf1_0%20(1).jpeg',
+      curiosityBullets: [
+        'What makes someone say "yes" before they know why?',
+        'The catalyst that turns skeptics into evangelists?',
+        'How to create urgency without being pushy?',
+        'Which single word doubles closing rates?'
+      ],
+      howYouImprove: [
+        'Accelerate your influence through daily practice',
+        'Master catalyst techniques in weeks not years',
+        'Get real-time feedback on your approach',
+        'Connect with other high-performers'
+      ],
+      whatYouBecome: [
+        'A catalyst for instant decisions',
+        'Someone who accelerates sales cycles',
+        'A master of ethical urgency',
+        'Irresistible in your influence'
+      ]
+    },
+    {
+      id: 4,
+      name: 'Complete Info-Field Shifting System',
+      description: 'Master the art of shifting information fields to transform your internal state and external reality.',
+      price: null,
+      category: 'Self Mastery',
+      featured: false,
+      image: 'https://thepersuasionacademycdn.b-cdn.net/Images/tmp048e8gj8.webp',
+      curiosityBullets: [
+        'How to reprogram your subconscious in minutes?',
+        'What information fields control your reality?',
+        'The shifting technique that eliminates limiting beliefs?',
+        'Why visualization alone keeps you stuck?'
+      ],
+      howYouImprove: [
+        'Shift limiting beliefs in real-time',
+        'Access higher states of consciousness',
+        'Restructure your reality at the source',
+        'Master advanced mental techniques'
+      ],
+      whatYouBecome: [
+        'Master of your internal reality',
+        'Someone who shifts states instantly',
+        'Free from limiting beliefs',
+        'Creator of your desired outcomes'
+      ]
+    },
+    {
+      id: 5,
+      name: 'Renegade Persuaders: The Master Collection',
+      description: 'Where influence becomes instinct from the inside out. 20 deep dives into the art of invisible authority.',
+      price: null,
+      category: 'Renegade Persuaders',
+      featured: true,
+      image: 'https://thepersuasionacademycdn.b-cdn.net/Images/RP%20Product%20Covers/RP%20Master%20Collection%20Cover.jpg',
     curiosityBullets: [
-      'What hidden triggers activate instant buying decisions?',
-      'How to bypass conscious resistance completely?',
-      'Why some words create irresistible compulsion?',
-      'The secret pattern that guarantees compliance?'
+      'What patterns govern all human decision-making?',
+      'How does authentic authority develop from within?',
+      'Why do some people naturally command respect and attention?',
+      'What makes certain people impossible to resist or ignore?'
     ],
     howYouImprove: [
-      'Master psychological triggers step-by-step',
-      'Practice with real-world scenarios',
-      'Build confidence through repetition',
-      'Develop your natural persuasion style'
+      'Develop deep pattern recognition across all human interactions',
+      'Build genuine confidence that radiates from your core identity',
+      'Master the art of stepping into others\' reality completely',
+      'Cultivate authentic presence that naturally draws people in'
     ],
     whatYouBecome: [
-      'A master of subconscious influence',
-      'Someone who ethically persuades with ease',
-      'A person others naturally follow',
-      'Confident in any selling situation'
+      'Someone who commands influence differently than most',
+      'A master of invisible authority',
+      'Naturally charismatic without trying',
+      'Ethically persuasive in any situation'
     ]
   },
-  {
-    id: 2,
-    name: 'DreamState Selling',
-    subtitle: 'Digital Training Bundle',
-    description: 'Complete video training series on mastering the DreamState Selling methodology.',
-    price: 997.00,
-    category: 'Sales Mastery',
-    featured: true,
-    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_Ultra-minimal_golden_crown_hovering_above_a_castl_051811cc-298b-480e-adbf-b59297dbf7e9_0%20(1).jpeg',
-    curiosityBullets: [
-      'Which psychological layer controls all purchasing decisions?',
-      'How to implant desires that feel completely natural?',
-      'The 3-step sequence that eliminates all objections?',
-      'Why traditional sales training actually repels buyers?'
-    ],
-    howYouImprove: [
-      'Apply frameworks in real selling situations',
-      'Overcome objections with psychological precision',
-      'Close deals without pressure or manipulation',
-      'Build unshakeable selling confidence'
-    ],
-    whatYouBecome: [
-      'A DreamState Selling expert',
-      'Someone who closes without pressure',
-      'A trusted advisor, not a salesperson',
-      'Unstoppable in any market'
-    ]
-  },
-  {
-    id: 3,
-    name: '"Catalysts" Sprint',
-    description: 'Intensive sprint program focused on the catalyst techniques that accelerate persuasion and influence.',
-    price: 397.00,
-    category: 'Featured',
-    featured: true,
-    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_echo_shockwaves_sound_inside_mind_alex_grey_style_99af80a7-498e-4f14-b745-1dd19083fdf1_0%20(1).jpeg',
-    curiosityBullets: [
-      'What makes someone say "yes" before they know why?',
-      'The catalyst that turns skeptics into evangelists?',
-      'How to create urgency without being pushy?',
-      'Which single word doubles closing rates?'
-    ],
-    howYouImprove: [
-      'Accelerate your influence through daily practice',
-      'Master catalyst techniques in weeks not years',
-      'Get real-time feedback on your approach',
-      'Connect with other high-performers'
-    ],
-    whatYouBecome: [
-      'A catalyst for instant decisions',
-      'Someone who accelerates sales cycles',
-      'A master of ethical urgency',
-      'Irresistible in your influence'
-    ]
-  },
-  {
-    id: 4,
-    name: 'Complete Info-Field Shifting System',
-    description: 'Master the art of shifting information fields to transform your internal state and external reality.',
-    price: 697.00,
-    category: 'Self Mastery',
-    featured: false,
-    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/tmp048e8gj8.webp',
-    curiosityBullets: [
-      'How to reprogram your subconscious in minutes?',
-      'What information fields control your reality?',
-      'The shifting technique that eliminates limiting beliefs?',
-      'Why visualization alone keeps you stuck?'
-    ],
-    howYouImprove: [
-      'Shift limiting beliefs in real-time',
-      'Access higher states of consciousness',
-      'Restructure your reality at the source',
-      'Master advanced mental techniques'
-    ],
-    whatYouBecome: [
-      'Master of your internal reality',
-      'Someone who shifts states instantly',
-      'Free from limiting beliefs',
-      'Creator of your desired outcomes'
-    ]
-  },
-  {
-    id: 5,
-    name: 'Master Collection of Renegade Persuaders',
-    description: 'The ultimate collection of unconventional persuasion techniques from history\'s most effective renegades.',
-    price: 997.00,
-    category: 'Renegade Persuaders',
-    featured: false,
-    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_hyper-realistic_silhouette_of_person_walking_forw_71739d41-bc05-48b9-ae2d-892016ee8c18_2.jpg',
-    curiosityBullets: [
-      'What forbidden techniques did master persuaders use?',
-      'How to influence without anyone noticing?',
-      'The renegade method that breaks all rules?',
-      'Why conventional persuasion pushes people away?'
-    ],
-    howYouImprove: [
-      'Learn from history\'s most effective persuaders',
-      'Adapt unconventional techniques to modern contexts',
-      'Develop your own unique approach',
-      'Maintain ethical standards while being powerful'
-    ],
-    whatYouBecome: [
-      'A renegade persuasion master',
-      'Someone who thinks outside the box',
-      'Fearless in your approach',
-      'Uniquely powerful in influence'
-    ]
-  },
-  {
-    id: 6,
-    name: 'Hypnotic Protocols for Strategic Persuaders',
-    description: 'Advanced hypnotic language patterns and protocols for strategic influence and persuasion mastery.',
-    price: 697.00,
-    category: 'Strategic Persuasion',
-    featured: false,
+      {
+      id: 6,
+      name: 'Hypnotic Protocols for Strategic Persuaders',
+      description: 'Advanced hypnotic language patterns and protocols for strategic influence and persuasion mastery.',
+      price: null,
+      category: 'Strategic Persuasion',
+      featured: false,
     image: 'https://thepersuasionacademycdn.b-cdn.net/Images/DreamState%20Selling%20Cover.jpeg',
     curiosityBullets: [
       'Which hypnotic patterns bypass critical thinking?',
@@ -351,9 +351,10 @@ export default function StorePage() {
                       </div>
                     </div>
                   </div>
-                  <button className="w-full bg-[#0b0e16] dark:bg-[#f5f5f7] text-white dark:text-[#0b0e16] py-3 sm:py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity mt-auto text-base sm:text-base">
-                    See Full Offer →
-                  </button>
+                  <a href="mailto:support@thepersuasionacademy.com?subject=Request for Season Pass Access&body=Hi,%0D%0A%0D%0AI'm requesting access to the Season Pass.%0D%0A%0D%0AI'm interested in the Standard option.%0D%0A%0D%0AThanks,%0D%0A%0D%0AYOUR NAME" className="w-full bg-[#0b0e16] dark:bg-[#f5f5f7] text-white dark:text-[#0b0e16] py-3 sm:py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity mt-auto text-base sm:text-base block text-center">
+                    <div className="font-semibold">Request Access</div>
+                    <div className="text-sm opacity-80 mt-1">Full Offer Page Coming Soon</div>
+                  </a>
                 </div>
                 
                 {/* VIP Option */}
@@ -391,9 +392,10 @@ export default function StorePage() {
                       </div>
                     </div>
                   </div>
-                  <button className="w-full bg-blue-600 text-white py-3 sm:py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-auto text-base sm:text-base">
-                    See Full Offer →
-                  </button>
+                  <a href="mailto:support@thepersuasionacademy.com?subject=Request for Season Pass Access&body=Hi,%0D%0A%0D%0AI'm requesting access to the Season Pass.%0D%0A%0D%0AI'm interested in the VIP option.%0D%0A%0D%0AThanks,%0D%0A%0D%0AYOUR NAME" className="w-full bg-blue-600 text-white py-3 sm:py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors mt-auto text-base sm:text-base block text-center">
+                    <div className="font-semibold">Request Access</div>
+                    <div className="text-sm opacity-80 mt-1">Full Offer Page Coming Soon</div>
+                  </a>
                 </div>
               </div>
               
@@ -676,9 +678,8 @@ export default function StorePage() {
                 
                 {/* Combined Price and CTA */}
                 <div className="mt-6">
-                  <a 
-                    href="#" 
-                    className="block w-full bg-gradient-to-b from-[#1a1d26] to-[#0b0e16] border border-white/10 rounded-lg hover:opacity-90 transition-all duration-200 transform hover:scale-[1.01] relative overflow-hidden"
+                  <div 
+                    className="block w-full bg-gradient-to-b from-[#1a1d26] to-[#0b0e16] border border-white/10 rounded-lg transition-all duration-200 relative overflow-hidden"
                     style={{
                       boxShadow: `
                         0 6px 20px rgba(0, 0, 0, 0.35),
@@ -693,24 +694,32 @@ export default function StorePage() {
                       <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent rounded-lg pointer-events-none"></div>
                       
                       {/* Price prominently displayed */}
-                      <div className="text-center mb-3 relative">
-                        <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">
-                          ${product.price}
+                      {product.price && (
+                        <div className="text-center mb-3 relative">
+                          <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">
+                            {typeof product.price === 'string' ? product.price : `$${product.price}`}
+                          </div>
+                          <div className="text-white/80 text-sm">
+                            {typeof product.price === 'string' ? '' : 'One-time payment'}
+                          </div>
                         </div>
-                        <div className="text-white/80 text-sm">
-                          One-time payment
-                        </div>
-                      </div>
+                      )}
                       
                       {/* CTA Button */}
-                      <div className="flex items-center justify-center gap-2 py-3 px-4 bg-white dark:bg-blue-600 rounded-lg text-[#0b0e16] dark:text-white font-medium hover:opacity-90 transition-all duration-200 relative shadow-lg hover:shadow-xl transform hover:translate-y-[-1px]">
-                        See Full Offer
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </div>
+                      {product.name === 'Renegade Persuaders: The Master Collection' ? (
+                        <a href="/store/rp" className="flex items-center justify-center gap-2 py-3 px-4 bg-white dark:!bg-white rounded-lg text-[#0b0e16] dark:!text-[#0b0e16] font-medium hover:opacity-90 transition-all duration-200 relative shadow-lg hover:shadow-xl transform hover:translate-y-[-1px]">
+                          See Full Offer
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </a>
+                      ) : (
+                        <div className="flex items-center justify-center gap-2 py-3 px-4 bg-white dark:!bg-white rounded-lg text-[#0b0e16] dark:!text-[#0b0e16] font-medium opacity-60 cursor-not-allowed relative shadow-lg">
+                          COMING SOON
+                        </div>
+                      )}
                     </div>
-                  </a>
+                  </div>
                 </div>
               </div>
             </div>

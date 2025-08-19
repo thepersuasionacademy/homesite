@@ -239,7 +239,7 @@ const IndexPage: FC = () => {
                   className={styles.platformTab}
                   data-platform-tab="salescript"
                 >
-                  Lab
+                  Studio
                 </button>
               </motion.div>
 
@@ -252,10 +252,24 @@ const IndexPage: FC = () => {
                 {/* CONTENT PANEL */}
                 <div id="content-panel" className="platform-panel active">
                   <div className="platform-video-full">
-                    <div className="video-placeholder">
-                      <div className="play-button">▶</div>
-                      <p className="video-title">Immersive Learning Library</p>
-                      <p className="video-subtitle">200+ hours of structured content</p>
+                    <div className="video-placeholder" style={{
+                      background: 'linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%)',
+                      borderRadius: '12px',
+                      border: 'none',
+                      outline: 'none',
+                      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)',
+                      transform: 'translateY(-1px)',
+                      transition: 'all 0.3s ease'
+                    }}>
+                      <p className="video-title" style={{
+                        color: '#ffffff',
+                        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
+                        fontWeight: '700',
+                        letterSpacing: '-0.03em',
+                        textTransform: 'uppercase',
+                        fontSize: 'clamp(2rem, 5vw, 3.5rem)'
+                      }}>DEMO COMING SOON...</p>
+                      <p className="video-subtitle">Immersive Learning Library</p>
                     </div>
                   </div>
                 </div>
@@ -263,10 +277,24 @@ const IndexPage: FC = () => {
                 {/* TOOLS PANEL */}
                 <div id="tools-panel" className="platform-panel">
                   <div className="platform-video-full">
-                    <div className="video-placeholder">
-                      <div className="play-button">▶</div>
-                      <p className="video-title">Interactive Training Tools</p>
-                      <p className="video-subtitle">Practice makes permanent</p>
+                    <div className="video-placeholder" style={{
+                      background: 'linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%)',
+                      borderRadius: '12px',
+                      border: 'none',
+                      outline: 'none',
+                      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)',
+                      transform: 'translateY(-1px)',
+                      transition: 'all 0.3s ease'
+                    }}>
+                      <p className="video-title" style={{
+                        color: '#ffffff',
+                        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
+                        fontWeight: '700',
+                        letterSpacing: '-0.03em',
+                        textTransform: 'uppercase',
+                        fontSize: 'clamp(2rem, 5vw, 3.5rem)'
+                      }}>DEMO COMING SOON...</p>
+                      <p className="video-subtitle">Interactive Training Tools</p>
                     </div>
                   </div>
                 </div>
@@ -274,10 +302,24 @@ const IndexPage: FC = () => {
                 {/* CODEX PANEL */}
                 <div id="codex-panel" className="platform-panel">
                   <div className="platform-video-full">
-                    <div className="video-placeholder">
-                      <div className="play-button">▶</div>
-                      <p className="video-title">Codex™ AI Assistant</p>
-                      <p className="video-subtitle">Your personal influence coach</p>
+                    <div className="video-placeholder" style={{
+                      background: 'linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%)',
+                      borderRadius: '12px',
+                      border: 'none',
+                      outline: 'none',
+                      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)',
+                      transform: 'translateY(-1px)',
+                      transition: 'all 0.3s ease'
+                    }}>
+                      <p className="video-title" style={{
+                        color: '#ffffff',
+                        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
+                        fontWeight: '700',
+                        letterSpacing: '-0.03em',
+                        textTransform: 'uppercase',
+                        fontSize: 'clamp(2rem, 5vw, 3.5rem)'
+                      }}>DEMO COMING SOON...</p>
+                      <p className="video-subtitle">Codex™ AI Assistant</p>
                     </div>
                   </div>
                 </div>
@@ -285,10 +327,24 @@ const IndexPage: FC = () => {
                 {/* SALESCRIPT PANEL */}
                 <div id="salescript-panel" className="platform-panel">
                   <div className="platform-video-full">
-                    <div className="video-placeholder">
-                      <div className="play-button">▶</div>
-                      <p className="video-title">Lab</p>
-                      <p className="video-subtitle">Ready-to-use frameworks</p>
+                    <div className="video-placeholder" style={{
+                      background: 'linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%)',
+                      borderRadius: '12px',
+                      border: 'none',
+                      outline: 'none',
+                      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)',
+                      transform: 'translateY(-1px)',
+                      transition: 'all 0.3s ease'
+                    }}>
+                      <p className="video-title" style={{
+                        color: '#ffffff',
+                        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
+                        fontWeight: '700',
+                        letterSpacing: '-0.03em',
+                        textTransform: 'uppercase',
+                        fontSize: 'clamp(2rem, 5vw, 3.5rem)'
+                      }}>DEMO COMING SOON...</p>
+                      <p className="video-subtitle">Studio</p>
                     </div>
                   </div>
                 </div>
