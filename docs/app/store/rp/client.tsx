@@ -331,10 +331,9 @@ const RenegadePersuadersPage = () => {
   useEffect(() => {
     // Continuous layout updates during animation
     const timers = [
-      setTimeout(layoutMasonry, 10),
-      setTimeout(layoutMasonry, 100),
-      setTimeout(layoutMasonry, 200),
-      setTimeout(layoutMasonry, 350)
+      setTimeout(layoutMasonry, 5),
+      setTimeout(layoutMasonry, 50),
+      setTimeout(layoutMasonry, 120)
     ]
     return () => timers.forEach(clearTimeout)
   }, [expandedEditions])
@@ -500,18 +499,18 @@ const RenegadePersuadersPage = () => {
         </div>
 
         {/* Hero Section */}
-        <section className="relative z-10 min-h-screen">
-          <div className="max-w-7xl mx-auto px-6 pt-8">
+        <section className="relative z-10 sm:min-h-screen">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-4 sm:pt-8">
             
             {/* Centered Content */}
-            <div className="text-center mb-8">
-              <div className="inline-block backdrop-blur-md rounded-full px-8 py-4 mb-6 shadow-2xl bg-black/80 dark:bg-slate-700/70 border border-gray-800 dark:border-slate-600">
-                <p className="text-lg font-medium tracking-wide text-gray-100 dark:text-gray-300">
+            <div className="text-center mb-4 sm:mb-8">
+              <div className="inline-block backdrop-blur-md rounded-full px-4 sm:px-8 py-3 sm:py-4 mb-4 sm:mb-6 shadow-2xl bg-black/80 dark:bg-slate-700/70 border border-gray-800 dark:border-slate-600">
+                <p className="text-sm sm:text-lg font-medium tracking-wide text-gray-100 dark:text-gray-300">
                   "You command influence differently than most people..."
                 </p>
               </div>
               
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl mb-6 leading-none tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-4 sm:mb-6 leading-tight sm:leading-none tracking-tight px-2">
                 <span className="font-bold text-gray-900 dark:text-white">
                   Renegade Persuaders
                 </span>
@@ -521,14 +520,14 @@ const RenegadePersuadersPage = () => {
                 </span>
               </h1>
               
-              <p className="text-2xl lg:text-3xl font-light mb-4 max-w-4xl mx-auto leading-relaxed text-gray-700 dark:text-gray-300">
+              <p className="text-lg sm:text-2xl lg:text-3xl font-light mb-4 max-w-4xl mx-auto leading-relaxed text-gray-700 dark:text-gray-300 px-4">
                 Where influence becomes instinct from the inside out.
               </p>
             </div>
 
             {/* Video */}
-            <div className="max-w-5xl mx-auto relative z-20">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-800">
+            <div className="max-w-5xl mx-auto relative z-20 px-2 sm:px-0 mb-6 sm:mb-0">
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-800">
                 <div className="relative" style={{ paddingBottom: '56.25%' }}>
                   <iframe
                     src="https://iframe.mediadelivery.net/embed/376899/9d7cbdcf-8a8b-40f2-a488-c8ea8b046092"
@@ -545,15 +544,16 @@ const RenegadePersuadersPage = () => {
           </div>
         </section>
 
-
-
         {/* Edition Cards - Store Style */}
-        <section className="relative z-10 py-20">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="relative z-10 pt-2 sm:pt-12 pb-32 sm:pb-40">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
             
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-light mb-6 tracking-tight text-gray-900 dark:text-white">Explore the Editions</h2>
-              <p className="text-xl font-light text-gray-600 dark:text-gray-400">20 Deep Dives Into The Art Of Invisible Authority</p>
+            {/* Divider Line */}
+            <div className="w-full h-px bg-gray-300 dark:bg-gray-600 mb-8 sm:mb-12"></div>
+            
+            <div className="text-center mb-8 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 tracking-tight text-gray-900 dark:text-white px-2">Explore the Editions</h2>
+              <p className="text-lg sm:text-xl font-light text-gray-600 dark:text-gray-400 px-4">20 Deep Dives Into The Art Of Invisible Authority</p>
             </div>
 
             <div 
@@ -614,10 +614,9 @@ const RenegadePersuadersPage = () => {
                                 setExpandedCores(newExpanded)
                                 
                                 // Immediate layout update
-                                setTimeout(layoutMasonry, 50)
-                                // Follow-up layouts during animation
-                                setTimeout(layoutMasonry, 150)
-                                setTimeout(layoutMasonry, 250)
+                                setTimeout(layoutMasonry, 20)
+                                // Follow-up layout after animation
+                                setTimeout(layoutMasonry, 120)
                               }}
                               className="w-full flex items-center justify-between p-3 text-left transition-colors bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700"
                             >
@@ -640,7 +639,7 @@ const RenegadePersuadersPage = () => {
                                   initial={{ height: 0, opacity: 0 }}
                                   animate={{ height: "auto", opacity: 1 }}
                                   exit={{ height: 0, opacity: 0 }}
-                                  transition={{ duration: 0.3, ease: "easeOut" }}
+                                  transition={{ duration: 0.1, ease: "easeInOut" }}
                                   className="overflow-hidden"
                                 >
                                   <div className="px-3 pb-3">
@@ -671,29 +670,29 @@ const RenegadePersuadersPage = () => {
         </section>
 
         {/* Sticky Bottom Bar */}
-        <div className="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md p-4 bg-white/90 dark:bg-gray-900/90 border-t border-gray-200 dark:border-gray-700">
+        <div className="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md p-3 sm:p-4 bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-700 safe-area-inset-bottom">
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               
               {/* Monthly Option */}
-              <a href="https://pay.thepersuasionacademy.com/b/eVqfZg1Sp7E81JE05ZcAo0a" className="rounded-xl p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between bg-transparent border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500">
+              <a href="https://pay.thepersuasionacademy.com/b/eVqfZg1Sp7E81JE05ZcAo0a" className="rounded-lg sm:rounded-xl p-3 sm:p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between bg-transparent border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 active:scale-95">
                 <div>
-                  <div className="text-lg font-bold text-gray-900 dark:text-white">One Edition Per Month</div>
+                  <div className="text-base sm:text-xl font-bold text-gray-900 dark:text-white">One Edition Per Month</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1">$97</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Monthly</div>
+                  <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1">$97</div>
+                  <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Monthly</div>
                 </div>
               </a>
 
               {/* One-Time Option */}
-              <a href="https://pay.thepersuasionacademy.com/b/bJe4gydB7bUogEy7yrcAo09" className="rounded-xl p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between bg-transparent border-2 border-blue-600 hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-950/20 shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.4)]">
+              <a href="https://pay.thepersuasionacademy.com/b/bJe4gydB7bUogEy7yrcAo09" className="rounded-lg sm:rounded-xl p-3 sm:p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between bg-transparent border-2 border-blue-600 hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-950/20 shadow-[0_10px_30px_rgba(0,0,0,0.2)] sm:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.3)] sm:hover:shadow-[0_25px_50px_rgba(0,0,0,0.4)] active:scale-95">
                 <div>
-                  <div className="text-lg font-bold text-gray-900 dark:text-white">The Full Collection</div>
+                  <div className="text-base sm:text-xl font-bold text-gray-900 dark:text-white">The Full Collection</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">$997</div>
-                  <div className="text-sm text-blue-500 dark:text-blue-500">One Time Payment</div>
+                  <div className="text-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">$997</div>
+                  <div className="text-xs sm:text-sm text-blue-500 dark:text-blue-500">One Time Payment</div>
                 </div>
               </a>
             </div>
