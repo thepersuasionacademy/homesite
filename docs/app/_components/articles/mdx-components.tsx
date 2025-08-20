@@ -1,8 +1,19 @@
 import React, { ReactNode } from 'react'
+import { FAQAccordion } from './faq-accordion'
+import { CTAButton } from './cta-button'
 
 interface HeadingProps {
   children: ReactNode
   id?: string
+}
+
+interface TableProps {
+  children: ReactNode
+}
+
+interface TableCellProps {
+  children: ReactNode
+  [key: string]: any
 }
 
 function createHeading(level: number) {
@@ -38,4 +49,6 @@ export const mdxComponents = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
+  FAQAccordion,
+  CTAButton,
 }

@@ -80,6 +80,9 @@ const nextConfig = withNextra({
     // ESLint behaves weirdly in this monorepo.
     ignoreDuringBuilds: true
   },
+  images: {
+    domains: ['thepersuasionacademycdn.b-cdn.net'],
+  },
   redirects: async () => [
     {
       source: '/docs',

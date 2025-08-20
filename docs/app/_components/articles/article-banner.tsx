@@ -34,13 +34,19 @@ export function ArticleBanner({ articleId, imagePath, title }: ArticleBannerProp
     return <FallbackBanner title={title} />
   }
 
+  // Check if imagePath is a full URL (starts with http:// or https://)
+  const isExternalUrl = imagePath.startsWith('http://') || imagePath.startsWith('https://')
+  const imageSrc = isExternalUrl 
+    ? imagePath 
+    : `/content/articles/${articleId}/${imagePath.replace('./', '')}`
+
   return (
     <Image
-      src={`/content/articles/${articleId}/${imagePath.replace('./', '')}`}
+      src={imageSrc}
       alt={title}
       width={1200}
       height={630}
-      className="col-span-full mx-auto w-full max-w-5xl object-cover rounded-lg"
+      className="col-span-full mx-auto w-full max-w-3xl object-cover rounded-lg"
       priority
       onError={() => setImageError(true)}
     />

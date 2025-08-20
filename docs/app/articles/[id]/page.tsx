@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { getArticleById, getAllArticles, extractHeadingsFromMDX } from '../../_lib/articles-utils'
 import { ArticleNavigation } from '../../_components/articles/article-navigation'
 import { TOCSidebar } from '../../_components/articles/toc-sidebar'
@@ -7,6 +8,7 @@ import { ArticlesSidebar } from '../../_components/articles/articles-sidebar'
 import { Breadcrumbs } from '../../_components/articles/breadcrumbs'
 import { ArticleBanner } from '../../_components/articles/article-banner'
 import { mdxComponents } from '../../_components/articles/mdx-components'
+import { DreamStateHighlighter } from '../../_components/articles/dreamstate-highlighter'
 import '../articles.css'
 import type { Article } from '../../_lib/articles-types'
 
@@ -127,7 +129,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
         {/* Main Content */}
         <article className="prose col-start-2 max-w-none article-content">
-          <MDXRemote source={article.content} components={mdxComponents} />
+          <DreamStateHighlighter />
+          <MDXRemote 
+            source={article.content} 
+            components={mdxComponents}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+              },
+            }}
+          />
         </article>
 
         {/* Related Articles Sidebar */}
