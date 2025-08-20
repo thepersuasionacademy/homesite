@@ -1,11 +1,13 @@
 import { getEnhancedPageMap } from '@components/get-page-map'
 import type { Metadata } from 'next'
 import NextImage from 'next/image'
+import Script from 'next/script'
 import { Footer, Layout, Link } from 'nextra-theme-docs'
 import { Anchor, Head } from 'nextra/components'
 import type { FC, ReactNode } from 'react'
 import xyflow from './showcase/_logos/xyflow.png'
 import { ConditionalNavbar } from './_components/conditional-navbar'
+import { FacebookPixelEvents } from './_components/facebook-pixel'
 import { MobileDocsNav } from './_components/mobile-docs-nav'
 import './globals.css'
 
@@ -135,6 +137,55 @@ const RootLayout: FC<{
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <Head />
+      {/* Google Analytics */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=G-ZQNH6HS272`}
+        strategy="afterInteractive"
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZQNH6HS272', {
+              page_title: document.title,
+              page_location: window.location.href,
+            });
+          `
+        }}
+      />
+
+      {/* Facebook Pixel */}
+      <Script
+        id="facebook-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '2194049730935870');
+            fbq('track', 'PageView');
+          `
+        }}
+      />
+      <noscript>
+        <img 
+          height="1" 
+          width="1" 
+          style={{ display: 'none' }}
+          src="https://www.facebook.com/tr?id=2194049730935870&ev=PageView&noscript=1"
+          alt=""
+        />
+      </noscript>
       <body>
         <Layout
           banner={banner}
@@ -163,6 +214,7 @@ const RootLayout: FC<{
         >
           {children}
           <MobileDocsNav />
+          <FacebookPixelEvents />
         </Layout>
       </body>
     </html>
