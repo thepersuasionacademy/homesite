@@ -59,8 +59,9 @@ export const CustomNavbar = () => {
           <Link href="/services" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
             Services
           </Link>
-          <Link href="/docs" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
-            Docs
+
+          <Link href="/articles" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+            Articles
           </Link>
         </div>
 
@@ -153,13 +154,7 @@ export const CustomNavbar = () => {
             >
               Services
             </Link>
-            <Link 
-              href="/docs" 
-              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md no-underline text-center"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Docs
-            </Link>
+
           </div>
         </div>
       )}

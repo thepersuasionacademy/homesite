@@ -8,6 +8,7 @@ import type { FC, ReactNode } from 'react'
 import xyflow from './showcase/_logos/xyflow.png'
 import { ConditionalNavbar } from './_components/conditional-navbar'
 import { FacebookPixelEvents } from './_components/facebook-pixel'
+import { IntercomProvider } from './_components/intercom'
 import { MobileDocsNav } from './_components/mobile-docs-nav'
 import './globals.css'
 
@@ -215,6 +216,7 @@ const RootLayout: FC<{
           {children}
           <MobileDocsNav />
           <FacebookPixelEvents />
+          <IntercomProvider />
         </Layout>
       </body>
     </html>

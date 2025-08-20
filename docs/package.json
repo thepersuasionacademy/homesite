@@ -10,9 +10,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@intercom/messenger-js-sdk": "^0.0.15",
     "clsx": "^2.1.0",
     "framer-motion": "^12.0.0",
+    "gray-matter": "^4.0.3",
     "next": "^15.0.2",
+    "next-mdx-remote": "^5.0.0",
     "nextra": "workspace:*",
     "nextra-theme-docs": "workspace:*",
     "react": "19.1.0",

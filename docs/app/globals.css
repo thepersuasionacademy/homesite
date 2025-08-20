@@ -303,3 +303,31 @@ html:not(.dark) iframe[src*="mediadelivery.net"] {
   z-index: 1;
   pointer-events: none;
 }
+
+/* INTERCOM WIDGET - Ensure visibility */
+/* The official SDK handles most styling automatically */
+#intercom-container,
+#intercom-container *,
+iframe[name^="intercom-"],
+iframe[src*="intercom"],
+div[id^="intercom"],
+div[class*="intercom"] {
+  z-index: 2147483647 !important;
+}
+
+/* Ensure Intercom launcher is visible */
+#intercom-frame,
+iframe[name="intercom-launcher"],
+iframe[src*="widget.intercom.io"] {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 2147483647 !important;
+  width: 60px !important;
+  height: 60px !important;
+  border: none !important;
+  background: transparent !important;
+}

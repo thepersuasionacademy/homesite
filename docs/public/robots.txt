@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow docs section
+Disallow: /docs/
+
+# Sitemap
+Sitemap: https://thepersuasionacademy.com/sitemap.xml

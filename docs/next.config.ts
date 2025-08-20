@@ -82,6 +82,16 @@ const nextConfig = withNextra({
   },
   redirects: async () => [
     {
+      source: '/docs',
+      destination: '/',
+      permanent: true
+    },
+    {
+      source: '/docs/:path*',
+      destination: '/',
+      permanent: true
+    },
+    {
       source: '/docs/guide/:slug(typescript|latex|tailwind-css|mermaid)',
       destination: '/docs/advanced/:slug',
       permanent: true

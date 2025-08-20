@@ -4,16 +4,8 @@ export default {
     display: 'hidden'
   },
   docs: {
-    title: 'Platform',
-    items: {
-      index: 'Overview',
-      content: 'Content',
-      'ai-tools': 'AI Tools',
-      codex: 'Codex',
-      lab: 'Lab',
-      profile: 'Profile',
-      support: 'Support'
-    }
+    type: 'page',
+    display: 'hidden'
   },
   'principles-of-influence': {
     title: 'Principles of Influence',
@@ -51,6 +43,9 @@ export default {
     }
   },
   blog: {
+    type: 'page'
+  },
+  articles: {
     type: 'page'
   },
   about: {
