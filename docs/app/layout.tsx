@@ -10,6 +10,7 @@ import { ConditionalNavbar } from './_components/conditional-navbar'
 import { FacebookPixelEvents } from './_components/facebook-pixel'
 import { IntercomProvider } from './_components/intercom'
 import { MobileDocsNav } from './_components/mobile-docs-nav'
+import { PathnameTracker } from './_components/pathname-tracker'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -213,6 +214,7 @@ const RootLayout: FC<{
             title: "On This Page"
           }}
         >
+          <PathnameTracker />
           {children}
           <MobileDocsNav />
           <FacebookPixelEvents />

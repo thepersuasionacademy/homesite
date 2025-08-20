@@ -331,3 +331,19 @@ iframe[src*="widget.intercom.io"] {
   border: none !important;
   background: transparent !important;
 }
+
+/* Hide Intercom on store sub-pages (sales pages) but keep on main /store page */
+body[data-pathname^="/store/"]:not([data-pathname="/store"]) #intercom-container,
+body[data-pathname^="/store/"]:not([data-pathname="/store"]) #intercom-container *,
+body[data-pathname^="/store/"]:not([data-pathname="/store"]) iframe[name^="intercom-"],
+body[data-pathname^="/store/"]:not([data-pathname="/store"]) iframe[src*="intercom"],
+body[data-pathname^="/store/"]:not([data-pathname="/store"]) div[id^="intercom"],
+body[data-pathname^="/store/"]:not([data-pathname="/store"]) div[class*="intercom"],
+body[data-pathname^="/store/"]:not([data-pathname="/store"]) #intercom-frame,
+body[data-pathname^="/store/"]:not([data-pathname="/store"]) iframe[name="intercom-launcher"],
+body[data-pathname^="/store/"]:not([data-pathname="/store"]) iframe[src*="widget.intercom.io"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
