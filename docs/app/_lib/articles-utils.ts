@@ -127,8 +127,8 @@ export function extractHeadingsFromMDX(content: string): TOCHeading[] {
   let match
 
   while ((match = headingRegex.exec(content)) !== null) {
-    const level = match[1].length
-    const text = match[2].trim()
+    const level = match[1]?.length || 1
+    const text = match[2]?.trim() || ''
     const id = text
       .toLowerCase()
       .replace(/[^a-z0-9\s-]/g, '')

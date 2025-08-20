@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import React, { ReactNode } from 'react'
 
 interface HeadingProps {
   children: ReactNode
@@ -7,7 +7,7 @@ interface HeadingProps {
 
 function createHeading(level: number) {
   const Heading = ({ children, ...props }: HeadingProps) => {
-    const Tag = `h${level}` as keyof JSX.IntrinsicElements
+    const Tag = `h${level}` as keyof React.JSX.IntrinsicElements
     
     // Generate ID from children text if not provided
     let id = props.id

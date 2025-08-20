@@ -35,8 +35,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   const allArticles = await getAllArticles()
   const currentIndex = allArticles.findIndex(a => a.id === article.id)
-  const previousArticle = currentIndex > 0 ? allArticles[currentIndex - 1] : null
-  const nextArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1] : null
+  const previousArticle = currentIndex > 0 ? (allArticles[currentIndex - 1] || null) : null
+  const nextArticle = currentIndex < allArticles.length - 1 ? (allArticles[currentIndex + 1] || null) : null
   
   // Extract headings for TOC
   const headings = extractHeadingsFromMDX(article.content)
@@ -59,7 +59,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         {/* Banner Image */}
         <ArticleBanner
           articleId={article.id}
-          imagePath={article.metadata.image}
+          {...(article.metadata.image && { imagePath: article.metadata.image })}
           title={article.metadata.title}
         />
 

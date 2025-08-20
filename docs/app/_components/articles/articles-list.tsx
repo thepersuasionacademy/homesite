@@ -64,7 +64,7 @@ export function ArticlesList({ articles, categories }: ArticlesListProps) {
             <section key={year} className="articles-year-section">
               <div className="articles-year-title">{year}</div>
               <ul className="articles-list">
-                {articlesByYear[year].map((article) => (
+                {(articlesByYear[year] || []).map((article) => (
                   <li key={article.id}>
                     <ArticleCard article={article} />
                   </li>

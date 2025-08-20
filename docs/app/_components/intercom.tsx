@@ -3,11 +3,7 @@
 import { useEffect } from 'react'
 import Intercom from '@intercom/messenger-js-sdk'
 
-declare global {
-  interface Window {
-    Intercom: any
-  }
-}
+
 
 export interface IntercomUser {
   user_id?: string
@@ -51,8 +47,8 @@ export function IntercomProvider({ user }: IntercomProviderProps = {}) {
       // Additional delay to ensure launcher is visible
       setTimeout(() => {
         // Force launcher visibility by accessing the window.Intercom if available
-        if (window.Intercom) {
-          window.Intercom('update')
+        if ((window as any).Intercom) {
+          (window as any).Intercom('update')
         }
       }, 500)
     }, 100)
@@ -67,28 +63,28 @@ export function IntercomProvider({ user }: IntercomProviderProps = {}) {
 export const intercomMethods = {
   // Show the messenger
   show: () => {
-    if (window.Intercom) {
-      window.Intercom('show')
+    if ((window as any).Intercom) {
+      (window as any).Intercom('show')
     }
   },
   
   // Hide the messenger
   hide: () => {
-    if (window.Intercom) {
-      window.Intercom('hide')
+    if ((window as any).Intercom) {
+      (window as any).Intercom('hide')
     }
   },
   
   // Update user information
   update: (data: Record<string, any>) => {
-    if (window.Intercom) {
-      window.Intercom('update', data)
+    if ((window as any).Intercom) {
+      (window as any).Intercom('update', data)
     }
   },
 
   // Update user identity (for login/logout)
   updateUser: (user: IntercomUser) => {
-    if (window.Intercom) {
+    if ((window as any).Intercom) {
       const intercomSettings: any = {}
       
       if (user.user_id) intercomSettings.user_id = user.user_id
@@ -97,26 +93,26 @@ export const intercomMethods = {
       if (user.created_at) intercomSettings.created_at = user.created_at
       
       // Add any additional user properties
-      Object.keys(user).forEach(key => {
+      for (const key in user) {
         if (!['user_id', 'name', 'email', 'created_at'].includes(key)) {
           intercomSettings[key] = user[key]
         }
-      })
+      }
 
-      window.Intercom('update', intercomSettings)
+      (window as any).Intercom('update', intercomSettings)
     }
   },
 
   // Shutdown Intercom (useful for logout)
   shutdown: () => {
-    if (window.Intercom) {
-      window.Intercom('shutdown')
+    if ((window as any).Intercom) {
+      (window as any).Intercom('shutdown')
     }
   },
 
   // Boot Intercom with new user (useful for login)
   boot: (user: IntercomUser) => {
-    if (window.Intercom) {
+    if ((window as any).Intercom) {
       const intercomSettings: any = {
         app_id: 'lkn5t8ql',
       }
@@ -127,34 +123,34 @@ export const intercomMethods = {
       if (user.created_at) intercomSettings.created_at = user.created_at
       
       // Add any additional user properties
-      Object.keys(user).forEach(key => {
+      for (const key in user) {
         if (!['user_id', 'name', 'email', 'created_at'].includes(key)) {
           intercomSettings[key] = user[key]
         }
-      })
+      }
 
-      window.Intercom('boot', intercomSettings)
+      (window as any).Intercom('boot', intercomSettings)
     }
   },
   
   // Track events
   trackEvent: (eventName: string, metadata?: Record<string, any>) => {
-    if (window.Intercom) {
-      window.Intercom('trackEvent', eventName, metadata)
+    if ((window as any).Intercom) {
+      (window as any).Intercom('trackEvent', eventName, metadata)
     }
   },
   
   // Show a specific message
   showMessages: () => {
-    if (window.Intercom) {
-      window.Intercom('showMessages')
+    if ((window as any).Intercom) {
+      (window as any).Intercom('showMessages')
     }
   },
   
   // Show help articles
   showNewMessage: (prePopulatedContent?: string) => {
-    if (window.Intercom) {
-      window.Intercom('showNewMessage', prePopulatedContent)
+    if ((window as any).Intercom) {
+      (window as any).Intercom('showNewMessage', prePopulatedContent)
     }
   }
 }
