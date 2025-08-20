@@ -200,7 +200,8 @@ export function FacebookPixelEvents() {
       const videoIframes = document.querySelectorAll('iframe[src*="mediadelivery.net"], iframe[src*="youtube"], iframe[src*="vimeo"]')
       
       videoIframes.forEach((iframe, index) => {
-        const isBunnyVideo = iframe.src.includes('mediadelivery.net')
+        const iframeElement = iframe as HTMLIFrameElement
+        const isBunnyVideo = iframeElement.src.includes('mediadelivery.net')
         
         // Track when video iframe is loaded (indicates video is ready to play)
         iframe.addEventListener('load', () => {
@@ -210,8 +211,8 @@ export function FacebookPixelEvents() {
               content_category: 'Video',
               content_type: 'embedded_video_loaded',
               video_source: isBunnyVideo ? 'Bunny CDN' :
-                           iframe.src.includes('youtube') ? 'YouTube' : 
-                           iframe.src.includes('vimeo') ? 'Vimeo' : 'Other',
+                           iframeElement.src.includes('youtube') ? 'YouTube' : 
+                           iframeElement.src.includes('vimeo') ? 'Vimeo' : 'Other',
               page_location: window.location.pathname
             })
           }
