@@ -50,7 +50,11 @@ export function ArticleCard({ article }: ArticleCardProps) {
         <div className="article-card-image">
           {article.metadata.image && !imageError ? (
             <Image
-              src={`/content/articles/${article.id}/${article.metadata.image.replace('./', '')}`}
+              src={
+                article.metadata.image.startsWith('http://') || article.metadata.image.startsWith('https://') 
+                  ? article.metadata.image 
+                  : `/content/articles/${article.id}/${article.metadata.image.replace('./', '')}`
+              }
               alt={article.metadata.title}
               width={288}
               height={151}

@@ -41,14 +41,17 @@ export function ArticleBanner({ articleId, imagePath, title }: ArticleBannerProp
     : `/content/articles/${articleId}/${imagePath.replace('./', '')}`
 
   return (
-    <Image
-      src={imageSrc}
-      alt={title}
-      width={1200}
-      height={630}
-      className="col-span-full mx-auto w-full max-w-3xl object-cover rounded-lg"
-      priority
-      onError={() => setImageError(true)}
-    />
+    <div className="col-span-full mx-auto w-full max-w-3xl">
+      <Image
+        src={imageSrc}
+        alt={title}
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="w-full h-auto object-contain rounded-lg"
+        priority
+        onError={() => setImageError(true)}
+      />
+    </div>
   )
 }
