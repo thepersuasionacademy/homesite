@@ -99,8 +99,7 @@ const nextConfig = withNextra({
     optimizeCss: true,
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
   },
-  // Modern JavaScript targeting
-  swcMinify: true,
+  // Modern JavaScript targeting (swcMinify is now default in Next.js 15)
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },

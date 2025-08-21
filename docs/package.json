@@ -12,6 +12,7 @@
   "dependencies": {
     "@intercom/messenger-js-sdk": "^0.0.15",
     "clsx": "^2.1.0",
+    "critters": "^0.0.25",
     "framer-motion": "^12.0.0",
     "gray-matter": "^4.0.3",
     "next": "^15.0.2",
