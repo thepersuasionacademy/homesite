@@ -221,9 +221,6 @@ const nextConfig = withNextra({
         as: '*.js'
       }
     }
-  },
-  experimental: {
-    optimizePackageImports: ['@components/icons']
   }
 })
 
