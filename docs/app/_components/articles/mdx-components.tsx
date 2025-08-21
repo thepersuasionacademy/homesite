@@ -1,6 +1,9 @@
 import React, { ReactNode } from 'react'
 import { FAQAccordion } from './faq-accordion'
 import { CTAButton } from './cta-button'
+import { ComparisonTable, BANTvsDreamStateTable } from './comparison-table'
+import { EnhancedCTAButton, SimpleCTAButton } from './enhanced-cta-button'
+import { EnhancedFAQAccordion, QuickFAQ } from './enhanced-faq-accordion'
 
 interface HeadingProps {
   children: ReactNode
@@ -42,6 +45,18 @@ function createHeading(level: number) {
   return Heading
 }
 
+function Table({ children }: TableProps) {
+  return (
+    <div className="table-wrapper">
+      <table>{children}</table>
+    </div>
+  )
+}
+
+function TableCell({ children, ...props }: TableCellProps) {
+  return React.createElement(props.as || 'td', props, children)
+}
+
 export const mdxComponents = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -49,6 +64,17 @@ export const mdxComponents = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
+  table: Table,
+  th: TableCell,
+  td: TableCell,
+  // Original components (for backward compatibility)
   FAQAccordion,
   CTAButton,
+  // New enhanced components
+  ComparisonTable,
+  BANTvsDreamStateTable,
+  EnhancedCTAButton,
+  SimpleCTAButton,
+  EnhancedFAQAccordion,
+  QuickFAQ,
 }

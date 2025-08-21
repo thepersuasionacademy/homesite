@@ -4,6 +4,7 @@ import { NextraLogo } from '@components/icons'
 import cn from 'clsx'
 import { Link, useTheme } from 'nextra-theme-docs'
 import { useEffect, useState } from 'react'
+import { OptimizedImage } from './optimized-image'
 
 export const CustomNavbar = () => {
   const { theme, setTheme, resolvedTheme } = useTheme()
@@ -32,18 +33,26 @@ export const CustomNavbar = () => {
         <div className="flex items-center">
           <Link href="/" className="flex items-center hover:opacity-75">
             {/* Light mode logo */}
-            <img 
-              src="https://thepersuasionacademycdn.b-cdn.net/Images/The%20TPA%20Logo%20New%20Black.png" 
+            <OptimizedImage
+              src="https://thepersuasionacademycdn.b-cdn.net/Images/The%20TPA%20Logo%20New%20Black.png"
               alt="The Persuasion Academy"
-              height="32"
+              width={120}
+              height={32}
+              priority={true}
               className="h-6 sm:h-8 dark:hidden"
+              sizes="120px"
+              quality={90}
             />
             {/* Dark mode logo */}
-            <img 
-              src="https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png" 
+            <OptimizedImage
+              src="https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png"
               alt="The Persuasion Academy"
-              height="32"
+              width={120}
+              height={32}
+              priority={true}
               className="h-6 sm:h-8 hidden dark:block"
+              sizes="120px"
+              quality={90}
             />
           </Link>
         </div>

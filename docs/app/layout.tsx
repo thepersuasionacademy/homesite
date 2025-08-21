@@ -7,10 +7,14 @@ import { Anchor, Head } from 'nextra/components'
 import type { FC, ReactNode } from 'react'
 import xyflow from './showcase/_logos/xyflow.png'
 import { ConditionalNavbar } from './_components/conditional-navbar'
-import { FacebookPixelEvents } from './_components/facebook-pixel'
-import { IntercomProvider } from './_components/intercom'
+import dynamic from 'next/dynamic'
+
+// Dynamically import heavy components to reduce initial bundle
+const FacebookPixelEvents = dynamic(() => import('./_components/facebook-pixel').then(mod => ({ default: mod.FacebookPixelEvents })))
+const IntercomProvider = dynamic(() => import('./_components/intercom').then(mod => ({ default: mod.IntercomProvider })))
 import { MobileDocsNav } from './_components/mobile-docs-nav'
 import { PathnameTracker } from './_components/pathname-tracker'
+import { ResourceHints, PerformanceOptimization } from './_components/performance-optimization'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -137,16 +141,29 @@ const RootLayout: FC<{
 }> = async ({ children }) => {
   const pageMap = await getEnhancedPageMap()
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
-      <Head />
-      {/* Google Analytics */}
+               <html lang="en" dir="ltr" suppressHydrationWarning>
+             <Head>
+               <noscript>
+                 <img
+                   height="1"
+                   width="1"
+                   style={{ display: 'none' }}
+                   src="https://www.facebook.com/tr?id=2194049730935870&ev=PageView&noscript=1"
+                   alt=""
+                 />
+               </noscript>
+               {/* Critical Resource Hints */}
+               <ResourceHints />
+             </Head>
+      
+      {/* Optimized Analytics - Delayed Loading */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-ZQNH6HS272`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <Script
         id="google-analytics"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -160,10 +177,10 @@ const RootLayout: FC<{
         }}
       />
 
-      {/* Facebook Pixel */}
+      {/* Optimized Facebook Pixel - Delayed Loading */}
       <Script
         id="facebook-pixel"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -179,15 +196,6 @@ const RootLayout: FC<{
           `
         }}
       />
-      <noscript>
-        <img 
-          height="1" 
-          width="1" 
-          style={{ display: 'none' }}
-          src="https://www.facebook.com/tr?id=2194049730935870&ev=PageView&noscript=1"
-          alt=""
-        />
-      </noscript>
       <body>
         <Layout
           banner={banner}
@@ -215,6 +223,7 @@ const RootLayout: FC<{
           }}
         >
           <PathnameTracker />
+          <PerformanceOptimization />
           {children}
           <MobileDocsNav />
           <FacebookPixelEvents />

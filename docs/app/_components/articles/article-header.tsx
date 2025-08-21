@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import type { Article } from '../../_lib/articles-types'
+import { OptimizedArticleBanner } from '../optimized-image'
 
 interface ArticleHeaderProps {
   article: Article
@@ -21,16 +21,11 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
     <>
       {/* Banner Image - Full Width */}
       {article.metadata.image && (
-        <div className="col-span-full mx-auto w-full max-w-5xl mb-8">
-          <Image
-            src={`/content/articles/${article.id}/${article.metadata.image.replace('./', '')}`}
-            alt={article.metadata.title}
-            width={1200}
-            height={630}
-            className="w-full object-cover rounded-lg"
-            priority
-          />
-        </div>
+        <OptimizedArticleBanner
+          src={article.metadata.image}
+          alt={article.metadata.title}
+          articleId={article.id}
+        />
       )}
 
       {/* Article Header - Centered */}

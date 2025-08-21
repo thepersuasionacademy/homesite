@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState } from 'react'
 import type { Article } from '../../_lib/articles-types'
+import { OptimizedArticleCardImage } from '../optimized-image'
 
 interface ArticleCardProps {
   article: Article
@@ -49,17 +49,10 @@ export function ArticleCard({ article }: ArticleCardProps) {
       <div className="article-card-content">
         <div className="article-card-image">
           {article.metadata.image && !imageError ? (
-            <Image
-              src={
-                article.metadata.image.startsWith('http://') || article.metadata.image.startsWith('https://') 
-                  ? article.metadata.image 
-                  : `/content/articles/${article.id}/${article.metadata.image.replace('./', '')}`
-              }
+            <OptimizedArticleCardImage
+              src={article.metadata.image}
               alt={article.metadata.title}
-              width={288}
-              height={151}
-              className="object-cover"
-              onError={() => setImageError(true)}
+              articleId={article.id}
             />
           ) : (
             <FallbackBanner 
