@@ -7,13 +7,15 @@ export default async function ArticlesPage() {
   
   // Define the categories
   const categories = [
-    'Academy Platform Docs',
-    'DreamState Selling Frameworks',
-    'Power Models of Persuasion',
-    'Sales System Comparisons',
-    'Principles of Influence', 
-    'Persuasion Science',
-    'Industry Applications'
+    'Emotional & Social Intelligence',
+    'Communication & Influence Mastery',
+    'Neural Language & Hypnotic Influence',
+    'Conflict Resolution & Difficult Conversations',
+    'Negotiation & Sales Psychology',
+    'Leadership & Executive Presence',
+    'Soft Skills & Professional Development',
+    'Corporate Training & Organizational Psychology',
+    'Personal Coaching & Development'
   ]
 
   return (
