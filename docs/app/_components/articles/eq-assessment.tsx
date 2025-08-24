@@ -113,9 +113,14 @@ const getCategoryFeedback = (score: number, maxScore: number, category: string) 
     }
   }
   
-  if (percentage >= 80) return feedbackMap[category].high
-  if (percentage >= 60) return feedbackMap[category].moderate
-  return feedbackMap[category].low
+  const categoryFeedback = feedbackMap[category]
+  if (!categoryFeedback) {
+    return "Assessment feedback not available for this category."
+  }
+  
+  if (percentage >= 80) return categoryFeedback.high
+  if (percentage >= 60) return categoryFeedback.moderate
+  return categoryFeedback.low
 }
 
 export function EQAssessment() {
