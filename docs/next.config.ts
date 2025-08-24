@@ -95,9 +95,9 @@ const nextConfig = withNextra({
   // Note: Removed framer-motion modular imports due to path resolution issues
   // Experimental features for performance (production only)
   experimental: {
-    optimizePackageImports: process.env.NODE_ENV === 'production' ? ['@components/icons'] : undefined,
+    optimizePackageImports: ['@components/icons'],
     optimizeCss: process.env.NODE_ENV === 'production',
-    webVitalsAttribution: process.env.NODE_ENV === 'production' ? ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'] : undefined,
+    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'INP', 'TTFB'],
   },
   // Modern JavaScript targeting (swcMinify is now default in Next.js 15)
   compiler: {
