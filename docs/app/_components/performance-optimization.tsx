@@ -8,6 +8,11 @@ import { useEffect } from 'react'
  */
 export function PerformanceOptimization() {
   useEffect(() => {
+    // Skip performance optimizations in development
+    if (process.env.NODE_ENV !== 'production') {
+      console.log('🚀 Performance optimizations disabled in development mode')
+      return
+    }
     // Preload critical resources
     const preloadCriticalResources = () => {
       // Preload CDN connection
@@ -181,6 +186,11 @@ export function CriticalCSS() {
  * Provides critical resource hints for better loading performance
  */
 export function ResourceHints() {
+  // Only apply resource hints in production
+  if (process.env.NODE_ENV !== 'production') {
+    return null
+  }
+
   return (
     <>
       {/* Preconnect to CDN */}

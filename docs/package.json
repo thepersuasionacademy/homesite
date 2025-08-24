@@ -6,6 +6,8 @@
   "scripts": {
     "build": "VERCEL_FORCE_NO_BUILD_CACHE=1 next build",
     "dev": "next --turbopack",
+    "dev:no-cache": "rm -rf .next && NODE_ENV=development next dev --turbopack --no-cache",
+    "clean": "rm -rf .next && rm -rf node_modules/.cache",
     "postbuild": "next-sitemap && pagefind --site .next/server/app --output-path public/_pagefind",
     "start": "next start"
   },

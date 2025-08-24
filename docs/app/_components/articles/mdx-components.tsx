@@ -4,6 +4,7 @@ import { CTAButton } from './cta-button'
 import { ComparisonTable, BANTvsDreamStateTable } from './comparison-table'
 import { EnhancedCTAButton, SimpleCTAButton } from './enhanced-cta-button'
 import { EnhancedFAQAccordion, QuickFAQ } from './enhanced-faq-accordion'
+import { EQAssessment } from './eq-assessment'
 
 interface HeadingProps {
   children: ReactNode
@@ -77,4 +78,5 @@ export const mdxComponents = {
   SimpleCTAButton,
   EnhancedFAQAccordion,
   QuickFAQ,
+  EQAssessment,
 }

@@ -83,21 +83,21 @@ const nextConfig = withNextra({
   images: {
     domains: ['thepersuasionacademycdn.b-cdn.net'],
     formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 31536000, // 1 year
+    minimumCacheTTL: process.env.NODE_ENV === 'production' ? 31536000 : 0, // No cache in dev
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Performance optimizations
-  compress: true,
+  // Performance optimizations (disabled in development)
+  compress: process.env.NODE_ENV === 'production',
   poweredByHeader: false,
-  generateEtags: true,
+  generateEtags: process.env.NODE_ENV === 'production',
   // Bundle optimization
   // Note: Removed framer-motion modular imports due to path resolution issues
-  // Experimental features for performance
+  // Experimental features for performance (production only)
   experimental: {
-    optimizePackageImports: ['@components/icons'],
-    optimizeCss: true,
-    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'],
+    optimizePackageImports: process.env.NODE_ENV === 'production' ? ['@components/icons'] : undefined,
+    optimizeCss: process.env.NODE_ENV === 'production',
+    webVitalsAttribution: process.env.NODE_ENV === 'production' ? ['CLS', 'LCP', 'FCP', 'FID', 'TTFB'] : undefined,
   },
   // Modern JavaScript targeting (swcMinify is now default in Next.js 15)
   compiler: {
@@ -105,6 +105,8 @@ const nextConfig = withNextra({
   },
   // Headers for caching and security
   async headers() {
+    const isDev = process.env.NODE_ENV !== 'production'
+    
     return [
       {
         source: '/(.*)',
@@ -123,24 +125,47 @@ const nextConfig = withNextra({
           },
         ],
       },
-      {
-        source: '/content/articles/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/_next/static/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
+      // Only apply aggressive caching in production
+      ...(!isDev ? [
+        {
+          source: '/content/articles/:path*',
+          headers: [
+            {
+              key: 'Cache-Control',
+              value: 'public, max-age=31536000, immutable',
+            },
+          ],
+        },
+        {
+          source: '/_next/static/:path*',
+          headers: [
+            {
+              key: 'Cache-Control',
+              value: 'public, max-age=31536000, immutable',
+            },
+          ],
+        },
+      ] : [
+        // Development: No caching
+        {
+          source: '/content/articles/:path*',
+          headers: [
+            {
+              key: 'Cache-Control',
+              value: 'no-cache, no-store, must-revalidate',
+            },
+          ],
+        },
+        {
+          source: '/_next/static/:path*',
+          headers: [
+            {
+              key: 'Cache-Control',
+              value: 'no-cache, no-store, must-revalidate',
+            },
+          ],
+        },
+      ])
     ]
   },
   redirects: async () => [

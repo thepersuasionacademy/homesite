@@ -66,7 +66,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         />
 
         {/* Article Header */}
-        <section className="col-start-2 flex flex-col gap-y-6 text-center">
+        <section className="col-start-2 flex flex-col gap-y-6 text-center -mt-4">
           <div className="flex flex-col">
             <h1 
               className="mb-2 scroll-mt-31 text-3xl leading-tight font-medium sm:text-4xl" 

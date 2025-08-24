@@ -173,7 +173,7 @@ export function OptimizedArticleBanner({
     : `/content/articles/${articleId}/${src.replace('./', '')}`
 
   return (
-    <div className="col-span-full mx-auto w-full max-w-3xl mb-8">
+    <div className="col-span-full mx-auto w-full max-w-3xl">
       <OptimizedImage
         src={imageSrc}
         alt={alt}

@@ -29,7 +29,7 @@ export function ArticleHeader({ article }: ArticleHeaderProps) {
       )}
 
       {/* Article Header - Centered */}
-      <section className="col-start-2 flex flex-col gap-y-6 text-center mb-8">
+      <section className="col-start-2 flex flex-col text-center mb-8">
         <div className="flex flex-col">
           <h1 
             className="mb-2 scroll-mt-31 text-3xl leading-tight font-medium sm:text-4xl" 
