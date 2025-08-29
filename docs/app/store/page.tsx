@@ -167,6 +167,34 @@ import { useState, useEffect, useRef } from 'react'
       'Someone who influences unconsciously',
       'Unstoppable in negotiations'
     ]
+  },
+  {
+    id: 7,
+    name: 'Conquering Confidence',
+    subtitle: 'Complete Transformation System',
+    description: 'Rewrite the stories that hold you back and become unstoppable in 6 weeks. Stop fighting invisible barriers and start living with quiet, unshakeable confidence.',
+    price: 297,
+    category: 'Self Mastery',
+    featured: true,
+    image: 'https://thepersuasionacademycdn.b-cdn.net/Images/Product%20Covers/Screenshot%202025-08-28%20at%207.11.42%E2%80%AFPM.jpeg',
+    curiosityBullets: [
+      'What invisible stories are running your life without you knowing?',
+      'How do childhood interpretations still control your adult decisions?',
+      'Why do some people naturally move with unshakeable confidence?',
+      'What makes the difference between those who succeed and those who stay stuck?'
+    ],
+    howYouImprove: [
+      'Identify and rewrite limiting stories at their source',
+      'Create powerful success anchors for automatic confidence',
+      'Build authentic connection to your future self',
+      'Transform fear into fuel for forward momentum'
+    ],
+    whatYouBecome: [
+      'Someone with quiet, unshakeable confidence',
+      'A person who moves forward despite fear or uncertainty',
+      'Someone who speaks up and shines bright in any room',
+      'Living by stories that support your highest potential'
+    ]
   }
 ]
 
@@ -487,38 +515,7 @@ export default function StorePage() {
             willChange: 'height'
           }}
         >
-          <style jsx>{`
-            .dropdown-content {
-              overflow: hidden;
-              transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                          opacity 0.3s ease,
-                          padding 0.3s ease;
-            }
-            .dropdown-content-enter {
-              max-height: 0;
-              opacity: 0;
-              padding-top: 0;
-              padding-bottom: 0;
-            }
-            .dropdown-content-enter-active {
-              max-height: 500px;
-              opacity: 1;
-              padding-top: 0.75rem;
-              padding-bottom: 0.75rem;
-            }
-            .dropdown-content-exit {
-              max-height: 500px;
-              opacity: 1;
-              padding-top: 0.75rem;
-              padding-bottom: 0.75rem;
-            }
-            .dropdown-content-exit-active {
-              max-height: 0;
-              opacity: 0;
-              padding-top: 0;
-              padding-bottom: 0;
-            }
-          `}</style>
+
           {filteredProducts.map((product) => (
             <div
               key={product.id}
@@ -574,18 +571,14 @@ export default function StorePage() {
                       </svg>
                     </button>
                     <div 
-                      className={`dropdown-content transition-all duration-300 ease-out ${
+                      className={`transition-all duration-300 ease-out overflow-hidden ${
                         getOpenSections(product.id).learn 
-                          ? 'max-h-96 px-3 pb-3' 
-                          : 'max-h-0 px-3 pb-0'
+                          ? 'max-h-screen px-3 pb-3 opacity-100' 
+                          : 'max-h-0 px-3 pb-0 opacity-0'
                       }`}
-                      style={{ 
-                        overflow: 'hidden',
-                        transitionProperty: 'max-height, padding-bottom'
-                      }}
                     >
                       <div className="space-y-2">
-                        {product.curiosityBullets.map((bullet, index) => (
+                        {(product.curiosityBullets || []).map((bullet, index) => (
                           <div key={index} className="flex items-start gap-2">
                             <span className="text-[#86868b] dark:text-[#a1a1a6] text-base">•</span>
                             <span className="text-sm text-[#86868b] dark:text-[#a1a1a6] leading-relaxed">{bullet}</span>
@@ -614,18 +607,14 @@ export default function StorePage() {
                       </svg>
                     </button>
                     <div 
-                      className={`dropdown-content transition-all duration-300 ease-out ${
+                      className={`transition-all duration-300 ease-out overflow-hidden ${
                         getOpenSections(product.id).improve 
-                          ? 'max-h-96 px-3 pb-3' 
-                          : 'max-h-0 px-3 pb-0'
+                          ? 'max-h-screen px-3 pb-3 opacity-100' 
+                          : 'max-h-0 px-3 pb-0 opacity-0'
                       }`}
-                      style={{ 
-                        overflow: 'hidden',
-                        transitionProperty: 'max-height, padding-bottom'
-                      }}
                     >
                       <div className="space-y-2">
-                        {product.howYouImprove.map((item, index) => (
+                        {(product.howYouImprove || []).map((item, index) => (
                           <div key={index} className="flex items-start gap-2">
                             <span className="text-green-600 dark:text-green-400 text-base">✓</span>
                             <span className="text-sm text-[#86868b] dark:text-[#a1a1a6] leading-relaxed">{item}</span>
@@ -654,18 +643,14 @@ export default function StorePage() {
                       </svg>
                     </button>
                     <div 
-                      className={`dropdown-content transition-all duration-300 ease-out ${
+                      className={`transition-all duration-300 ease-out overflow-hidden ${
                         getOpenSections(product.id).become 
-                          ? 'max-h-96 px-3 pb-3' 
-                          : 'max-h-0 px-3 pb-0'
+                          ? 'max-h-screen px-3 pb-3 opacity-100' 
+                          : 'max-h-0 px-3 pb-0 opacity-0'
                       }`}
-                      style={{ 
-                        overflow: 'hidden',
-                        transitionProperty: 'max-height, padding-bottom'
-                      }}
                     >
                       <div className="space-y-2">
-                        {product.whatYouBecome.map((transformation, index) => (
+                        {(product.whatYouBecome || []).map((transformation, index) => (
                           <div key={index} className="flex items-start gap-2">
                             <span className="text-blue-600 dark:text-blue-400 text-base">→</span>
                             <span className="text-sm text-[#86868b] dark:text-[#a1a1a6] leading-relaxed">{transformation}</span>
@@ -694,13 +679,13 @@ export default function StorePage() {
                       <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent rounded-lg pointer-events-none"></div>
                       
                       {/* Price prominently displayed */}
-                      {product.price && (
+                      {(product as any).price !== null && (
                         <div className="text-center mb-3 relative">
                           <div className="text-3xl font-bold text-white mb-1 drop-shadow-lg">
-                            {typeof product.price === 'string' ? product.price : `$${product.price}`}
+                            {typeof (product as any).price === 'string' ? (product as any).price : `$${(product as any).price}`}
                           </div>
                           <div className="text-white/80 text-sm">
-                            {typeof product.price === 'string' ? '' : 'One-time payment'}
+                            {typeof (product as any).price === 'number' ? 'One-time payment' : ''}
                           </div>
                         </div>
                       )}
@@ -708,6 +693,13 @@ export default function StorePage() {
                       {/* CTA Button */}
                       {product.name === 'Renegade Persuaders: The Master Collection' ? (
                         <a href="/store/rp" className="flex items-center justify-center gap-2 py-3 px-4 bg-white dark:!bg-white rounded-lg text-[#0b0e16] dark:!text-[#0b0e16] font-medium hover:opacity-90 transition-all duration-200 relative shadow-lg hover:shadow-xl transform hover:translate-y-[-1px]">
+                          See Full Offer
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </a>
+                      ) : product.name === 'Conquering Confidence' ? (
+                        <a href="/store/conquering-confidence" className="flex items-center justify-center gap-2 py-3 px-4 bg-white dark:!bg-white rounded-lg text-[#0b0e16] dark:!text-[#0b0e16] font-medium hover:opacity-90 transition-all duration-200 relative shadow-lg hover:shadow-xl transform hover:translate-y-[-1px]">
                           See Full Offer
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
