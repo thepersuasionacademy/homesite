@@ -126,11 +126,65 @@ const IndexPage: FC = () => {
             
             {/* FEATURE PILLS */}
             <motion.div className="feature-pills" variants={heroItem}>
-              <span className="feature-pill">Immersive Training</span>
+              <a 
+                href="https://www.amazon.com/stores/author/B0DLTPBS4T?ccs_id=fc4f4b1b-55fe-4178-8319-9fec7545fdd4" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="feature-pill amazon-pill"
+              >
+                <img 
+                  src="https://thepersuasionacademycdn.b-cdn.net/Images/13d40d8cd1b9c41712167a97cfb74a2e.png" 
+                  alt="Amazon" 
+                  className="amazon-icon"
+                />
+                Amazon
+              </a>
               <span className="feature-divider">|</span>
-              <span className="feature-pill">AI Technology</span>
+              <a 
+                href="https://www.facebook.com/groups/thepersuasionacademy/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="feature-pill facebook-pill"
+              >
+                <img 
+                  src="https://thepersuasionacademycdn.b-cdn.net/Images/images.png" 
+                  alt="Facebook" 
+                  className="facebook-icon"
+                />
+                Facebook Group
+              </a>
               <span className="feature-divider">|</span>
-              <span className="feature-pill">Proven Application</span>
+              <a 
+                href="https://10minuteinfluence.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="feature-pill substack-pill"
+              >
+                <img 
+                  src="https://thepersuasionacademycdn.b-cdn.net/Images/substack.png" 
+                  alt="Substack" 
+                  className="substack-icon"
+                />
+                Substack
+              </a>
+              <span className="feature-divider">|</span>
+              <Link href="/store" className="feature-pill store-pill">
+                <img 
+                  src="https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png" 
+                  alt="Store" 
+                  className="store-icon"
+                />
+                Store
+              </Link>
+              <span className="feature-divider">|</span>
+              <Link href="/services" className="feature-pill services-pill">
+                <img 
+                  src="https://thepersuasionacademycdn.b-cdn.net/Images/depositphotos_22289805-stock-illustration-historical-building.jpg" 
+                  alt="Services" 
+                  className="services-icon"
+                />
+                Services
+              </Link>
             </motion.div>
             
             {/* VIDEO */}
@@ -484,11 +538,11 @@ const IndexPage: FC = () => {
                 </Link>
               </motion.div>
               
-              {/* DreamState Season Pass Card - Featured */}
+              {/* Season Pass Card - Featured */}
               <motion.div className="store-style-card featured" variants={cardVariants}>
                 <div className="featured-badge">Most Popular</div>
                 <div className="card-header">
-                  <h3>DreamState Season Pass</h3>
+                  <h3>Season Pass</h3>
                   <p>The complete living system for influence mastery — permanent frameworks, evolving multiplier models, and optional Lightning Coaching with Kenrick.</p>
                 </div>
                 
@@ -577,7 +631,7 @@ const IndexPage: FC = () => {
                 </div>
                 
                 <Link href="/store" className="store-style-cta featured">
-                  Join DreamState Season Pass
+                  Join Season Pass
                 </Link>
               </motion.div>
               

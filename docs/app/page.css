@@ -52,7 +52,7 @@
 /* MASTERY PILL STYLING */
 .mastery-pill {
   display: inline-block;
-  background: #2960f6;
+  background: #000000;
   color: #fff;
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
@@ -61,7 +61,7 @@
   text-transform: uppercase;
   letter-spacing: 0.01em;
   margin-bottom: 1.25rem;
-  box-shadow: 0 4px 12px rgba(41, 96, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   animation: pillFloat 3s ease-in-out infinite;
   position: relative;
   z-index: 1;
@@ -73,8 +73,9 @@
 }
 
 .dark .mastery-pill {
-  background: #2960f6;
-  box-shadow: 0 4px 12px rgba(41, 96, 246, 0.4);
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.4);
 }
 
 .hero-subheadline {
@@ -106,19 +107,172 @@
 .feature-pill {
   font-size: 0.875rem;
   font-weight: 600;
-  color: #86868b;
+  color: #ffffff;
   padding: 0.5rem 1rem;
-  background: rgba(245, 245, 247, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #000000;
+  border: 1px solid #ffffff;
   border-radius: 20px;
   transition: all 0.3s ease;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-pill:hover {
+  background: #333333;
+  border-color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
 }
 
 .dark .feature-pill {
-  color: #a1a1a6;
-  background: rgba(22, 22, 23, 0.8);
-  border-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  background: #000000;
+  border-color: #ffffff;
+}
+
+.dark .feature-pill:hover {
+  background: #333333;
+  border-color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+}
+
+/* AMAZON PILL */
+.amazon-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+.amazon-icon {
+  height: 20px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+  margin-right: 0.1rem;
+}
+
+.amazon-pill:hover .amazon-icon {
+  filter: brightness(0) saturate(100%) invert(60%) sepia(100%) saturate(2000%) hue-rotate(25deg) brightness(100%) contrast(100%);
+}
+
+.amazon-pill:hover {
+  border-color: #FF9900 !important;
+  box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* FACEBOOK PILL */
+.facebook-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+.facebook-icon {
+  height: 16px;
+  width: auto;
+  margin-right: 0.35rem;
+}
+
+.facebook-pill:hover {
+  border-color: #1877F2 !important;
+  box-shadow: 0 0 0 2px rgba(24, 119, 242, 0.3), 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* SUBSTACK PILL */
+.substack-container {
+  position: relative;
+  display: inline-block;
+}
+
+.start-here-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #FFD700;
+  color: #333;
+  font-size: 0.55rem;
+  font-weight: 500;
+  padding: 0.1rem 0.3rem;
+  border-radius: 6px;
+  text-transform: lowercase;
+  letter-spacing: 0.2px;
+  z-index: 10;
+}
+
+.substack-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+.substack-icon {
+  height: 16px;
+  width: auto;
+  margin-right: 0.35rem;
+}
+
+.substack-pill:hover {
+  border-color: #FF6719 !important;
+  box-shadow: 0 0 0 2px rgba(255, 103, 25, 0.3), 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* STORE PILL */
+.store-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+.store-icon {
+  height: 14px;
+  width: auto;
+  margin-right: 0.25rem;
+}
+
+.store-pill:hover {
+  border-color: #2960f6 !important;
+  box-shadow: 0 0 0 2px rgba(41, 96, 246, 0.3), 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* SERVICES PILL */
+.services-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+}
+
+.services-icon {
+  height: 16px;
+  width: auto;
+  margin-right: 0.25rem;
+}
+
+.services-pill:hover {
+  border-color: #28a745 !important;
+  box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.3), 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* PILL ARROWS */
+.pill-arrow {
+  height: 16px;
+  width: 16px;
+  margin-left: 0.05rem;
+  transition: transform 0.3s ease;
+}
+
+.feature-pill:hover .pill-arrow {
+  transform: translateX(2px);
 }
 
 .feature-divider {
@@ -2232,6 +2386,82 @@
   .feature-pill {
     font-size: 0.75rem;
     padding: 0.4rem 0.8rem;
+  }
+  
+  .amazon-pill {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .amazon-icon {
+    height: 16px;
+    width: auto;
+    margin-right: 0.05rem;
+  }
+  
+  .facebook-pill {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .facebook-icon {
+    height: 14px;
+    width: auto;
+    margin-right: 0.25rem;
+  }
+  
+  .substack-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .start-here-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: #FFD700;
+    color: #333;
+    font-size: 0.5rem;
+    font-weight: 400;
+    padding: 0.08rem 0.25rem;
+    border-radius: 4px;
+    text-transform: lowercase;
+    letter-spacing: 0.1px;
+    z-index: 10;
+  }
+
+  .substack-pill {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .substack-icon {
+    height: 14px;
+    width: auto;
+    margin-right: 0.25rem;
+  }
+  
+  .store-pill {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .store-icon {
+    height: 12px;
+    width: auto;
+    margin-right: 0.2rem;
+  }
+  
+  .services-pill {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .services-icon {
+    height: 14px;
+    width: auto;
+    margin-right: 0.2rem;
+  }
+  
+  .pill-arrow {
+    height: 14px;
+    width: 14px;
+    margin-left: 0.025rem;
   }
   
   .feature-divider {
