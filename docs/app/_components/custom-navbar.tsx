@@ -76,17 +76,62 @@ export const CustomNavbar = () => {
 
         {/* Right Side Items */}
         <div className="flex items-center gap-2 sm:gap-4">
-          {/* Sign In - Hidden text on mobile */}
-          <Link 
-            href="https://app.thepersuasionacademy.com" 
-            className="signin-button text-white px-2 sm:px-4 py-2 rounded-md text-xs sm:text-sm font-medium transition-colors no-underline hover:opacity-90"
-            style={{ backgroundColor: '#2960f6', background: '#2960f6' }}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span className="hidden sm:inline">Sign In</span>
-            <span className="sm:hidden">Sign In</span>
-          </Link>
+          {/* Sign In Dropdown */}
+          <div className="relative group">
+            <div className="group-hover:opacity-90 transition-opacity">
+              <Link 
+                href="https://app.thepersuasionacademy.com" 
+                className="signin-button text-white px-2 sm:px-4 py-3 rounded-md text-xs sm:text-sm font-medium transition-colors no-underline hover:opacity-90"
+                style={{ backgroundColor: '#2960f6', background: '#2960f6' }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="hidden sm:inline">Sign In</span>
+                <span className="sm:hidden">Sign In</span>
+              </Link>
+            </div>
+            
+            {/* Dropdown Menu */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-56 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50" style={{ 
+              '--tw-prose-links': 'none'
+            } as React.CSSProperties}>
+              <div className="py-1">
+                <Link
+                  href="https://app.thepersuasionacademy.com"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-800 dark:hover:text-blue-200 no-underline text-center transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ 
+                    textDecoration: 'none',
+                    backgroundImage: 'none'
+                  }}
+                >
+                  <span className="inline-block" style={{ 
+                    position: 'relative'
+                  }}>
+                    Academy Platform
+                  </span>
+                </Link>
+                <div className="border-t border-gray-200 dark:border-gray-600 my-1"></div>
+                <Link
+                  href="https://my.thepowerark.com"
+                  className="block px-4 py-2 text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-50 hover:text-red-600 dark:hover:bg-gray-700 dark:hover:text-red-400 no-underline text-center italic transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ 
+                    textDecoration: 'none',
+                    backgroundImage: 'none'
+                  }}
+                >
+                  <span className="inline-block" style={{ 
+                    position: 'relative'
+                  }}>
+                    The Power Ark (Legacy Site)
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </div>
 
           {/* Dark Mode Toggle */}
           <button
@@ -163,7 +208,39 @@ export const CustomNavbar = () => {
             >
               Services
             </Link>
-
+            <Link 
+              href="/articles" 
+              className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md no-underline text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Articles
+            </Link>
+            
+            {/* Mobile Sign In Options */}
+            <div className="border-t border-gray-200 dark:border-gray-600 mt-2 pt-2">
+              <div className="text-xs font-medium text-gray-500 dark:text-gray-400 px-3 py-1 uppercase tracking-wide">
+                Sign In Options
+              </div>
+              <Link 
+                href="https://app.thepersuasionacademy.com" 
+                className="block px-3 py-2 text-base font-medium text-white hover:opacity-90 rounded-md no-underline text-center mx-2 my-1 transition-colors"
+                style={{ backgroundColor: '#2960f6', background: '#2960f6' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Academy Platform
+              </Link>
+              <Link 
+                href="https://my.thepowerark.com" 
+                className="block px-3 py-2 text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-50 hover:text-red-600 dark:hover:bg-gray-800 dark:hover:text-red-400 rounded-md no-underline text-center mx-2 italic transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                The Power Ark (Legacy Site)
+              </Link>
+            </div>
           </div>
         </div>
       )}
