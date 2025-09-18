@@ -2,7 +2,7 @@
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-white dark:bg-[#0b0e16]">
+    <div className="min-h-screen bg-white dark:bg-[#0a0a0a]">
       {/* Services Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="text-center mb-8">
@@ -29,12 +29,19 @@ export default function ServicesPage() {
             <div className="max-w-4xl mx-auto">
               {/* Case Study Navigation Pills */}
               <div className="flex justify-center gap-2 mb-6 flex-wrap">
-                              <button className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-blue-600 text-white shadow-lg shadow-blue-600/25 transform scale-105">
+                              <button 
+                className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 text-white transform scale-105"
+                style={{ 
+                  background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #b91c1c 100%)',
+                  boxShadow: '0 4px 8px rgba(220, 38, 38, 0.3), 0 2px 4px rgba(220, 38, 38, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2)',
+                  border: '1px solid rgba(185, 28, 28, 0.8)'
+                }}
+              >
                 Mission-Driven Founders
               </button>
                               <div className="relative group">
                 <button
-                  className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white dark:bg-[#17171a] text-[#86868b] dark:text-[#a1a1a6] border border-gray-200 dark:border-gray-700 cursor-not-allowed opacity-60"
+                  className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-not-allowed opacity-60 nav-pill"
                   disabled
                 >
                   High Ticket Salespeople
@@ -45,7 +52,7 @@ export default function ServicesPage() {
                 </div>
                               <div className="relative group">
                 <button
-                  className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white dark:bg-[#17171a] text-[#86868b] dark:text-[#a1a1a6] border border-gray-200 dark:border-gray-700 cursor-not-allowed opacity-60"
+                  className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-not-allowed opacity-60 nav-pill"
                   disabled
                 >
                   Marketing Professionals
@@ -56,7 +63,7 @@ export default function ServicesPage() {
                 </div>
                               <div className="relative group">
                 <button
-                  className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-white dark:bg-[#17171a] text-[#86868b] dark:text-[#a1a1a6] border border-gray-200 dark:border-gray-700 cursor-not-allowed opacity-60"
+                  className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-not-allowed opacity-60 nav-pill"
                   disabled
                 >
                   Financial Advisors
@@ -155,7 +162,7 @@ export default function ServicesPage() {
                   {/* Content */}
                   <div className="flex-1 ml-4">
                     <blockquote className="text-lg text-[#0b0e16] dark:text-[#f5f5f7] italic mb-3 leading-relaxed text-left">
-                      "Kenrick E. Cleveland embodies <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-1 rounded">the most powerful, effective, and masterful techniques</span> of persuasion and influence that have ever been taught."
+                      "Kenrick E. Cleveland embodies <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">the most powerful, effective, and masterful techniques</span> of persuasion and influence that have ever been taught."
                     </blockquote>
                     <div className="text-[#86868b] dark:text-[#a1a1a6] text-left">
                       <div className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] text-lg">Jay Abraham</div>
@@ -178,7 +185,7 @@ export default function ServicesPage() {
                   {/* Content */}
                   <div className="flex-1 ml-4">
                     <blockquote className="text-lg text-[#0b0e16] dark:text-[#f5f5f7] italic mb-3 leading-relaxed text-left">
-                      "Kenrick tops my shortlist of people I'll reach out to when I need advice on persuading others to take a desired action. His arsenal of skills and strategies has <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-1 rounded">increased my bank account by millions of dollars</span>. If you have the chance to work with Kenrick, jump on it."
+                      "Kenrick tops my shortlist of people I'll reach out to when I need advice on persuading others to take a desired action. His arsenal of skills and strategies has <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">increased my bank account by millions of dollars</span>. If you have the chance to work with Kenrick, jump on it."
                     </blockquote>
                     <div className="text-[#86868b] dark:text-[#a1a1a6] text-left">
                       <div className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] text-lg">Rich Schefren</div>
@@ -201,7 +208,7 @@ export default function ServicesPage() {
                   {/* Content */}
                   <div className="flex-1 ml-4">
                     <blockquote className="text-lg text-[#0b0e16] dark:text-[#f5f5f7] italic mb-3 leading-relaxed text-left">
-                      "Anyone whose living depends in any way on persuading others – and that includes almost all of us – should <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-1 rounded">learn and master what Kenrick has to teach</span> about the art and science of persuasion."
+                      "Anyone whose living depends in any way on persuading others – and that includes almost all of us – should <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">learn and master what Kenrick has to teach</span> about the art and science of persuasion."
                     </blockquote>
                     <div className="text-[#86868b] dark:text-[#a1a1a6] text-left">
                       <div className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] text-lg">Gary Bencivenga</div>

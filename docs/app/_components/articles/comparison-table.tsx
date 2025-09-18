@@ -161,47 +161,47 @@ export function ComparisonTable({ columns, className = '', caption }: Comparison
         
         /* Highlighted column styling (DreamState blue accent) */
         .comparison-table th.highlighted-column {
-          background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+          background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
           color: #ffffff !important;
           font-weight: 600 !important;
         }
         
         .comparison-table td.highlighted-column {
-          background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important;
-          color: #1e40af !important;
+          background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%) !important;
+          color: #b91c1c !important;
           font-weight: 500 !important;
         }
         
         .comparison-table tbody tr:nth-child(even) td.highlighted-column {
-          background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important;
-          color: #1e40af !important;
+          background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%) !important;
+          color: #b91c1c !important;
         }
         
         .comparison-table tbody tr:hover td.highlighted-column {
-          background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%) !important;
-          color: #1e40af !important;
+          background: linear-gradient(135deg, #fca5a5 0%, #f87171 100%) !important;
+          color: #b91c1c !important;
           transition: background-color 0.2s ease !important;
         }
         
         /* Dark mode styling */
         :global(.dark) .comparison-table th.highlighted-column {
-          background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%) !important;
+          background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%) !important;
           color: #ffffff !important;
         }
         
         :global(.dark) .comparison-table td.highlighted-column {
-          background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%) !important;
-          color: #dbeafe !important;
+          background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%) !important;
+          color: #fecaca !important;
         }
         
         :global(.dark) .comparison-table tbody tr:nth-child(even) td.highlighted-column {
-          background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%) !important;
-          color: #dbeafe !important;
+          background: linear-gradient(135deg, #991b1b 0%, #b91c1c 100%) !important;
+          color: #fecaca !important;
         }
         
         :global(.dark) .comparison-table tbody tr:hover td.highlighted-column {
-          background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%) !important;
-          color: #dbeafe !important;
+          background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%) !important;
+          color: #fecaca !important;
         }
         
         /* Responsive design */
@@ -233,7 +233,7 @@ export function BANTvsDreamStateTable() {
               <th className="border border-gray-300 dark:border-gray-600 px-4 py-3 text-left font-semibold bg-gray-50 dark:bg-gray-800">
                 Traditional BANT
               </th>
-              <th className="border border-gray-300 dark:border-gray-600 px-4 py-3 text-left font-semibold highlighted-column bg-blue-50 dark:bg-blue-900/20">
+              <th className="border border-gray-300 dark:border-gray-600 px-4 py-3 text-left font-semibold highlighted-column bg-red-50 dark:bg-red-900/20">
                 DreamState Selling
               </th>
             </tr>
@@ -243,7 +243,7 @@ export function BANTvsDreamStateTable() {
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-3">
                 <strong>Focus:</strong> Information gathering
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-blue-50 dark:bg-blue-900/20">
+              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-red-50 dark:bg-red-900/20">
                 <strong>Focus:</strong> Experience creation
               </td>
             </tr>
@@ -251,7 +251,7 @@ export function BANTvsDreamStateTable() {
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-3">
                 <strong>Approach:</strong> Seller-centric qualification
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-blue-50 dark:bg-blue-900/20">
+              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-red-50 dark:bg-red-900/20">
                 <strong>Approach:</strong> Buyer-centric psychology
               </td>
             </tr>
@@ -259,7 +259,7 @@ export function BANTvsDreamStateTable() {
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-3">
                 <strong>Goal:</strong> Verify prospect readiness
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-blue-50 dark:bg-blue-900/20">
+              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-red-50 dark:bg-red-900/20">
                 <strong>Goal:</strong> Generate emotional investment
               </td>
             </tr>
@@ -267,7 +267,7 @@ export function BANTvsDreamStateTable() {
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-3">
                 <strong>Timeline:</strong> Present circumstances
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-blue-50 dark:bg-blue-900/20">
+              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-red-50 dark:bg-red-900/20">
                 <strong>Timeline:</strong> Past success to Future vision
               </td>
             </tr>
@@ -275,7 +275,7 @@ export function BANTvsDreamStateTable() {
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-3">
                 <strong>Authority:</strong> Seek decision-makers
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-blue-50 dark:bg-blue-900/20">
+              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-red-50 dark:bg-red-900/20">
                 <strong>Authority:</strong> Establish expert positioning
               </td>
             </tr>
@@ -283,7 +283,7 @@ export function BANTvsDreamStateTable() {
               <td className="border border-gray-300 dark:border-gray-600 px-4 py-3">
                 <strong>Outcome:</strong> Logical justification
               </td>
-              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-blue-50 dark:bg-blue-900/20">
+              <td className="border border-gray-300 dark:border-gray-600 px-4 py-3 highlighted-column bg-red-50 dark:bg-red-900/20">
                 <strong>Outcome:</strong> Emotional commitment
               </td>
             </tr>

@@ -94,18 +94,23 @@ a.cta:focus-visible span {
   font-weight: 700;
   border-radius: 999px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  will-change: background-color, border-color, color, box-shadow;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   white-space: nowrap;
   position: relative;
   z-index: 10;
   box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  /* Prevent layout shifts */
+  contain: layout style;
+  transform: translateZ(0);
 }
 
-.platformTab:hover {
-  color: #0a0a0b;
-  border-color: rgba(0, 0, 0, 0.12);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+/* Non-active tab hover states */
+.platformTab:not(.active):hover {
+  color: #0a0a0b !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08) !important;
 }
 
 :global(.dark) .platformTab {
@@ -114,49 +119,69 @@ a.cta:focus-visible span {
   border-color: rgba(255, 255, 255, 0.08);
 }
 
-:global(.dark) .platformTab:hover {
-  color: #fff;
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+:global(.dark) .platformTab:not(.active):hover {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5) !important;
 }
 
-/* Active state - refined blue with gradient */
+/* Active state - 3D effect matching Sign In button */
 .platformTab.active, 
 .platformTab:global(.active) {
-  background: linear-gradient(180deg, #2960f6 0%, #2960f6 100%) !important;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #b91c1c 100%) !important;
   color: #fff !important;
-  border-color: rgba(0, 122, 255, 0.25) !important;
-  box-shadow: 0 6px 18px rgba(0, 122, 255, 0.35) !important;
+  border: 1px solid rgba(185, 28, 28, 0.8) !important;
+  box-shadow: 
+    0 4px 8px rgba(220, 38, 38, 0.3),
+    0 2px 4px rgba(220, 38, 38, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2) !important;
 }
 
 :global(.dark) .platformTab.active,
 :global(.dark) .platformTab:global(.active) {
-  background: linear-gradient(180deg, #2960f6 0%, #2960f6 100%) !important;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #b91c1c 100%) !important;
   color: #fff !important;
-  border-color: rgba(10, 132, 255, 0.35) !important;
-  box-shadow: 0 8px 22px rgba(10, 132, 255, 0.45) !important;
+  border: 1px solid rgba(185, 28, 28, 0.8) !important;
+  box-shadow: 
+    0 4px 8px rgba(220, 38, 38, 0.3),
+    0 2px 4px rgba(220, 38, 38, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2) !important;
 }
 
 /* Focus ring */
 .platformTab:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.3);
 }
 
-/* Active hover state */
+/* Active hover state - matching Sign In button hover */
 .platformTab.active:hover,
 .platformTab:global(.active):hover {
-  background: #0056d6 !important;
-  border-color: #0056d6 !important;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #b91c1c 100%) !important;
+  border: 1px solid rgba(185, 28, 28, 0.8) !important;
+  box-shadow: 
+    0 6px 12px rgba(220, 38, 38, 0.4),
+    0 3px 6px rgba(220, 38, 38, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-1px) !important;
 }
 
 :global(.dark) .platformTab.active:hover,
 :global(.dark) .platformTab:global(.active):hover {
-  background: #0056d6 !important;
-  border-color: #0056d6 !important;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #b91c1c 100%) !important;
+  border: 1px solid rgba(185, 28, 28, 0.8) !important;
+  box-shadow: 
+    0 6px 12px rgba(220, 38, 38, 0.4),
+    0 3px 6px rgba(220, 38, 38, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.3) !important;
+  transform: translateY(-1px) !important;
 }
 
-/* Apple-Style CTA Button System */
+/* Apple-Style CTA Button System - Optimized */
 .ctaButton {
   display: inline-block;
   position: relative;
@@ -165,13 +190,14 @@ a.cta:focus-visible span {
   text-decoration: none;
   font-weight: 400;
   font-size: 1.0625rem;
-  transition: all 0.3s ease;
   border: 1.5px solid transparent;
   text-align: center;
   min-width: 200px;
   cursor: pointer;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   line-height: 1.2;
+  will-change: transform;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ctaButton .cta-text {
@@ -185,9 +211,10 @@ a.cta:focus-visible span {
   font-weight: 400;
   opacity: 0;
   transform: translateY(-8px);
-  transition: all 0.3s ease;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   margin-top: 0.25rem;
   color: inherit;
+  will-change: opacity, transform;
 }
 
 .ctaButton:hover .cta-subtitle {
@@ -195,25 +222,60 @@ a.cta:focus-visible span {
   transform: translateY(0);
 }
 
-/* Primary CTA - Apple Blue */
+/* Primary CTA - Deep iOS Red */
 .ctaPrimary {
-  background: #2960f6;
+  background: #dc2626;
   color: #fff;
-  border-color: #2960f6;
+  border-color: #dc2626;
+}
+
+.ctaPrimary {
+  position: relative;
+}
+
+.ctaPrimary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #b91c1c;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.ctaPrimary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.4);
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .ctaPrimary:hover {
-  background: #0056d6;
-  border-color: #0056d6;
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(0, 122, 255, 0.3);
+}
+
+.ctaPrimary:hover::before,
+.ctaPrimary:hover::after {
+  opacity: 1;
 }
 
 .ctaPrimary:active {
   transform: translateY(0);
-  background: #004bb8;
-  border-color: #004bb8;
-  box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
+  background: #7f1d1d;
+  border-color: #7f1d1d;
+  box-shadow: 0 4px 10px rgba(191, 40, 40, 0.3);
 }
 
 /* Ghost CTA - Clean Border Style */
@@ -264,12 +326,12 @@ a.cta:focus-visible span {
 
 /* Focus states for accessibility */
 .ctaButton:focus-visible {
-  outline: 2px solid #2960f6;
+  outline: 2px solid #dc2626;
   outline-offset: 2px;
 }
 
 .platformTab:focus-visible {
-  outline: 2px solid #2960f6;
+  outline: 2px solid #dc2626;
   outline-offset: 2px;
 }
 

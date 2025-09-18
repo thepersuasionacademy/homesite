@@ -64,8 +64,8 @@ export const metadata: Metadata = {
 const banner = null
 
 const footer = (
-  <div style={{backgroundColor: '#ffffff'}} className="dark:[background-color:#0b0e16!important]">
-    <Footer className="!bg-white dark:!bg-[#0b0e16] border-t border-gray-200 dark:border-gray-800" style={{backgroundColor: 'inherit'}}>
+  <div style={{backgroundColor: '#ffffff'}} className="dark:[background-color:#0a0a0a!important]">
+    <Footer className="!bg-white dark:!bg-[#0a0a0a] border-t border-gray-200 dark:border-gray-800" style={{backgroundColor: 'inherit'}}>
       <div className="w-full max-w-6xl mx-auto px-6 py-2 pb-12">
         <div className="text-center space-y-6">
           {/* Copyright */}

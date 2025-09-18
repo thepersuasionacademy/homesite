@@ -113,15 +113,15 @@ const IndexPage: FC = () => {
           <div className="hero-content">
             {/* MASTERY PLATFORM PILL */}
             <motion.div className="mastery-pill" variants={heroItem}>
-              The World's Only Persuasion Mastery Ecosystem
+              Reclaim Your Personal and Professional Authority
             </motion.div>
             
             <motion.h1 className="hero-headline" variants={heroItem}>
-              Turn The World's Most Powerful Psychological Frameworks Into Your Hidden Advantage
+              Master the Art of Influence In Leadership, Sales, and Negotiations <span className="with-alignment">With</span> <span className="power-influence-underline">P.O.W.E.R. Influence</span>
             </motion.h1>
             
             <motion.p className="hero-subheadline" variants={heroItem}>
-              For professionals seeking lifelong mastery and companies multiplying their influence.
+              By Fusing Deep Inner Power With Cutting Strategic Leverage
             </motion.p>
             
             {/* FEATURE PILLS */}
@@ -132,12 +132,7 @@ const IndexPage: FC = () => {
                 rel="noopener noreferrer"
                 className="feature-pill amazon-pill"
               >
-                <img 
-                  src="https://thepersuasionacademycdn.b-cdn.net/Images/13d40d8cd1b9c41712167a97cfb74a2e.png" 
-                  alt="Amazon" 
-                  className="amazon-icon"
-                />
-                Amazon
+                Amazon Books
               </a>
               <span className="feature-divider">|</span>
               <a 
@@ -146,11 +141,6 @@ const IndexPage: FC = () => {
                 rel="noopener noreferrer"
                 className="feature-pill facebook-pill"
               >
-                <img 
-                  src="https://thepersuasionacademycdn.b-cdn.net/Images/images.png" 
-                  alt="Facebook" 
-                  className="facebook-icon"
-                />
                 Facebook Group
               </a>
               <span className="feature-divider">|</span>
@@ -160,31 +150,8 @@ const IndexPage: FC = () => {
                 rel="noopener noreferrer"
                 className="feature-pill substack-pill"
               >
-                <img 
-                  src="https://thepersuasionacademycdn.b-cdn.net/Images/substack.png" 
-                  alt="Substack" 
-                  className="substack-icon"
-                />
                 Substack
               </a>
-              <span className="feature-divider">|</span>
-              <Link href="/store" className="feature-pill store-pill">
-                <img 
-                  src="https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png" 
-                  alt="Store" 
-                  className="store-icon"
-                />
-                Store
-              </Link>
-              <span className="feature-divider">|</span>
-              <Link href="/services" className="feature-pill services-pill">
-                <img 
-                  src="https://thepersuasionacademycdn.b-cdn.net/Images/depositphotos_22289805-stock-illustration-historical-building.jpg" 
-                  alt="Services" 
-                  className="services-icon"
-                />
-                Services
-              </Link>
             </motion.div>
             
             {/* VIDEO */}
@@ -390,7 +357,8 @@ const IndexPage: FC = () => {
                       outline: 'none',
                       boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)',
                       transform: 'translateY(-1px)',
-                      transition: 'all 0.3s ease'
+                      willChange: 'transform',
+                      transition: 'transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
                     }}>
                       <p className="video-title" style={{
                         color: '#ffffff',
@@ -789,19 +757,6 @@ const IndexPage: FC = () => {
         </div>
       </motion.section>
 
-      {/* FLOATING STICKY ACTION MENU */}
-      <div className="floating-action-menu">
-        <div className="floating-menu-content">
-          <Link href="/store" className={`${styles.ctaButton} ${styles.ctaGhost} individuals-button`} style={{ position: 'relative' }}>
-            Store
-            <span className="basic-badge">For Individuals</span>
-          </Link>
-          <Link href="/services" className={`${styles.ctaButton} ${styles.ctaGhost} companies-button`} style={{ position: 'relative' }}>
-            Services
-            <span className="enterprise-badge">For Companies</span>
-          </Link>
-        </div>
-      </div>
     </div>
   )
 }

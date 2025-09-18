@@ -387,7 +387,7 @@ export function EQAssessment() {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -462,7 +462,7 @@ export function EQAssessment() {
 
           .category-fill {
             height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+            background: linear-gradient(90deg, #dc2626, #b91c1c);
             transition: width 0.3s ease;
           }
 
@@ -488,7 +488,7 @@ export function EQAssessment() {
             content: "→";
             position: absolute;
             left: 0;
-            color: #3b82f6;
+            color: #dc2626;
             font-weight: bold;
           }
 
@@ -608,7 +608,7 @@ export function EQAssessment() {
 
         .progress-fill {
           height: 100%;
-          background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+          background: linear-gradient(90deg, #bf2828, #991b1b);
           transition: width 0.3s ease;
         }
 
@@ -667,13 +667,13 @@ export function EQAssessment() {
         }
 
         .rating-button:hover {
-          border-color: #3b82f6;
+          border-color: #dc2626;
           background: var(--secondary);
         }
 
         .rating-button.selected {
-          background: #3b82f6;
-          border-color: #3b82f6;
+          background: #dc2626;
+          border-color: #dc2626;
           color: white;
         }
 
@@ -683,7 +683,7 @@ export function EQAssessment() {
         }
 
         .submit-button {
-          background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+          background: linear-gradient(135deg, #bf2828, #991b1b);
           color: white;
           border: none;
           padding: 1rem 2rem;

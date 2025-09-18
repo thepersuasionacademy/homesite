@@ -27,7 +27,14 @@ export const CustomNavbar = () => {
 
   return (
     <nav className="nextra-nav-container sticky top-0 z-20 w-full bg-transparent print:hidden">
-      <div className="nextra-nav-container-blur pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-[#0b0e16]" style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.1), 0 2px 8px rgba(0,0,0,0.06)' }}></div>
+      <div
+        className="nextra-nav-container-blur pointer-events-none absolute z-[-1] h-full w-full bg-white dark:bg-[#0a0a0a]"
+        style={{
+          boxShadow: isDark
+            ? '0 1px 4px rgba(255, 255, 255, 0.07)'
+            : '0 4px 12px rgba(0, 0, 0, 0.1)'
+        }}
+      ></div>
       <div className="mx-auto flex h-16 max-w-[90rem] items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
         {/* Logo */}
         <div className="flex items-center">
@@ -58,18 +65,17 @@ export const CustomNavbar = () => {
         </div>
 
         {/* Desktop Navigation Items - Hidden on Mobile */}
-        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-6">
-          <Link href="/" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+        <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-4">
+          <Link href="/" className="nav-pill text-sm font-medium no-underline">
             Home
           </Link>
-          <Link href="/store" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+          <Link href="/store" className="nav-pill text-sm font-medium no-underline">
             Store
           </Link>
-          <Link href="/services" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+          <Link href="/services" className="nav-pill text-sm font-medium no-underline">
             Services
           </Link>
-
-          <Link href="/articles" className="text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white no-underline">
+          <Link href="/articles" className="nav-pill text-sm font-medium no-underline">
             Articles
           </Link>
         </div>
@@ -78,13 +84,23 @@ export const CustomNavbar = () => {
         <div className="flex items-center gap-2 sm:gap-4">
           {/* Sign In Dropdown */}
           <div className="relative group">
-            <div className="group-hover:opacity-90 transition-opacity">
+            <div className="group-hover:opacity-90 transition-opacity duration-150">
               <Link 
                 href="https://app.thepersuasionacademy.com" 
-                className="signin-button text-white px-2 sm:px-4 py-3 rounded-md text-xs sm:text-sm font-medium transition-colors no-underline hover:opacity-90"
-                style={{ backgroundColor: '#2960f6', background: '#2960f6' }}
+                className="signin-button text-white px-2 sm:px-4 py-3 rounded-full text-xs sm:text-sm font-bold no-underline will-change-transform transition-all duration-300 ease-out hover:transform hover:-translate-y-0.5"
+                style={{ 
+                  background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #b91c1c 100%)',
+                  boxShadow: '0 4px 8px rgba(220, 38, 38, 0.3), 0 2px 4px rgba(220, 38, 38, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2)',
+                  border: '1px solid rgba(185, 28, 28, 0.8)'
+                }}
                 target="_blank"
                 rel="noopener noreferrer"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = '0 6px 12px rgba(220, 38, 38, 0.4), 0 3px 6px rgba(220, 38, 38, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.4), inset 0 -2px 0 rgba(0, 0, 0, 0.3)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = '0 4px 8px rgba(220, 38, 38, 0.3), 0 2px 4px rgba(220, 38, 38, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.2)'
+                }}
               >
                 <span className="hidden sm:inline">Sign In</span>
                 <span className="sm:hidden">Sign In</span>
@@ -92,13 +108,13 @@ export const CustomNavbar = () => {
             </div>
             
             {/* Dropdown Menu */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-56 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50" style={{ 
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-full mt-2 w-56 bg-white dark:bg-[#0a0a0a] rounded-md shadow-lg border border-gray-300 dark:border-gray-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible will-change-transform transition-opacity duration-150 ease-out z-50" style={{ 
               '--tw-prose-links': 'none'
             } as React.CSSProperties}>
               <div className="py-1">
                 <Link
                   href="https://app.thepersuasionacademy.com"
-                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-800 dark:hover:text-blue-200 no-underline text-center transition-colors"
+                  className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-red-100 dark:hover:bg-red-900 hover:text-red-800 dark:hover:text-red-200 no-underline text-center transition-colors duration-150 ease-out"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ 
@@ -112,10 +128,10 @@ export const CustomNavbar = () => {
                     Academy Platform
                   </span>
                 </Link>
-                <div className="border-t border-gray-200 dark:border-gray-600 my-1"></div>
+                <div className="border-t border-gray-300 dark:border-gray-500 my-1"></div>
                 <Link
                   href="https://my.thepowerark.com"
-                  className="block px-4 py-2 text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-50 hover:text-red-600 dark:hover:bg-gray-700 dark:hover:text-red-400 no-underline text-center italic transition-colors"
+                  className="block px-4 py-2 text-sm text-gray-500 dark:text-gray-400 hover:bg-gray-50 hover:text-red-600 dark:hover:bg-gray-700 dark:hover:text-red-400 no-underline text-center italic transition-colors duration-150 ease-out"
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ 
@@ -185,7 +201,7 @@ export const CustomNavbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-[#0b0e16] border-t border-gray-200 dark:border-gray-700 shadow-lg">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-[#0a0a0a] border-t border-gray-300 dark:border-gray-500 shadow-lg">
           <div className="px-4 py-2 space-y-1">
             <Link 
               href="/" 
@@ -217,14 +233,14 @@ export const CustomNavbar = () => {
             </Link>
             
             {/* Mobile Sign In Options */}
-            <div className="border-t border-gray-200 dark:border-gray-600 mt-2 pt-2">
+            <div className="border-t border-gray-300 dark:border-gray-500 mt-2 pt-2">
               <div className="text-xs font-medium text-gray-500 dark:text-gray-400 px-3 py-1 uppercase tracking-wide">
                 Sign In Options
               </div>
               <Link 
                 href="https://app.thepersuasionacademy.com" 
                 className="block px-3 py-2 text-base font-medium text-white hover:opacity-90 rounded-md no-underline text-center mx-2 my-1 transition-colors"
-                style={{ backgroundColor: '#2960f6', background: '#2960f6' }}
+                style={{ backgroundColor: '#dc2626', background: '#dc2626' }}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}

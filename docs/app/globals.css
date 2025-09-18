@@ -58,7 +58,11 @@ footer *,
 footer + div,
 footer ~ div,
 div:has(footer),
-div:has([role="contentinfo"]) {
+div:has([role="contentinfo"]),
+.nextra-footer-container,
+.nextra-footer-container *,
+div[class*="x:bg-gray-100"],
+div[class*="bg-gray-100"] {
   background-color: #ffffff !important;
 }
 
@@ -69,8 +73,14 @@ div:has([role="contentinfo"]) {
 .dark footer + div,
 .dark footer ~ div,
 .dark div:has(footer),
-.dark div:has([role="contentinfo"]) {
-  background-color: #0b0e16 !important;
+.dark div:has([role="contentinfo"]),
+.dark .nextra-footer-container,
+.dark .nextra-footer-container *,
+.dark div[class*="x:bg-gray-100"],
+.dark div[class*="bg-gray-100"],
+.dark div[class*="dark:bg-neutral-900"],
+.dark div[class*="x:dark:bg-neutral-900"] {
+  background-color: #0a0a0a !important;
 }
 
 /* Target Nextra theme specific classes */
@@ -87,7 +97,7 @@ div[class*="dark:bg-neutral-900"],
 .dark .nextra-footer-container,
 .dark [class*="x:bg-gray-100"],
 .dark [class*="x:dark:bg-neutral-900"] {
-  background-color: #0b0e16 !important;
+  background-color: #0a0a0a !important;
 }
 
 /* Nuclear option - override any background on elements near the footer */
@@ -96,6 +106,44 @@ body > div:last-child > *,
 #__next > *:last-child,
 #__next > *:last-child > * {
   background-color: inherit !important;
+}
+
+/* Force footer background - most specific selectors */
+html body .dark footer,
+html body .dark [class*="footer"],
+html body .dark div:has(footer),
+html body .dark .nextra-footer-container,
+html.dark body footer,
+html.dark body [class*="footer"],
+html.dark body div:has(footer),
+html.dark body .nextra-footer-container {
+  background-color: #0a0a0a !important;
+  background: #0a0a0a !important;
+}
+
+html body footer,
+html body [class*="footer"],
+html body div:has(footer),
+html body .nextra-footer-container {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Override Nextra theme footer classes specifically */
+.dark [class*="x:bg-gray-100"],
+.dark [class*="x:dark:bg-neutral-900"],
+html.dark [class*="x:bg-gray-100"],
+html.dark [class*="x:dark:bg-neutral-900"],
+.dark div[class*="x:bg-gray-100"],
+.dark div[class*="x:dark:bg-neutral-900"] {
+  background-color: #0a0a0a !important;
+  background: #0a0a0a !important;
+}
+
+[class*="x:bg-gray-100"],
+div[class*="x:bg-gray-100"] {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
 }
 
 /* Specifically target any div that might contain the footer */
@@ -110,7 +158,7 @@ div:only-child:has(footer) {
 .dark div:has(> footer), 
 .dark div footer:first-child,
 .dark div:only-child:has(footer) {
-  background-color: #0b0e16 !important;
+  background-color: #0a0a0a !important;
 }
 
 /* IFRAME STYLING - FIX WHITE BORDER ISSUES */
@@ -159,7 +207,7 @@ html.dark,
 html.dark body,
 .dark,
 .dark body {
-  background-color: #0b0e16;
+  background-color: #0a0a0a;
 }
 
 /* Target Nextra's main content areas */
@@ -169,7 +217,7 @@ html.dark body,
 .dark .nextra-container,
 .dark .nextra-body,
 .dark article {
-  background-color: #0b0e16;
+  background-color: #0a0a0a;
 }
 
 /* Target any wrapper divs that might have different backgrounds */
@@ -178,7 +226,7 @@ html.dark body,
 .dark div[class*="dark:bg-"]:not(button):not(a):not([role="button"]),
 .dark section:not(button):not(a),
 .dark .nextra-wrap:not(button):not(a) {
-  background-color: #0b0e16;
+  background-color: #0a0a0a;
 }
 
 /* Specifically target docs layout containers */
@@ -186,21 +234,56 @@ html.dark body,
 .dark [class*="docs"],
 .dark .nx-container,
 .dark .nx-content {
-  background-color: #0b0e16;
+  background-color: #0a0a0a;
 }
 
 /* Override any Nextra theme backgrounds that might be inconsistent */
 .dark .nextra-sidebar,
 .dark .nextra-toc,
 .dark .nextra-nav-container-blur {
-  background-color: #0b0e16;
+  background-color: #0a0a0a;
 }
 
 /* Ensure consistent background for all page content */
 .dark #__next,
 .dark #__next > div,
 .dark #__next > div > div {
-  background-color: #0b0e16;
+  background-color: #0a0a0a;
+}
+
+/* Performance optimizations for animations */
+* {
+  /* Enable hardware acceleration for better performance */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
+/* Optimize common hover elements */
+button, a, [role="button"] {
+  /* Prepare for transform animations */
+  transform: translateZ(0);
+}
+
+/* Ensure fixed positioned elements work correctly */
+.floating-action-menu,
+[class*="fixed"][class*="bottom"],
+[class*="sticky"][class*="bottom"] {
+  position: fixed !important;
+  z-index: 9999 !important;
+  /* Ensure they're positioned relative to viewport, not transformed parent */
+  transform: translateZ(0) !important;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* NAVBAR SIGN IN BUTTON - ENSURE BLUE COLOR */
@@ -222,8 +305,8 @@ html a[href="https://app.thepersuasionacademy.com"],
 nav a[href="https://app.thepersuasionacademy.com"],
 header a[href="https://app.thepersuasionacademy.com"],
 .nextra-nav-container a[href="https://app.thepersuasionacademy.com"] {
-  background-color: #2960f6 !important;
-  background: #2960f6 !important;
+  background-color: #dc2626 !important;
+  background: #dc2626 !important;
   color: white !important;
   border: none !important;
 }
@@ -246,8 +329,8 @@ html a[href="https://app.thepersuasionacademy.com"]:hover,
 nav a[href="https://app.thepersuasionacademy.com"]:hover,
 header a[href="https://app.thepersuasionacademy.com"]:hover,
 .nextra-nav-container a[href="https://app.thepersuasionacademy.com"]:hover {
-  background-color: #2960f6 !important;
-  background: #2960f6 !important;
+  background-color: #dc2626 !important;
+  background: #dc2626 !important;
   opacity: 0.9 !important;
   color: white !important;
 }
@@ -271,7 +354,7 @@ iframe[src*="mediadelivery.net"]::after {
 
 /* Dark mode video container adjustments */
 .dark iframe[src*="mediadelivery.net"] {
-  background: #0b0e16 !important;
+  background: #0a0a0a !important;
 }
 
 /* Light mode video container adjustments */
@@ -287,7 +370,7 @@ html:not(.dark) iframe[src*="mediadelivery.net"] {
   left: 0;
   right: 0;
   height: 3px;
-  background: #0b0e16;
+  background: #0a0a0a;
   z-index: 1;
   pointer-events: none;
 }
@@ -299,7 +382,7 @@ html:not(.dark) iframe[src*="mediadelivery.net"] {
   left: 0;
   right: 0;
   height: 3px;
-  background: #0b0e16;
+  background: #0a0a0a;
   z-index: 1;
   pointer-events: none;
 }
@@ -346,4 +429,52 @@ body[data-pathname^="/store/"]:not([data-pathname="/store"]) iframe[src*="widget
   visibility: hidden !important;
   opacity: 0 !important;
   pointer-events: none !important;
+}
+
+/* Clear 3D Navigation Pills */
+.nav-pill {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #4a4a50;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-pill:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+  color: #2a2a30;
+}
+
+.dark .nav-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #d1d1d6;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.dark .nav-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f5f5f7;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }

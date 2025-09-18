@@ -504,8 +504,8 @@ const RenegadePersuadersPage = () => {
             
             {/* Centered Content */}
             <div className="text-center mb-4 sm:mb-8">
-              <div className="inline-block backdrop-blur-md rounded-full px-4 sm:px-8 py-3 sm:py-4 mb-4 sm:mb-6 shadow-2xl bg-black/80 dark:bg-slate-700/70 border border-gray-800 dark:border-slate-600">
-                <p className="text-sm sm:text-lg font-medium tracking-wide text-gray-100 dark:text-gray-300">
+              <div className="inline-block backdrop-blur-md rounded-full px-4 sm:px-8 py-3 sm:py-4 mb-4 sm:mb-6 shadow-2xl border border-red-800/50" style={{ background: 'linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #b91c1c 100%)' }}>
+                <p className="text-sm sm:text-lg font-medium tracking-wide text-white">
                   "You command influence differently than most people..."
                 </p>
               </div>
@@ -539,6 +539,34 @@ const RenegadePersuadersPage = () => {
                     style={{ border: 'none', position: 'absolute', zIndex: 30 }}
                   ></iframe>
                 </div>
+              </div>
+            </div>
+
+            {/* Purchase Options - Moved from sticky bottom */}
+            <div className="max-w-4xl mx-auto mt-8 px-4 sm:px-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                
+                {/* Monthly Option */}
+                <a href="https://pay.thepersuasionacademy.com/b/eVqfZg1Sp7E81JE05ZcAo0a" className="rounded-lg sm:rounded-xl p-3 sm:p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between bg-transparent border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 active:scale-95">
+                  <div>
+                    <div className="text-base sm:text-xl font-bold text-gray-900 dark:text-white">One Edition Per Month</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1">$97</div>
+                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Monthly</div>
+                  </div>
+                </a>
+
+                {/* One-Time Option */}
+                <a href="https://pay.thepersuasionacademy.com/b/bJe4gydB7bUogEy7yrcAo09" className="rounded-lg sm:rounded-xl p-3 sm:p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between bg-transparent border-2 border-red-700 hover:border-red-800 hover:bg-gray-50 dark:hover:bg-gray-800/20 shadow-[0_2px_4px_rgba(0,0,0,0.05)] hover:shadow-[0_2px_6px_rgba(0,0,0,0.08)] active:scale-95">
+                  <div>
+                    <div className="text-base sm:text-xl font-bold text-gray-900 dark:text-white">The Full Collection</div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1">$997</div>
+                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">One Time Payment</div>
+                  </div>
+                </a>
               </div>
             </div>
           </div>
@@ -669,35 +697,6 @@ const RenegadePersuadersPage = () => {
           </div>
         </section>
 
-        {/* Sticky Bottom Bar */}
-        <div className="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md p-3 sm:p-4 bg-white/95 dark:bg-gray-900/95 border-t border-gray-200 dark:border-gray-700 safe-area-inset-bottom">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              
-              {/* Monthly Option */}
-              <a href="https://pay.thepersuasionacademy.com/b/eVqfZg1Sp7E81JE05ZcAo0a" className="rounded-lg sm:rounded-xl p-3 sm:p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between bg-transparent border border-gray-300 dark:border-gray-600 hover:border-gray-400 dark:hover:border-gray-500 active:scale-95">
-                <div>
-                  <div className="text-base sm:text-xl font-bold text-gray-900 dark:text-white">One Edition Per Month</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1">$97</div>
-                  <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">Monthly</div>
-                </div>
-              </a>
-
-              {/* One-Time Option */}
-              <a href="https://pay.thepersuasionacademy.com/b/bJe4gydB7bUogEy7yrcAo09" className="rounded-lg sm:rounded-xl p-3 sm:p-4 transition-all duration-200 hover:scale-[1.02] group block flex items-center justify-between bg-transparent border-2 border-blue-600 hover:border-blue-700 hover:bg-blue-50 dark:hover:bg-blue-950/20 shadow-[0_10px_30px_rgba(0,0,0,0.2)] sm:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.3)] sm:hover:shadow-[0_25px_50px_rgba(0,0,0,0.4)] active:scale-95">
-                <div>
-                  <div className="text-base sm:text-xl font-bold text-gray-900 dark:text-white">The Full Collection</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1">$997</div>
-                  <div className="text-xs sm:text-sm text-blue-500 dark:text-blue-500">One Time Payment</div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
 
       </main>
     </>
