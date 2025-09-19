@@ -478,3 +478,30 @@ body[data-pathname^="/store/"]:not([data-pathname="/store"]) iframe[src*="widget
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
+
+/* Active nav-pill styling - red pill look */
+.nav-pill.nx-text-primary-600,
+.nav-pill[aria-current="page"],
+.nav-pill.active {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #b91c1c 100%) !important;
+  color: #fff !important;
+  border: 1px solid rgba(185, 28, 28, 0.8) !important;
+  box-shadow: 
+    0 4px 8px rgba(220, 38, 38, 0.3),
+    0 2px 4px rgba(220, 38, 38, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .nav-pill.nx-text-primary-600,
+.dark .nav-pill[aria-current="page"],
+.dark .nav-pill.active {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 40%, #b91c1c 100%) !important;
+  color: #fff !important;
+  border: 1px solid rgba(185, 28, 28, 0.8) !important;
+  box-shadow: 
+    0 4px 8px rgba(220, 38, 38, 0.3),
+    0 2px 4px rgba(220, 38, 38, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2) !important;
+}

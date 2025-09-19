@@ -4,12 +4,15 @@ import { NextraLogo } from '@components/icons'
 import cn from 'clsx'
 import { Link, useTheme } from 'nextra-theme-docs'
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { OptimizedImage } from './optimized-image'
+import Image from 'next/image'
 
 export const CustomNavbar = () => {
   const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
     setMounted(true)
@@ -39,43 +42,54 @@ export const CustomNavbar = () => {
         {/* Logo */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center hover:opacity-75">
-            {/* Light mode logo */}
-            <OptimizedImage
-              src="https://thepersuasionacademycdn.b-cdn.net/Images/The%20TPA%20Logo%20New%20Black.png"
-              alt="The Persuasion Academy"
-              width={120}
-              height={32}
-              priority={true}
-              className="h-6 sm:h-8 dark:hidden"
-              sizes="120px"
-              quality={90}
-            />
-            {/* Dark mode logo */}
-            <OptimizedImage
-              src="https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png"
-              alt="The Persuasion Academy"
-              width={120}
-              height={32}
-              priority={true}
-              className="h-6 sm:h-8 hidden dark:block"
-              sizes="120px"
-              quality={90}
-            />
+            {/* Logo Container - Fixed dimensions to prevent cutoff */}
+            <div className="w-28 h-6 flex items-center justify-start overflow-hidden">
+              {/* Light mode logo */}
+              <Image
+                src="https://thepersuasionacademycdn.b-cdn.net/Images/The%20TPA%20Logo%20New%20Black.png"
+                alt="The Persuasion Academy"
+                width={112}
+                height={24}
+                priority={true}
+                className="dark:hidden"
+                sizes="112px"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain'
+                }}
+              />
+              {/* Dark mode logo */}
+              <Image
+                src="https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png"
+                alt="The Persuasion Academy"
+                width={112}
+                height={24}
+                priority={true}
+                className="hidden dark:block"
+                sizes="112px"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain'
+                }}
+              />
+            </div>
           </Link>
         </div>
 
         {/* Desktop Navigation Items - Hidden on Mobile */}
         <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center gap-4">
-          <Link href="/" className="nav-pill text-sm font-medium no-underline">
+          <Link href="/" className={`nav-pill text-sm font-medium no-underline ${pathname === '/' ? 'active' : ''}`}>
             Home
           </Link>
-          <Link href="/store" className="nav-pill text-sm font-medium no-underline">
+          <Link href="/store" className={`nav-pill text-sm font-medium no-underline ${pathname === '/store' ? 'active' : ''}`}>
             Store
           </Link>
-          <Link href="/services" className="nav-pill text-sm font-medium no-underline">
+          <Link href="/services" className={`nav-pill text-sm font-medium no-underline ${pathname === '/services' ? 'active' : ''}`}>
             Services
           </Link>
-          <Link href="/articles" className="nav-pill text-sm font-medium no-underline">
+          <Link href="/articles" className={`nav-pill text-sm font-medium no-underline ${pathname === '/articles' ? 'active' : ''}`}>
             Articles
           </Link>
         </div>
@@ -125,7 +139,7 @@ export const CustomNavbar = () => {
                   <span className="inline-block" style={{ 
                     position: 'relative'
                   }}>
-                    Academy Platform
+                    The Ark
                   </span>
                 </Link>
                 <div className="border-t border-gray-300 dark:border-gray-500 my-1"></div>
@@ -142,7 +156,7 @@ export const CustomNavbar = () => {
                   <span className="inline-block" style={{ 
                     position: 'relative'
                   }}>
-                    The Power Ark (Legacy Site)
+                    The Old Ark
                   </span>
                 </Link>
               </div>
@@ -245,7 +259,7 @@ export const CustomNavbar = () => {
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Academy Platform
+                The Ark
               </Link>
               <Link 
                 href="https://my.thepowerark.com" 
@@ -254,7 +268,7 @@ export const CustomNavbar = () => {
                 rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                The Power Ark (Legacy Site)
+                The Old Ark
               </Link>
             </div>
           </div>

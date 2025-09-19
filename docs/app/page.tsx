@@ -112,16 +112,16 @@ const IndexPage: FC = () => {
       <div className="content-container">
           <div className="hero-content">
             {/* MASTERY PLATFORM PILL */}
-            <motion.div className="mastery-pill" variants={heroItem}>
-              Reclaim Your Personal and Professional Authority
-            </motion.div>
+            <div className="mastery-pill">
+              Become Your Greatest Future, Now
+            </div>
             
             <motion.h1 className="hero-headline" variants={heroItem}>
               Master the Art of Influence In Leadership, Sales, and Negotiations <span className="with-alignment">With</span> <span className="power-influence-underline">P.O.W.E.R. Influence</span>
             </motion.h1>
             
             <motion.p className="hero-subheadline" variants={heroItem}>
-              By Fusing Deep Inner Power With Cutting Strategic Leverage
+              Fusing Deep Inner Power With Cutting Strategic Leverage
             </motion.p>
             
             {/* FEATURE PILLS */}
@@ -191,7 +191,7 @@ const IndexPage: FC = () => {
       </section>
       </motion.div>
 
-      {/* THE FOUNDERS SECTION */}
+      {/* THE ARCHITECTS SECTION */}
       <motion.section
         className="pioneers-intro"
         variants={sectionVariants}
@@ -200,9 +200,9 @@ const IndexPage: FC = () => {
       >
         <div className="content-container">
           <div className="pioneers-content">
-            <motion.h2 className="section-headline" variants={cardVariants}>The Founders</motion.h2>
+            <motion.h2 className="section-headline" variants={cardVariants}>The Architects</motion.h2>
             <motion.p className="section-description" variants={cardVariants}>
-              Two visionaries turning psychology into real advantage in how you communicate, lead, and move through the world.
+              Two visionaries turning psychology into real business advantage from closing deals and becoming a true leader to building unshakeable inner power that amplifies everything you do.
             </motion.p>
             
             <div className="pioneers-grid">
@@ -216,7 +216,7 @@ const IndexPage: FC = () => {
                     <span className="pioneer-title">The Pioneer</span>
                   </div>
                   <p className="pioneer-bio">
-                    The master architect of modern influence psychology, Kenrick demonstrates in real time what others call impossible. Having forgotten more techniques than most experts will learn in their lifetime, he pioneers the cutting edge miles ahead while others follow yesteryear's playbook. Titans study his techniques, masters follow his every move, and the truly ambitious discover that everything they thought they knew was merely the beginning.
+                    From roots in hypnosis and NLP to the high-stakes world of business, Kenrick has explored and mapped the entire universe of influence, decoding human psychology down to its deepest layers. He masterfully blends domains, disciplines, and minds, translating insights from changework into real-world business advantage. What many call persuasion, Kenrick calls being a Reality Architect... shaping perception into commitment with true inner power. His breakthrough P.O.W.E.R. Influence creates the path, no matter your starting point, towards levels of mastery beyond what most can imagine.
                   </p>
                 </div>
               </motion.div>
@@ -231,7 +231,7 @@ const IndexPage: FC = () => {
                     <span className="pioneer-title">The Synthesizer</span>
                   </div>
                   <p className="pioneer-bio">
-                    For more than 5 years, Jackson has worked closely with Kenrick to transform his life's work into repeatable frameworks, tools, and technology. These innovations allow people and companies to wield the most powerful methods of influence while bettering their own lives and increasing their net positive impact on humanity.
+                    For years, Jackson has distilled Kenrick's vast knowledge into elegant, repeatable systems that transform complex influence psychology into accessible pathways. Together, they continue crafting P.O.W.E.R. Influence and building The Ark... the only vessel of its kind for mastering influence at all levels. This vessel takes professionals to levels of mastery few ever achieve. What used to take decades of study becomes accessible through these innovative frameworks, creating the bridge between Kenrick's profound insights and real-world application.
                   </p>
                 </div>
               </motion.div>
@@ -249,9 +249,9 @@ const IndexPage: FC = () => {
       >
         <div className="content-container">
           <div className="platform-content">
-            <motion.h2 className="section-headline" variants={cardVariants}>The Platform</motion.h2>
+            <motion.h2 className="section-headline" variants={cardVariants}>The Ark</motion.h2>
             <motion.p className="section-description" variants={cardVariants}>
-              Everything you need to instantly implement and master influence psychology, from live coaching to AI-powered technology.
+              Your vessel to command the entire universe of P.O.W.E.R. Influence... with AI implementation for those committed to complete mastery
             </motion.p>
             
             {/* CONNECTED PLATFORM MODAL */}
@@ -282,12 +282,6 @@ const IndexPage: FC = () => {
                   data-platform-tab="codex"
                 >
                   Codex
-                </button>
-                <button 
-                  className={styles.platformTab}
-                  data-platform-tab="salescript"
-                >
-                  Studio
                 </button>
               </motion.div>
 
@@ -373,30 +367,6 @@ const IndexPage: FC = () => {
                   </div>
                 </div>
 
-                {/* SALESCRIPT PANEL */}
-                <div id="salescript-panel" className="platform-panel">
-                  <div className="platform-video-full">
-                    <div className="video-placeholder" style={{
-                      background: 'linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%)',
-                      borderRadius: '12px',
-                      border: 'none',
-                      outline: 'none',
-                      boxShadow: '0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)',
-                      transform: 'translateY(-1px)',
-                      transition: 'all 0.3s ease'
-                    }}>
-                      <p className="video-title" style={{
-                        color: '#ffffff',
-                        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif',
-                        fontWeight: '700',
-                        letterSpacing: '-0.03em',
-                        textTransform: 'uppercase',
-                        fontSize: 'clamp(2rem, 5vw, 3.5rem)'
-                      }}>DEMO COMING SOON...</p>
-                      <p className="video-subtitle">Studio</p>
-                    </div>
-                  </div>
-                </div>
 
               </motion.div>
             </motion.div>
@@ -506,11 +476,11 @@ const IndexPage: FC = () => {
                 </Link>
               </motion.div>
               
-              {/* Season Pass Card - Featured */}
+              {/* All Access Pass Card - Featured */}
               <motion.div className="store-style-card featured" variants={cardVariants}>
                 <div className="featured-badge">Most Popular</div>
                 <div className="card-header">
-                  <h3>Season Pass</h3>
+                  <h3>All Access Pass</h3>
                   <p>The complete living system for influence mastery — permanent frameworks, evolving multiplier models, and optional Lightning Coaching with Kenrick.</p>
                 </div>
                 
@@ -599,7 +569,7 @@ const IndexPage: FC = () => {
                 </div>
                 
                 <Link href="/store" className="store-style-cta featured">
-                  Join Season Pass
+                  Join All Access Pass
                 </Link>
               </motion.div>
               

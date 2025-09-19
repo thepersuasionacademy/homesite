@@ -100,7 +100,6 @@
   text-transform: uppercase;
   letter-spacing: 0.01em;
   margin-bottom: 1.25rem;
-  animation: pillFloat 3s ease-in-out infinite;
   position: relative;
   z-index: 1;
   transition: all 0.3s ease;
@@ -132,7 +131,6 @@
 
 .mastery-pill:hover {
   transform: translateY(-1px);
-  animation-play-state: paused;
 }
 
 .hero-subheadline {
@@ -2832,6 +2830,11 @@
   display: block;
   filter: saturate(0.95) contrast(1.03);
 }
+
+/* Jackson's photo positioning adjustment */
+.pioneer-photo[alt="Jackson Burnham"] {
+  object-position: 35% center;
+}
 @media (hover: hover) {
   .pioneer-card:hover .pioneer-photo {
     filter: saturate(1) contrast(1.06);
@@ -2856,7 +2859,7 @@
   }
 }
 
-/* Founders card layout fix - removed duplicate */
+/* Architects card layout fix - removed duplicate */
 
 /* Ensure image pane fills full card height */
 .pioneer-image-section {
