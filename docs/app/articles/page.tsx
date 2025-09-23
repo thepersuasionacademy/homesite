@@ -7,15 +7,11 @@ export default async function ArticlesPage() {
   
   // Define the categories
   const categories = [
-    'Emotional & Social Intelligence',
-    'Communication & Influence Mastery',
-    'Neural Language & Hypnotic Influence',
-    'Conflict Resolution & Difficult Conversations',
-    'Negotiation & Sales Psychology',
+    'Influence & Communication Mastery',
     'Leadership & Executive Presence',
-    'Soft Skills & Professional Development',
-    'Corporate Training & Organizational Psychology',
-    'Personal Coaching & Development'
+    'NLP & Neural Programming',
+    'Sales & Negotiation Psychology',
+    'Confidence & Mindset'
   ]
 
   return (
