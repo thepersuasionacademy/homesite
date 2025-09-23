@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 export default {
-  siteUrl: 'https://thepersuasionacademy.com',
+  siteUrl: 'https://thepowerark.com',
   changefreq: 'weekly',
   priority: '0.7',
   generateIndexSitemap: false,
