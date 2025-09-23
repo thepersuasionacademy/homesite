@@ -1,8 +1,20 @@
 User-agent: *
 Allow: /
 
-# Disallow docs section
+# Allow main content areas
+Allow: /articles/
+Allow: /store/
+Allow: /services/
+Allow: /about/
+
+# Disallow private/internal sections
 Disallow: /docs/
+Disallow: /_next/
+Disallow: /api/
+
+# Block common bot paths
+Disallow: /*?*
+Disallow: /*.json$
 
 # Sitemap
-Sitemap: https://thepersuasionacademy.com/sitemap.xml
+Sitemap: https://thepowerark.com/sitemap.xml
