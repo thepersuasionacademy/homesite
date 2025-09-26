@@ -9,6 +9,7 @@ import { Breadcrumbs } from '../../_components/articles/breadcrumbs'
 import { ArticleBanner } from '../../_components/articles/article-banner'
 import { mdxComponents } from '../../_components/articles/mdx-components'
 import { DreamStateHighlighter } from '../../_components/articles/dreamstate-highlighter'
+import { JsonLdSchema } from '../../_components/seo/json-ld-schema'
 import '../articles.css'
 import type { Article } from '../../_lib/articles-types'
 
@@ -43,9 +44,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   // Extract headings for TOC
   const headings = extractHeadingsFromMDX(article.content)
   const formattedDate = formatDate(article.metadata.date)
+  
+  // Construct full URL for JSON-LD
+  const articleUrl = `https://thepowerark.com/articles/${article.id}`
 
   return (
     <div className="articles-container">
+      {/* JSON-LD Structured Data */}
+      <JsonLdSchema article={article} url={articleUrl} />
       <section className="grid grid-cols-[minmax(0px,1fr)_min(calc(var(--breakpoint-md)-2rem),100%)_minmax(0px,1fr)] gap-y-4">
         
         {/* Breadcrumbs */}
@@ -183,7 +189,7 @@ export async function generateMetadata({ params }: ArticlePageProps) {
     openGraph: {
       title: article.metadata.title,
       description: article.metadata.description,
-      url: `https://thepersuasionacademy.com/articles/${article.id}`,
+      url: `https://thepowerark.com/articles/${article.id}`,
       type: 'article',
       images: article.metadata.image ? [`/content/articles/${article.id}/${article.metadata.image.replace('./', '')}`] : [],
     },

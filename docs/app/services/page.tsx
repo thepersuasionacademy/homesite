@@ -162,7 +162,7 @@ export default function ServicesPage() {
                   {/* Content */}
                   <div className="flex-1 ml-4">
                     <blockquote className="text-lg text-[#0b0e16] dark:text-[#f5f5f7] italic mb-3 leading-relaxed text-left">
-                      "Kenrick E. Cleveland embodies <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">the most powerful, effective, and masterful techniques</span> of persuasion and influence that have ever been taught."
+                      "Kenrick E. Cleveland embodies <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded" style={{boxDecorationBreak: 'clone', WebkitBoxDecorationBreak: 'clone'}}>the most powerful, effective, and masterful techniques</span> of persuasion and influence that have ever been taught."
                     </blockquote>
                     <div className="text-[#86868b] dark:text-[#a1a1a6] text-left">
                       <div className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] text-lg">Jay Abraham</div>
@@ -185,7 +185,7 @@ export default function ServicesPage() {
                   {/* Content */}
                   <div className="flex-1 ml-4">
                     <blockquote className="text-lg text-[#0b0e16] dark:text-[#f5f5f7] italic mb-3 leading-relaxed text-left">
-                      "Kenrick tops my shortlist of people I'll reach out to when I need advice on persuading others to take a desired action. His arsenal of skills and strategies has <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">increased my bank account by millions of dollars</span>. If you have the chance to work with Kenrick, jump on it."
+                      "Kenrick tops my shortlist of people I'll reach out to when I need advice on persuading others to take a desired action. His arsenal of skills and strategies has <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded" style={{boxDecorationBreak: 'clone', WebkitBoxDecorationBreak: 'clone'}}>increased my bank account by millions of dollars</span>. If you have the chance to work with Kenrick, jump on it."
                     </blockquote>
                     <div className="text-[#86868b] dark:text-[#a1a1a6] text-left">
                       <div className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] text-lg">Rich Schefren</div>
@@ -208,7 +208,7 @@ export default function ServicesPage() {
                   {/* Content */}
                   <div className="flex-1 ml-4">
                     <blockquote className="text-lg text-[#0b0e16] dark:text-[#f5f5f7] italic mb-3 leading-relaxed text-left">
-                      "Anyone whose living depends in any way on persuading others – and that includes almost all of us – should <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded">learn and master what Kenrick has to teach</span> about the art and science of persuasion."
+                      "Anyone whose living depends in any way on persuading others – and that includes almost all of us – should <span className="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded" style={{boxDecorationBreak: 'clone', WebkitBoxDecorationBreak: 'clone'}}>learn and master what Kenrick has to teach</span> about the art and science of persuasion."
                     </blockquote>
                     <div className="text-[#86868b] dark:text-[#a1a1a6] text-left">
                       <div className="font-semibold text-[#0b0e16] dark:text-[#f5f5f7] text-lg">Gary Bencivenga</div>

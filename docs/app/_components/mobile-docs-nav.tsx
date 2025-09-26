@@ -14,65 +14,15 @@ interface DocsNavData {
   [key: string]: NavItem
 }
 
-const docsNavData: DocsNavData = {
-  docs: {
-    title: 'Platform',
-    items: {
-      index: { title: 'Overview', href: '/docs' },
-      content: { title: 'Content', href: '/docs/content' },
-      'ai-tools': { title: 'AI Tools', href: '/docs/ai-tools' },
-      codex: { title: 'Codex', href: '/docs/codex' },
-      lab: { title: 'Lab', href: '/docs/lab' },
-      profile: { title: 'Profile', href: '/docs/profile' },
-      support: { title: 'Support', href: '/docs/support' }
-    }
-  },
-  'principles-of-influence': {
-    title: 'Principles of Influence',
-    items: {
-      introduction: { title: 'Introduction', href: '/principles-of-influence/introduction' },
-      framing: { title: 'Framing', href: '/principles-of-influence/framing' },
-      emotion: { title: 'Emotion', href: '/principles-of-influence/emotion' },
-      rapport: { title: 'Rapport', href: '/principles-of-influence/rapport' },
-      identity: { title: 'Identity', href: '/principles-of-influence/identity' },
-      values: { title: 'Values', href: '/principles-of-influence/values' }
-    }
-  },
-  'dreamstate-selling': {
-    title: 'DreamState Selling',
-    items: {
-      'layers-of-worldview': {
-        title: 'Layers of Worldview',
-        items: {
-          thoughts: { title: 'Thoughts', href: '/dreamstate-selling/layers-of-worldview/thoughts' },
-          emotion: { title: 'Emotion', href: '/dreamstate-selling/layers-of-worldview/emotion' },
-          actions: { title: 'Actions', href: '/dreamstate-selling/layers-of-worldview/actions' },
-          beliefs: { title: 'Beliefs', href: '/dreamstate-selling/layers-of-worldview/beliefs' },
-          values: { title: 'Values', href: '/dreamstate-selling/layers-of-worldview/values' },
-          roles: { title: 'Roles', href: '/dreamstate-selling/layers-of-worldview/roles' },
-          identity: { title: 'Identity', href: '/dreamstate-selling/layers-of-worldview/identity' }
-        }
-      },
-      catalysts: {
-        title: 'Catalysts',
-        items: {
-          'ownership-catalyst': { title: 'Ownership Catalyst', href: '/dreamstate-selling/catalysts/ownership-catalyst' },
-          'realization-catalyst': { title: 'Realization Catalyst', href: '/dreamstate-selling/catalysts/realization-catalyst' }
-        }
-      }
-    }
-  }
-}
+const docsNavData: DocsNavData = {}
 
 export const MobileDocsNav = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({})
   const pathname = usePathname()
 
-  // Only show on docs-related paths
-  if (!pathname.startsWith('/docs') && !pathname.startsWith('/principles-of-influence') && !pathname.startsWith('/dreamstate-selling')) {
-    return null
-  }
+  // Only show on docs-related paths (none exist now, so always return null)
+  return null
 
   const toggleSection = (sectionKey: string) => {
     setExpandedSections(prev => ({
