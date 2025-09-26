@@ -5,6 +5,7 @@ import { ComparisonTable, BANTvsDreamStateTable } from './comparison-table'
 import { EnhancedCTAButton, SimpleCTAButton } from './enhanced-cta-button'
 import { EnhancedFAQAccordion, QuickFAQ } from './enhanced-faq-accordion'
 import { EQAssessment } from './eq-assessment'
+import { KenrickClevelandAuthorCard } from './kenrick-cleveland-author-card'
 
 interface HeadingProps {
   children: ReactNode
@@ -79,4 +80,5 @@ export const mdxComponents = {
   EnhancedFAQAccordion,
   QuickFAQ,
   EQAssessment,
+  KenrickClevelandAuthorCard,
 }
