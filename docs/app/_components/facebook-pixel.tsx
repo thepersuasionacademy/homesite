@@ -50,7 +50,7 @@ export function FacebookPixelEvents() {
       }
     }
 
-    // Auto-track button clicks (tailored for The Persuasion Academy)
+    // Auto-track button clicks (tailored for The Power Ark)
     const handleButtonClick = (event: Event) => {
       const target = event.target as HTMLElement
       

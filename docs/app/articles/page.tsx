@@ -33,6 +33,6 @@ export default async function ArticlesPage() {
 }
 
 export const metadata = {
-  title: 'Articles - The Persuasion Academy',
+  title: 'Articles - The Power Ark',
   description: 'Thoughts, insights, and stories from our team.',
 }

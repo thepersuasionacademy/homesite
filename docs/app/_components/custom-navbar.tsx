@@ -47,7 +47,7 @@ export const CustomNavbar = () => {
               {/* Light mode logo */}
               <Image
                 src="https://thepersuasionacademycdn.b-cdn.net/Images/The%20TPA%20Logo%20New%20Black.png"
-                alt="The Persuasion Academy"
+                alt="The Power Ark"
                 width={112}
                 height={24}
                 priority={true}
@@ -62,7 +62,7 @@ export const CustomNavbar = () => {
               {/* Dark mode logo */}
               <Image
                 src="https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png"
-                alt="The Persuasion Academy"
+                alt="The Power Ark"
                 width={112}
                 height={24}
                 priority={true}

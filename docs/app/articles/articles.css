@@ -321,6 +321,17 @@
   text-decoration-color: var(--color-primary);
 }
 
+/* Related Resources Section - Text Color Links */
+.article-content .related-resources a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+
+.article-content .related-resources a:hover {
+  text-decoration-color: currentColor;
+}
+
 /* Tables */
 .article-content table {
   width: 100%;
@@ -509,6 +520,17 @@ nav[class*="breadcrumb"] {
 }
 
 .article-content.prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Related Resources Section - Text Color Links for Prose */
+.article-content.prose .related-resources a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+}
+
+.article-content.prose .related-resources a:hover {
   text-decoration-color: currentColor;
 }
 

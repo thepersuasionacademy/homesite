@@ -19,7 +19,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   description: 'Turn the world\'s most powerful psychological frameworks into your hidden advantage. Master ethical influence, persuasion, and charisma through world-class training.',
-  metadataBase: new URL('https://thepersuasionacademy.com'),
+  metadataBase: new URL('https://thepowerark.com'),
   icons: {
     icon: 'https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png',
     shortcut: 'https://thepersuasionacademycdn.b-cdn.net/Images/TPA%20The%20Power%20Ark%20Logo%20New.png',
@@ -36,17 +36,17 @@ export const metadata: Metadata = {
     'dreamstate selling'
   ],
   generator: 'Next.js',
-  applicationName: 'The Persuasion Academy',
+  applicationName: 'The Power Ark',
   appleWebApp: {
-    title: 'The Persuasion Academy'
+    title: 'The Power Ark'
   },
   title: {
-    default: 'Home - The Persuasion Academy',
+    default: 'Home - The Power Ark',
     template: '%s'
   },
   openGraph: {
     url: './',
-    siteName: 'The Persuasion Academy',
+    siteName: 'The Power Ark',
     locale: 'en_US',
     type: 'website'
   },
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     'msapplication-TileColor': '#fff'
   },
   twitter: {
-    site: 'https://thepersuasionacademy.com'
+    site: 'https://thepowerark.com'
   },
   alternates: {
     canonical: './'
@@ -70,7 +70,7 @@ const footer = (
         <div className="text-center space-y-6">
           {/* Copyright */}
           <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-            © {new Date().getFullYear()} The Persuasion Academy, LLC. All rights reserved.
+            © {new Date().getFullYear()} The Power Ark. All rights reserved.
           </p>
           
           {/* Navigation Links */}
@@ -83,6 +83,12 @@ const footer = (
             </a>
             <a key="refund-link" href="/refund" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
               Refund Policy
+            </a>
+            <a key="cookies-link" href="/cookies" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              Cookie Policy
+            </a>
+            <a key="disclaimer-link" href="/disclaimer" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
+              Disclaimer
             </a>
             <a key="contact-link" href="/contact" className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors">
               Contact Us
@@ -121,14 +127,14 @@ const footer = (
             <p key="professional-disclaimer">
               <strong>Professional Disclaimer:</strong> The content provided is not intended as professional advice. 
               Always consult with qualified professionals before making business decisions. 
-              The Persuasion Academy disclaims any liability for decisions made based on this information.
+              The Power Ark disclaims any liability for decisions made based on this information.
             </p>
           </div>
           
           {/* Contact Information */}
           <div className="text-xs text-gray-500 dark:text-gray-500">
-            <p key="company-name">The Persuasion Academy, LLC</p>
-            <p key="support-email">For support inquiries: <a href="mailto:support@thepersuasionacademy.com" className="text-blue-600 dark:text-blue-400 hover:underline">support@thepersuasionacademy.com</a></p>
+            <p key="company-name">The Power Ark</p>
+            <p key="support-email">For support inquiries: <a href="mailto:support@thepowerark.com" className="text-blue-600 dark:text-blue-400 hover:underline">support@thepowerark.com</a></p>
           </div>
         </div>
       </div>
