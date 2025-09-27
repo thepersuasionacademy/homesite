@@ -132,7 +132,7 @@ const IndexPage: FC = () => {
                 rel="noopener noreferrer"
                 className="feature-pill amazon-pill"
               >
-                Amazon Books
+                55+ Amazon Books
               </a>
               <span className="feature-divider">|</span>
               <a 
@@ -159,31 +159,47 @@ const IndexPage: FC = () => {
               <div style={{
                 position:"relative",
                 paddingTop:"56.25%",
-                background: "#0b0e16",
+                background: "#000000",
                 borderRadius: "18px",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
+                borderTop: "8px solid #000000",
+                borderBottom: "8px solid #000000",
+                borderLeft: "2px solid #000000",
+                borderRight: "2px solid #000000",
                 boxShadow: "0 12px 30px rgba(0,0,0,0.25), 0 6px 12px rgba(0,0,0,0.15), 0 24px 60px rgba(0,0,0,0.1)",
                 transition: "transform 0.3s ease",
                 overflow: "hidden"
               }}>
                 <iframe 
-                  src="https://iframe.mediadelivery.net/embed/376899/3a2ba9e7-58cc-49de-a979-a571db35c205?autoplay=false&loop=false&muted=false&preload=false&responsive=true" 
+                  src="https://iframe.mediadelivery.net/embed/376899/dbf709b5-f5bc-43de-b84b-b0c3278f5fee?autoplay=false&loop=false&muted=false&preload=false&responsive=true" 
                   loading="lazy" 
                   style={{
                     border: "none",
                     outline: "none",
                     position: "absolute",
-                    top: 0,
-                    left: 0,
-                    height: "100%",
-                    width: "100%",
-                    borderRadius: "18px",
-                    background: "transparent",
-                    display: "block"
+                    top: "2px",
+                    left: "2px",
+                    height: "calc(100% - 4px)",
+                    width: "calc(100% - 4px)",
+                    borderRadius: "16px",
+                    background: "#000000",
+                    display: "block",
+                    objectFit: "cover"
                   }} 
                   allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" 
                   allowFullScreen={true}
                 />
+                {/* Black overlay to mask any white letterboxing */}
+                <div style={{
+                  position: "absolute",
+                  top: "2px",
+                  left: "2px",
+                  right: "2px",
+                  bottom: "2px",
+                  background: "linear-gradient(to bottom, #000000 8px, transparent 8px, transparent calc(100% - 8px), #000000 calc(100% - 8px))",
+                  pointerEvents: "none",
+                  borderRadius: "16px",
+                  zIndex: 1
+                }} />
               </div>
             </motion.div>
           </div>

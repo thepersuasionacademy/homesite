@@ -239,12 +239,12 @@ export function KenrickClevelandAuthorCard({
             
              {/* Amazon Books Pill */}
              <div className="mt-4">
-               <a 
-                 href="https://www.amazon.com/stores/author/B0DLTPBS4T?ccs_id=fc4f4b1b-55fe-4178-8319-9fec7545fdd4" 
-                 target="_blank" 
-                 rel="noopener noreferrer"
-                 className="feature-pill amazon-pill"
-               >
+        <a 
+          href="https://www.amazon.com/stores/author/B0DLTPBS4T?ccs_id=fc4f4b1b-55fe-4178-8319-9fec7545fdd4" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="feature-pill amazon-pill"
+        >
                  55+ Amazon Books
                </a>
              </div>
@@ -265,7 +265,7 @@ export function KenrickClevelandAuthorCard({
           </div>
         </div>
       </div>
-
+      
       {/* Endorsements Section */}
       <div className="max-w-7xl mx-auto mt-8 px-4 sm:px-6 lg:px-8">
         <div className="space-y-8">

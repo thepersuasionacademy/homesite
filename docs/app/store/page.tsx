@@ -296,7 +296,7 @@ export default function StorePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="text-center mb-2">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0b0e16] dark:text-[#f5f5f7] mb-2 leading-tight">
-            The Persuasion Academy Store
+            The Power Ark Store
           </h1>
           <p className="text-xl text-[#86868b] dark:text-[#a1a1a6] max-w-3xl mx-auto">
             Premium digital products for creators, entrepreneurs, business owners, and misfits... blazing the trail of their own path
@@ -322,15 +322,6 @@ export default function StorePage() {
           </div>
           
           <div className="flex flex-col lg:flex-row">
-            {/* Photo Section */}
-            <div className="w-full lg:w-80 h-48 sm:h-64 lg:h-auto relative overflow-hidden">
-              <img 
-                src="https://thepersuasionacademycdn.b-cdn.net/Images/thepowerark_In_a_longshot_perspective_a_silhouette_of_a_busin_cad1314c-ce1a-4c58-a72a-b05e0f62411a_0.jpeg"
-                alt="Business person holding red ticket above architectural blueprints - symbolizing transformation through The Persuasion Academy Season Pass"
-                className="w-full h-full object-cover object-center"
-              />
-            </div>
-            
             {/* Content Section */}
             <div className="flex-1 p-4 sm:p-6 lg:p-8">
               

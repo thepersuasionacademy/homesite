@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Store - The Persuasion Academy',
+  title: 'Store - The Power Ark',
   description: 'Discover powerful training programs and resources to master influence, persuasion, and charisma. From Renegade Persuaders to DreamState Selling - transform your ability to connect and influence.',
 }
 
