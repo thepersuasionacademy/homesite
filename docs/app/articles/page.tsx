@@ -5,13 +5,13 @@ import './articles.css'
 export default async function ArticlesPage() {
   const articles = await getAllArticles()
   
-  // Define the categories
+  // Define the categories based on actual content clusters
   const categories = [
-    'Influence & Communication Mastery',
+    'Confidence & Mindset',
+    'Negotiation Psychology', 
+    'Influence & Communication',
     'Leadership & Executive Presence',
-    'NLP & Neural Programming',
-    'Sales & Negotiation Psychology',
-    'Confidence & Mindset'
+    'Sales & Persuasion'
   ]
 
   return (
